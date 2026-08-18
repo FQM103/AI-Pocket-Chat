@@ -1,0 +1,12 @@
+<!-- 灵动岛卷一·§4.6 药丸四段条的 tracker 图标（羽毛笔）。单色剪影 + 透明底，tint 由系统处理。
+     pathData 逐字摘自 mockup §A tracker（§9 锁定·不重绘不优化）：末段 "M9.4 14.6l4.2-4.2" 是开放线段，
+     fill 下不成面故不可见——mockup 自身亦为纯 fill 渲染（全文件无 stroke），故此处与 mockup 观感一致。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M20.7 3.3c-3.7.2-8.3 1.6-11.3 4.6-2 2-3.1 4.6-3.6 6.9l-2.4 4.7c-.3.5.3 1.1.8.8l4.7-2.4c2.3-.5 4.9-1.6 6.9-3.6 3-3 4.4-7.6 4.6-11.3 0-.4-.3-.7-.7-.7zM9.4 14.6l4.2-4.2" />
+</vector>

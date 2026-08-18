@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  仅 debug 构建合并（release 不受影响·清单合并按 variant 叠加）：允许明文 HTTP，
+  供 T4 装机验证用「本机假 LLM 服务」（http://10.0.2.2 模拟器回环）跑通端到端聊天链路——
+  无需真实 API key、流量不出本机。正式包维持系统默认（禁明文）。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application
+        android:usesCleartextTraffic="true"
+        tools:ignore="MissingApplicationIcon" />
+</manifest>

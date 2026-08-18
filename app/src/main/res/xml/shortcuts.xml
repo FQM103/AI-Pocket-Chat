@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  分享给角色（Direct Share · C3，13.10a·安卓超越 iOS）的分享目标声明。
+  <share-target> 把「最近聊过的角色」动态快捷方式（ConversationShortcutPublisher 推、已挂 SHARE_CATEGORY + Person）
+  绑定为系统分享面板里的 Direct Share 目标——从任意 App 分享 text/plain 即可选某个角色发过去。
+  category 必须与 ShareRouting.SHARE_CATEGORY 字面一致，改一处务必同步另一处。
+-->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <share-target android:targetClass="com.situ.aichat.MainActivity">
+        <data android:mimeType="text/plain" />
+        <category android:name="com.situ.aichat.category.SHARE_TARGET" />
+    </share-target>
+</shortcuts>

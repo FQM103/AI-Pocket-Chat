@@ -1,0 +1,12 @@
+<resources>
+    <style name="Theme.AIPocketChat" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- P1-9+28 启动品牌：core-splashscreen 启动主题（12+ 桥系统 splash；API 29/30 走库 compat 启动窗，同样带图标）。
+         windowSplashScreenAnimatedIcon 必须显式设——库默认是安卓机器人 sym_def_app_icon。浅色底=iOS 生成式启动屏
+         systemBackground 纯白。 -->
+    <style name="Theme.AIPocketChat.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#FFFFFF</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.AIPocketChat</item>
+    </style>
+</resources>

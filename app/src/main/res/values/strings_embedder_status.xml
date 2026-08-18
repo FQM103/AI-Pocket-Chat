@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 深层记忆（向量嵌入器）加载状态诊断行（记忆健壮性 #3）。独立文件以避开与并行改动的 strings.xml 冲突。 -->
+<resources>
+    <string name="embedder_status_title">Deep memory</string>
+    <string name="embedder_status_ready">Ready</string>
+    <string name="embedder_status_idle">Idle</string>
+    <string name="embedder_status_unavailable">Unavailable</string>
+    <string name="embedder_status_hint_ready">Recalls things you mentioned long ago</string>
+    <string name="embedder_status_hint_idle">Turns on automatically during your next chat</string>
+    <string name="embedder_status_hint_unavailable">Will retry automatically after you restart the app</string>
+</resources>

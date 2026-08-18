@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.AIPocketChat" parent="android:Theme.Material.NoActionBar" />
+
+    <!-- 深色底取图标底色 #0A0A0F（ic_launcher_background）：圆形遮罩融入背景、霓虹线稿悬浮；亦近似 iOS 深色纯黑。
+         与应用内 M3 动态深色背景的轻微色阶差由 200ms 退出淡出吸收（动态取色下无完美静态值，已知取舍）。 -->
+    <style name="Theme.AIPocketChat.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0A0A0F</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.AIPocketChat</item>
+    </style>
+</resources>

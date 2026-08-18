@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 升格持续通知为 Android 16「灵动药丸」(Live Update·⑤)：语音通话 + 故事生成进度。普通权限自动授予；
+         无此权限则 setRequestPromotedOngoing 不生效、通知优雅退化为普通常驻通知。HyperOS 超级岛走同一原生 API。 -->
+    <uses-permission android:name="android.permission.POST_PROMOTED_NOTIFICATIONS" />
+    <!-- 日历感知(P5.3a)：只读设备日历，让 AI 了解用户近期日程。需用户在「日历感知」页主动授权。 -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <!-- 日历写入(P5.3b)：AI 经用户确认后增改删日历事件([CALENDAR_ACTION])。需用户授权 WRITE_CALENDAR。 -->
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <!-- 后台保障(P5.0)：申请免电池优化，避免国行 ROM(HyperOS 等)休眠杀掉周期任务。
+         应用商店会限制此权限，但本项目走 GitHub 自行安装，可放心使用(见记忆 release-and-compliance)。 -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- 精确闹钟(P6.1a「可靠优先」通知)：提前烤好文案、到点即弹、扛 Doze，最接近 iOS「登记即触发」。
+         应用商店会限制 USE_EXACT_ALARM，但本项目走 sideload 可放心用(见记忆 release-and-compliance)。
+         SCHEDULE_EXACT_ALARM 兜 API 31-32。 -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- 开机重排(P6.1c)：设备重启后精确闹钟会被清空，需重新登记。 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- 语音通话(P10.1g)：端侧 STT 录音 + 通话前台服务（带麦克风类型，Android 14 强制声明）+ 音频路由切换。
+         国行侧载分发，可放心用前台服务+麦克风类型（见记忆 release-and-compliance）。无 GMS 依赖。 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 扫码导入 API 配置(13.10b · C7)：相机实时扫二维码。运行时授权；拒绝时仍可「从相册选择」。
+         相机非必需(camera.any required=false)——无相机/拒权的设备仍能用相册路径。 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+    <!-- 故事章节生成前台服务(P11 · 11.1g-3)：生成期间(网络拉取 LLM)保活，dataSync 类型。sideload 不受 Play 限制(见记忆 release-and-compliance)。 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- 故事阅读器沉浸触感（heartbeat/haptic 标签 + 选择反馈），普通权限自动授予。 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 包可见性(API 30+)：让「自启动」引导能跳进 MIUI/HyperOS 安全中心。 -->
+    <queries>
+        <package android:name="com.miui.securitycenter" />
+    </queries>
+
+    <!-- 关闭系统级备份/换机外带（15.2-P1·P1-37，§0 拍板）：与 13.6 自有 zip 备份语义一致——应用内备份是唯一
+         受支持的迁移通道。allowBackup=false 关云备份与 adb backup；Android 12+ 换机(D2D)迁移不再尊重 allowBackup，
+         须由 dataExtractionRules 的 device-transfer 全排除才彻底闭。api_keys(EncryptedSharedPreferences) 的
+         Keystore 主密钥本就锁死本机（=iOS Keychain ThisDeviceOnly，KeychainService.swift:10），外带恢复也解不开，
+         正好一并闭掉；明文 Room/DataStore 不再可被换机/adb 外提。 -->
+    <application
+        android:name=".AIChatApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AIPocketChat"
+        tools:targetApi="33">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.AIPocketChat.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 分享给角色(Direct Share · C3，13.10a·安卓超越 iOS)：从任意 App 分享 text/plain → 系统分享面板出现
+                 「最近聊过的角色」(动态快捷方式 + share-target)，选一个即把文字发过去、角色直接回复。 -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <!-- 动态快捷方式 + Direct Share 分享目标声明(C2/C3)：res/xml/shortcuts.xml 的 <share-target>。 -->
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+
+        <!-- 关闭 WorkManager 默认初始化器(P5.0)：改用 AIChatApplication 的 Configuration.Provider
+             按需初始化，注入 Hilt 的 WorkerFactory。 -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+        <!-- ST8 结局分享长图：把 cacheDir/share 下的 png 以 content:// 授权给系统分享面板（Intent.ACTION_SEND）。
+             exported=false + grantUriPermissions：仅经 FLAG_GRANT_READ_URI_PERMISSION 临时授权的接收方可读。 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- 精确闹钟触发→发通知(P6.1a)。exported=false：仅本应用的闹钟 PendingIntent 能拉起。 -->
+        <receiver
+            android:name=".notification.NotificationAlarmReceiver"
+            android:exported="false" />
+
+        <!-- 13.8·B1 通知直接回复：通知栏 RemoteInput 回复提交→取文字→起加急 worker 跑一轮 LLM。
+             exported=false：仅本应用的回复动作 PendingIntent 能触发。 -->
+        <receiver
+            android:name=".notification.NotificationReplyReceiver"
+            android:exported="false" />
+
+        <!-- 13.8·B2 红包一键领：红包预警通知「领取」按钮→触发既有 acceptRedPacket（幂等·零新增钱算）。
+             exported=false：仅本应用的领取动作 PendingIntent 能触发。 -->
+        <receiver
+            android:name=".notification.RedPacketClaimReceiver"
+            android:exported="false" />
+
+        <!-- 开机重排(P6.1c)：精确闹钟不跨重启保留，开机/QUICKBOOT 后入队 NotificationRescheduleWorker 重排。
+             exported=true 让系统能投递开机广播；兼容国产 ROM 的 QUICKBOOT。 -->
+        <receiver
+            android:name=".notification.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 语音通话前台服务(P10.1g)：常驻通知 + 麦克风前台类型(Android 14 强制) + 进程保活。
+             exported=false：仅本应用经 VoiceCallService.start / 通知动作 PendingIntent 拉起。 -->
+        <service
+            android:name=".voice.VoiceCallService"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <!-- 通用后台 LLM/长生成前台服务(13.7b 泛化自 P11 故事前台服务)：故事章节生成 + 聊天流式回复(A7)期间挂前台
+             保活，防国产 ROM 切走 app 杀进程。dataSync 类型(网络拉取 LLM 输出)；exported=false：仅本应用经
+             LlmGenerationForegroundController 拉起。 -->
+        <service
+            android:name=".foreground.LlmGenerationForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- P1-30 lintVital 揪出的真潜伏 bug：NotificationReplyWorker/ProactiveNotificationWorker 的
+             ForegroundInfo 声明 dataSync，但 WorkManager 的 SystemForegroundService 未覆写该类型——
+             API 34+ 上 worker 真走前台路（加急配额不足回落 FGS）会抛 MissingForegroundServiceTypeException。 -->
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+
+        <!-- 快捷设置磁贴(QS Tile · C7，13.10c·安卓超越 iOS)：下拉通知栏「找角色」一键直达联系人。
+             需 BIND_QUICK_SETTINGS_TILE 权限 + QS_TILE intent-filter；exported=true 让系统能绑定。无 GMS。 -->
+        <service
+            android:name=".tile.QuickContactsTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_tile_contacts"
+            android:label="@string/qs_tile_contacts_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <!-- 宠物状态桌面小组件(P11.3 · M19)。Glance AppWidget，纯系统框架无 GMS。
+             exported=true：AppWidget 接收器须能收系统 APPWIDGET_UPDATE 广播。 -->
+        <receiver
+            android:name=".widget.PetGlanceWidgetReceiver"
+            android:exported="true"
+            android:label="@string/pet_widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/pet_widget_info" />
+        </receiver>
+
+        <!-- 角色「此刻」状态桌面小组件(13.9a · C1，安卓超越 iOS)。Glance AppWidget，纯系统框架无 GMS。
+             exported=true：AppWidget 接收器须能收系统 APPWIDGET_UPDATE 广播。 -->
+        <receiver
+            android:name=".widget.CharacterStatusGlanceWidgetReceiver"
+            android:exported="true"
+            android:label="@string/character_status_widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/character_status_widget_info" />
+        </receiver>
+
+        <!-- 最新动态(朋友圈)桌面小组件(13.9b · C1，安卓超越 iOS)。Glance AppWidget，纯系统框架无 GMS。
+             exported=true：AppWidget 接收器须能收系统 APPWIDGET_UPDATE 广播。 -->
+        <receiver
+            android:name=".widget.MomentFeedGlanceWidgetReceiver"
+            android:exported="true"
+            android:label="@string/moment_widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/moment_widget_info" />
+        </receiver>
+    </application>
+</manifest>

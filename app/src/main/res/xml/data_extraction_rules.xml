@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- P1-37：系统备份/迁移全排除。cloud-backup 段在 allowBackup=false 下属双保险自文档；device-transfer 段是
+     Android 12+ 换机的唯一闭法（D2D 不再尊重 allowBackup，无总开关 → 全域 exclude 达成事实 opt-out）。
+     恢复一律走应用内 13.6 zip 备份。本文件 aapt2 只打包不校验 schema、备份运行期才解析 → 严格按官方域名写。 -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </device-transfer>
+</data-extraction-rules>

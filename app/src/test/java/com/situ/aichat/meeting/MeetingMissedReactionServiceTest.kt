@@ -1,0 +1,205 @@
+package com.situ.aichat.meeting
+
+import androidx.room.withTransaction
+import com.situ.aichat.data.local.AppDatabase
+import com.situ.aichat.data.local.dao.MeetingAppointmentDao
+import com.situ.aichat.data.local.dao.UserProfileDao
+import com.situ.aichat.data.local.entity.ConversationEntity
+import com.situ.aichat.data.local.entity.MeetingAppointmentEntity
+import com.situ.aichat.data.repository.ConversationRepository
+import com.situ.aichat.data.repository.MessageRepository
+import com.situ.aichat.recovery.RecoveryClaimTracker
+import com.situ.aichat.recovery.RecoveryReplyGenerator
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.unmockkAll
+import kotlinx.coroutines.runBlocking
+import org.junit.After
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
+import org.junit.Before
+import org.junit.Test
+import java.time.ZoneId
+
+/**
+ * 爽约检测 + 自适应反应行为测（Phase 11）：confirmed 过宽限 → markMissed + 插隐藏 SYSTEM_HINT + 无头生成反应；
+ * 未过宽限 / 非 confirmed / 终态不动；线下会话只清数据不插反应（§7）；同会话多爽约去重一次反应；markMissed 守卫
+ * 拒绝则不插旁白。dao/store/convRepo/msgRepo/replyGenerator 用 MockK，claimTracker 用真实例。
+ */
+class MeetingMissedReactionServiceTest {
+
+    private val now = 1_750_000_000_000L
+
+    @Before fun setUp() = mockkStatic("androidx.room.RoomDatabaseKt") // Room withTransaction 扩展函数可桩
+    @After fun tearDown() = unmockkAll()
+
+    /** db.withTransaction 直接执行 block（单测里事务=同步跑 block·验证编排，不验真原子性）。
+     *  扩展函数 mock：receiver 是 firstArg，block 是 secondArg。 */
+    private fun db(): AppDatabase {
+        val database = mockk<AppDatabase>()
+        coEvery { database.withTransaction<Boolean>(any()) } coAnswers { secondArg<suspend () -> Boolean>().invoke() }
+        return database
+    }
+
+    private fun appt(
+        uuid: String,
+        scheduledAt: Long,
+        status: String = "confirmed",
+        conversationUuid: String = "conv1",
+        granularity: String = "exact",
+    ) = MeetingAppointmentEntity(
+        uuid = uuid,
+        conversationUuid = conversationUuid,
+        status = status,
+        scheduledAt = scheduledAt,
+        timeGranularity = granularity,
+        location = "咖啡馆",
+        activity = "喝咖啡",
+    )
+
+    private fun convRepo(offline: Boolean = false, found: Boolean = true): ConversationRepository {
+        val repo = mockk<ConversationRepository>()
+        val convo = if (found) mockk<ConversationEntity> { every { isInOfflineMode } returns offline } else null
+        coEvery { repo.get(any()) } returns convo
+        return repo
+    }
+
+    private fun service(
+        dao: MeetingAppointmentDao,
+        store: MeetingAppointmentStore,
+        convRepo: ConversationRepository = convRepo(),
+        msgRepo: MessageRepository = mockk(relaxed = true),
+        gen: RecoveryReplyGenerator = mockk(relaxed = true),
+        userProfileDao: UserProfileDao = mockk(relaxed = true), // get()→null → 兜底「用户」
+    ) = MeetingMissedReactionService(db(), dao, store, convRepo, msgRepo, gen, RecoveryClaimTracker(), userProfileDao)
+
+    @Test fun missedConfirmed_marksMissed_insertsHiddenHint_generatesReaction() = runBlocking {
+        val dao = mockk<MeetingAppointmentDao>()
+        val store = mockk<MeetingAppointmentStore>(relaxed = true)
+        val msgRepo = mockk<MessageRepository>(relaxed = true)
+        val gen = mockk<RecoveryReplyGenerator>(relaxed = true)
+        val a = appt("u1", scheduledAt = now - 4 * 3600 * 1000) // exact 4h 前·超 3h 宽限
+        coEvery { dao.getAllAppointments() } returns listOf(a)
+        coEvery { store.markMissed("u1", any()) } returns a.copy(status = "missed")
+
+        service(dao, store, msgRepo = msgRepo, gen = gen).scanAndReact(now)
+
+        coVerify { store.markMissed("u1", any()) }
+        coVerify { msgRepo.upsert(match { it.messageKindRaw == "system_hint" && it.roleRaw == "user" && it.conversationUuid == "conv1" }) }
+        coVerify { gen.generateAndPersist("conv1") }
+    }
+
+    @Test fun withinArrivalWindow_notTouched() = runBlocking {
+        val dao = mockk<MeetingAppointmentDao>()
+        val store = mockk<MeetingAppointmentStore>(relaxed = true)
+        val gen = mockk<RecoveryReplyGenerator>(relaxed = true)
+        coEvery { dao.getAllAppointments() } returns listOf(appt("u1", scheduledAt = now - 3600 * 1000)) // 过点 1h·仍在 3h 窗内
+
+        service(dao, store, gen = gen).scanAndReact(now)
+
+        coVerify(exactly = 0) { store.markMissed(any(), any()) }
+        coVerify(exactly = 0) { gen.generateAndPersist(any()) }
+    }
+
+    @Test fun futureConfirmed_notTouched() = runBlocking {
+        val dao = mockk<MeetingAppointmentDao>()
+        val store = mockk<MeetingAppointmentStore>(relaxed = true)
+        coEvery { dao.getAllAppointments() } returns listOf(appt("u1", scheduledAt = now + 3600 * 1000))
+        service(dao, store).scanAndReact(now)
+        coVerify(exactly = 0) { store.markMissed(any(), any()) }
+    }
+
+    @Test fun proposedPastGrace_notTouched_onlyConfirmedMissed() = runBlocking {
+        val dao = mockk<MeetingAppointmentDao>()
+        val store = mockk<MeetingAppointmentStore>(relaxed = true)
+        coEvery { dao.getAllAppointments() } returns listOf(appt("u1", scheduledAt = now - 4 * 3600 * 1000, status = "proposed"))
+        service(dao, store).scanAndReact(now)
+        coVerify(exactly = 0) { store.markMissed(any(), any()) }
+    }
+
+    @Test fun offlineConversation_marksMissedButNoHintNoReaction() = runBlocking {
+        val dao = mockk<MeetingAppointmentDao>()
+        val store = mockk<MeetingAppointmentStore>(relaxed = true)
+        val msgRepo = mockk<MessageRepository>(relaxed = true)
+        val gen = mockk<RecoveryReplyGenerator>(relaxed = true)
+        val a = appt("u1", scheduledAt = now - 4 * 3600 * 1000)
+        coEvery { dao.getAllAppointments() } returns listOf(a)
+        coEvery { store.markMissed("u1", any()) } returns a.copy(status = "missed")
+
+        service(dao, store, convRepo = convRepo(offline = true), msgRepo = msgRepo, gen = gen).scanAndReact(now)
+
+        coVerify { store.markMissed("u1", any()) } // 数据照清
+        coVerify(exactly = 0) { msgRepo.upsert(any()) } // §7：线下不插反应
+        coVerify(exactly = 0) { gen.generateAndPersist(any()) }
+    }
+
+    @Test fun twoMissedSameConversation_twoHints_oneReaction() = runBlocking {
+        val dao = mockk<MeetingAppointmentDao>()
+        val store = mockk<MeetingAppointmentStore>(relaxed = true)
+        val msgRepo = mockk<MessageRepository>(relaxed = true)
+        val gen = mockk<RecoveryReplyGenerator>(relaxed = true)
+        val a1 = appt("u1", scheduledAt = now - 4 * 3600 * 1000)
+        val a2 = appt("u2", scheduledAt = now - 5 * 3600 * 1000)
+        coEvery { dao.getAllAppointments() } returns listOf(a1, a2)
+        coEvery { store.markMissed("u1", any()) } returns a1.copy(status = "missed")
+        coEvery { store.markMissed("u2", any()) } returns a2.copy(status = "missed")
+
+        service(dao, store, msgRepo = msgRepo, gen = gen).scanAndReact(now)
+
+        coVerify(exactly = 2) { msgRepo.upsert(any()) } // 每条爽约一条旁白
+        coVerify(exactly = 1) { gen.generateAndPersist("conv1") } // 同会话反应去重一次
+    }
+
+    @Test fun markMissedGuardRejected_skipsHintAndReaction() = runBlocking {
+        val dao = mockk<MeetingAppointmentDao>()
+        val store = mockk<MeetingAppointmentStore>(relaxed = true)
+        val msgRepo = mockk<MessageRepository>(relaxed = true)
+        val gen = mockk<RecoveryReplyGenerator>(relaxed = true)
+        coEvery { dao.getAllAppointments() } returns listOf(appt("u1", scheduledAt = now - 4 * 3600 * 1000))
+        coEvery { store.markMissed("u1", any()) } returns null // 并发已流转 → 守卫拒绝
+
+        service(dao, store, msgRepo = msgRepo, gen = gen).scanAndReact(now)
+
+        coVerify(exactly = 0) { msgRepo.upsert(any()) }
+        coVerify(exactly = 0) { gen.generateAndPersist(any()) }
+    }
+
+    // ── 纯函数 ──
+
+    @Test fun isMissedConfirmed_pastGraceConfirmed_true() {
+        val zone = ZoneId.of("Asia/Shanghai")
+        assertTrue(MeetingMissedReactionService.isMissedConfirmed(appt("u", now - 4 * 3600 * 1000), now, zone))
+    }
+
+    @Test fun isMissedConfirmed_withinWindow_false() {
+        val zone = ZoneId.of("Asia/Shanghai")
+        assertFalse(MeetingMissedReactionService.isMissedConfirmed(appt("u", now - 3600 * 1000), now, zone))
+    }
+
+    @Test fun isMissedConfirmed_proposedPastGrace_false() {
+        val zone = ZoneId.of("Asia/Shanghai")
+        assertFalse(MeetingMissedReactionService.isMissedConfirmed(appt("u", now - 4 * 3600 * 1000, status = "proposed"), now, zone))
+    }
+
+    @Test fun missedHint_statesFactsAndNudge_avoidsReservedTitles_named() {
+        val hint = MeetingMissedReactionService.missedHint("6月27日 周六 15:00", "咖啡馆", "喝咖啡", "小明")
+        assertTrue(hint.contains("喝咖啡"))
+        // B3a：「用户」→真名（角色直读·房子风格「你」=角色不动）。
+        assertTrue("约定用真名", hint.contains("你和小明约好了"))
+        assertTrue("缺席主语用真名", hint.contains("小明始终没有出现"))
+        assertFalse("无通用码约定", hint.contains("你和用户"))
+        assertFalse("无通用码缺席", hint.contains("用户始终"))
+        assertTrue(hint.startsWith("（") && hint.endsWith("）")) // 纯括号旁白
+        assertFalse(hint.contains("【")) // 不含 DirtyMessageDetector 保留段标题
+    }
+
+    @Test fun missedHint_blankDetail_usesNamedFallbackPlan_E5() {
+        // 三参皆空白 → detail 空 → 走「你和${userName}约好的那次见面」分支（E5），且用真名。
+        val hint = MeetingMissedReactionService.missedHint("", "", "", "小明")
+        assertTrue("空 detail 命名兜底句", hint.contains("你和小明约好的那次见面"))
+        assertFalse(hint.contains("你和用户"))
+    }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FileProvider 可授权路径（ST8 结局分享长图）。share/ = getCacheDir()/share，存临时分享 png。 -->
+<paths>
+    <cache-path
+        name="share"
+        path="share/" />
+</paths>

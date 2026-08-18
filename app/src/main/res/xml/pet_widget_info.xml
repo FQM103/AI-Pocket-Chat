@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 宠物状态小组件元数据（P11.3 · M19）。最小 2x2（对齐 iOS systemSmall），可横竖缩放到中号（11.3b）。
+     initialLayout 用 Glance 自带加载占位；周期刷新交给状态变化时的 updateAll（国产 ROM 周期广播不可靠）。 -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="110dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="110dp"
+    android:minResizeHeight="110dp"
+    android:targetCellWidth="2"
+    android:targetCellHeight="2"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:description="@string/pet_widget_description"
+    android:previewImage="@drawable/widget_preview_pet"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:updatePeriodMillis="0" />

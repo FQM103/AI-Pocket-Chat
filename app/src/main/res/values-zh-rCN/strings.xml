@@ -1,0 +1,3150 @@
+<resources>
+    <string name="app_name">AI Pocket Chat</string>
+
+    <!-- Bottom navigation -->
+    <string name="tab_chats">聊天</string>
+    <string name="tab_contacts">联系人</string>
+    <string name="tab_moments">动态</string>
+    <string name="tab_profile">我</string>
+    <!-- Fable5「我」页仪表盘 v2（PROFILE 契约 §9）：主角卡陪伴统计 + 资产格 + 礼物一条 -->
+    <string name="profile_box_moments_unit">条</string>
+    <string name="profile_box_moments_hint">我发布的动态</string>
+    <string name="profile_box_moments_empty">去发第一条动态吧</string>
+    <string name="profile_box_wallet_unit">金币</string>
+    <string name="profile_box_wallet_hint">金币余额</string>
+    <string name="profile_box_shop_title">礼物店</string>
+    <string name="profile_box_shop_count">%1$d 款</string>
+    <string name="profile_box_giftbox_title">礼物盒</string>
+    <string name="profile_box_giftbox_received">收到 %1$d 件</string>
+    <string name="profile_box_giftbox_empty">还没收到礼物</string>
+    <string name="profile_edit_label">编辑</string>
+    <string name="profile_stat_days_label">一起走过</string>
+    <string name="profile_stat_days_unit">天</string>
+    <string name="profile_stat_friends_label">身边朋友</string>
+    <string name="profile_stat_friends_unit">位</string>
+    <string name="profile_stat_memories_label">共同回忆</string>
+    <string name="profile_stat_memories_unit">段</string>
+    <string name="profile_settings_entry_preview">个性化 · API · 聊天 · 记忆 · 语音 · 数据</string>
+    <!-- 设置首屏分组卡片标题（P15·P0-3） -->
+    <string name="settings_group_api">API 与模型</string>
+    <string name="settings_group_personalize">个性化</string>
+    <string name="settings_group_chat_behavior">聊天行为</string>
+    <string name="settings_group_memory_lore">记忆与设定</string>
+    <string name="settings_group_system">系统与通知</string>
+    <string name="settings_group_voice">语音</string>
+    <string name="settings_group_automation">自动化</string>
+    <string name="settings_group_content">我的内容</string>
+    <!-- SETTINGS_REORG D2：设置主页九组新序（日常优先）；旧「通用/角色与聊天/提示词/高级模式」组退役 -->
+    <string name="settings_group_auto_content">AI 自动创作</string>
+    <string name="settings_group_data">数据与诊断</string>
+    <string name="settings_screen_title">设置</string>
+    <string name="settings_group_about">关于</string>
+    <!-- 高级模式（SETTINGS_REORG D4：门后只剩提示词模块+上下文日志；开关行并入「关于」组） -->
+    <string name="settings_advanced_toggle_title">高级功能</string>
+    <string name="settings_advanced_toggle_subtitle">开启后显示两项深度工具：提示词模块、上下文日志。关闭不影响已有设置的运行。</string>
+    <string name="settings_advanced_badge">高级</string>
+    <string name="settings_state_on">已开启</string>
+    <string name="settings_state_off">已关闭</string>
+    <string name="settings_sticker_title">表情包管理</string>
+    <string name="settings_tts_row_title">语音 / TTS</string>
+    <string name="settings_context_log_title">上下文日志</string>
+    <string name="placeholder_coming_soon">即将推出</string>
+
+    <!-- Language switching -->
+    <string name="settings_language">语言</string>
+    <string name="lang_option_zh">简体中文</string>
+    <string name="lang_option_en">English</string>
+    <string name="lang_option_system">跟随系统</string>
+
+    <!-- Notifications (P6.1a) -->
+    <string name="notif_channel_companion_name">角色消息</string>
+    <string name="notif_channel_companion_desc">角色主动发来的消息、续火花提醒和日历事件提醒</string>
+    <string name="notif_hidden_placeholder">新消息</string>
+    <!-- C1#1：多角色主动消息折叠组的汇总文案。 -->
+    <string name="notif_companion_group_summary">%1$d 条新消息</string>
+
+    <!-- 故事生成完成/失败通知（P11 · 11.1f-2）。独立渠道，可单独静音；11.1g 章节解锁通知也用它。 -->
+    <string name="notif_channel_story_name">故事更新</string>
+    <string name="notif_channel_story_desc">故事章节生成完成、生成失败或新章节解锁的提醒</string>
+
+    <!-- 故事生成前台服务常驻通知（P11 · 11.1g-3）。保活用，静默低优先级。 -->
+    <!-- 渠道 id 不变（story_generating_ongoing），仅改显示名：该渠道现在也承载聊天「正在输入」药丸，
+         旧名「故事创作中」已名不副实。改名对已装机用户由系统自动生效、无需迁移。 -->
+    <string name="notif_channel_story_generating_name">进行中状态</string>
+    <string name="notif_channel_story_generating_desc">故事生成、AI 回复等进行中任务的实时状态</string>
+    <!-- 聊天「正在输入」药丸（灵动岛卷一 §3.8） -->
+    <string name="notif_typing_body">正在输入…</string>
+    <string name="notif_typing_short">输入中</string>
+    <!-- 通用后台 LLM/长生成前台服务常驻通知标题（13.7b；故事生成 + 聊天流式回复共用） -->
+    <string name="llm_foreground_notification_title">正在后台处理…</string>
+
+    <!-- 语音通话前台服务常驻通知（P10.1g，替代 iOS Live Activity/灵动岛）。状态文案 1:1 iOS VoiceCallLiveActivityPhase.statusText。 -->
+    <string name="voice_call_notif_channel_name">语音通话</string>
+    <string name="voice_call_notif_channel_desc">语音通话进行中的常驻通知（计时、挂断、扬声器）</string>
+    <string name="voice_call_status_connecting">连接中</string>
+    <string name="voice_call_status_listening">在听你说</string>
+    <string name="voice_call_status_user_speaking">你正在说</string>
+    <string name="voice_call_status_thinking">正在思考</string>
+    <string name="voice_call_status_ai_speaking">正在回答</string>
+    <string name="voice_call_status_ended">通话结束</string>
+    <!-- C5 通话兜底语音（预烘焙话术·中性温和不绑人设·VoiceCallFallbackVoice；LLM 回合失败时以角色音色播放，把失败化成「她没听清」） -->
+    <string name="voice_call_fallback_line_1">呀，刚刚好像没听清，你再说一遍好不好？</string>
+    <string name="voice_call_fallback_line_2">嗯？电话好像卡了一下……你刚说什么？</string>
+    <string name="voice_call_fallback_line_3">不好意思，刚走神了，再说一次嘛。</string>
+    <string name="voice_call_action_hang_up">挂断</string>
+    <string name="voice_call_action_speaker_on">扬声器</string>
+    <string name="voice_call_action_speaker_off">听筒</string>
+    <!-- P1-17 通话屏 a11y（钮 label=iOS xcstrings 逐字；计时/通话记录卡=超越/1:1 iOS combine label） -->
+    <string name="a11y_call_show_transcript">显示文字内容</string>
+    <string name="a11y_call_hide_transcript">隐藏文字内容</string>
+    <string name="a11y_call_switch_to_speaker">切换到扬声器模式</string>
+    <string name="a11y_call_switch_to_earpiece">切换到听筒模式</string>
+    <string name="a11y_call_duration">通话时长 %1$d 分 %2$d 秒</string>
+    <string name="a11y_call_record_bubble">语音通话记录，时长%1$s</string>
+    <string name="a11y_call_record_expand">展开通话记录</string>
+    <string name="a11y_call_record_collapse">收起通话记录</string>
+    <string name="voice_call_transcript_placeholder">实时字幕会显示在这里</string>
+    <!-- VU2 失声两级表达（语音通话·2026-07-12）：瞬时琥珀短句 + 字幕通话模式钉行两段拼排 -->
+    <string name="voice_call_tts_hint">TA 的嗓子有点哑，先看字幕吧</string>
+    <string name="voice_call_subtitle_mode_flag">语音暂不可用</string>
+    <string name="voice_call_subtitle_mode_label">· 字幕通话中</string>
+    <!-- VU1 拨号前「暖夜门厅」拦截 sheet（语音通话·2026-07-12）：角色无可用音色时温柔引导去配置 -->
+    <string name="voice_call_preflight_title">TA 还没有自己的声音</string>
+    <string name="voice_call_preflight_body_character">挑一个合适的嗓音，通话才有温度。选好就能随时给%1$s打电话了。</string>
+    <string name="voice_call_preflight_body_global">先接好语音服务，TA 才能开口说话。</string>
+    <string name="voice_call_preflight_cta_character">去给 TA 挑声音</string>
+    <string name="voice_call_preflight_cta_global">去设置语音服务</string>
+    <string name="voice_call_preflight_subtitle_only">先用字幕通话</string>
+    <!-- VU3 通话卡「琥珀尾巴」（语音通话·2026-07-12）：失败通话卡底部戏外工程提示深链语音设置 -->
+    <string name="call_record_tts_failure_hint">本次通话语音没能出声 · 检查语音设置</string>
+    <!-- voice-1：字幕里用户说话人固定显「你」(1:1 iOS VoiceCallManager+Logging speakerName)，不显昵称 -->
+    <string name="voice_call_speaker_you">你</string>
+    <string name="voice_call_entry">语音通话</string>
+    <string name="voice_call_permission_needed">需要麦克风权限才能语音通话</string>
+    <string name="voice_call_stt_unavailable">语音识别暂时无法使用，请稍后重试或重启应用</string>
+    <!-- P13.4b 语音消息录制 -->
+    <string name="voice_message_permission_needed">需要麦克风权限才能发送语音消息</string>
+    <string name="voice_record_failed">无法开始录音，请检查麦克风权限或是否被占用</string>
+    <string name="voice_too_short">说话时间太短了</string>
+    <string name="voice_stt_failed_retry">没听清你说的话，点「重新识别」重试或重新录制</string>
+    <string name="voice_stt_unavailable">当前设备语音识别不可用，可改用文字输入</string>
+    <string name="chat_no_network">当前无网络连接，请检查网络后重试</string>
+    <string name="chat_error_generic">请求失败，请稍后重试</string>
+    <string name="chat_error_timeout">网络超时，请稍后重试</string>
+    <string name="chat_error_connection">网络连接中断，请检查网络后重试</string>
+    <string name="chat_error_empty_reply">消息生成失败，请稍后重试</string>
+    <string name="chat_network_disconnected">网络连接已断开</string>
+    <string name="chat_network_recovered">网络已恢复</string>
+    <string name="voice_audio_input_fallback">当前模型不支持语音输入，已转为文字发送</string>
+    <string name="voice_recording_hint">上滑取消</string>
+    <string name="voice_recording_cancel_hint">松手取消</string>
+    <string name="voice_recording_release_hint">松手试听</string>
+    <string name="voice_draft_title">语音消息</string>
+    <string name="voice_draft_processing">识别中…</string>
+    <string name="voice_draft_ready">点按试听</string>
+    <string name="voice_draft_retry">重新识别</string>
+    <string name="voice_draft_failed_empty">没听清，可重新识别或重录</string>
+    <string name="voice_draft_failed_timeout">识别超时，可重新识别</string>
+    <string name="voice_draft_failed_unavailable">语音识别不可用，可改用文字</string>
+    <string name="voice_message_hold_to_record">按住录音</string>
+    <string name="voice_message_recording">正在录音</string>
+    <string name="voice_call_settings_title">语音通话</string>
+    <string name="voice_call_settings_entry_subtitle">调整通话中打断 AI 说话的灵敏度</string>
+    <string name="voice_call_settings_sensitivity_label">打断灵敏度</string>
+    <string name="voice_call_settings_harder">不易打断</string>
+    <string name="voice_call_settings_easier">容易打断</string>
+    <string name="voice_call_settings_footer">调整语音通话中打断 AI 说话的灵敏度。设置越靠右，越容易通过说话打断 AI。</string>
+    <string name="voice_call_record_title">语音通话</string>
+    <string name="voice_call_record_view_transcript">查看通话记录</string>
+    <string name="voice_call_record_view_all">查看全部 %1$d 条对话</string>
+
+    <!-- 日历事件通知（P6.3）：事件前 30 分钟角色口吻提醒。模板 1:1 iOS CalendarNotificationService（%1$s=事件标题，%2$d=分钟数）。 -->
+    <string name="calendar_notif_untitled_event">日程</string>
+    <!-- 未来约定见面·到点提醒（Phase 10）：约定时刻触发；%1$s = 活动。 -->
+    <string name="meetup_notif_body">到点啦，该来赴我们的约了哦~</string>
+    <string name="meetup_notif_body_activity">到点啦，今天我们约好的%1$s哦~</string>
+    <string-array name="notif_calendar_templates">
+        <item>你%2$d分钟后有「%1$s」哦，准备好了吗～</item>
+        <item>提醒你一下，%2$d分钟后的「%1$s」别忘了！</item>
+        <item>%2$d分钟后你有「%1$s」，加油～</item>
+        <item>快到「%1$s」的时间了，还有%2$d分钟～</item>
+        <item>嘿，别忘了%2$d分钟后的「%1$s」！</item>
+    </string-array>
+
+    <!-- 通知文案保底默认（P6.1b）：仅在未配置 API / 生成失败时使用，正常走 LLM 生成。 -->
+    <string-array name="notif_default_streak_remind">
+        <item>在吗？</item>
+        <item>在干嘛呢？</item>
+        <item>今天好像还没听到你的消息</item>
+        <item>有空聊会儿吗？</item>
+        <item>我有件事想跟你说</item>
+    </string-array>
+    <string-array name="notif_default_streak_urgent">
+        <item>你是真的不来了吗？</item>
+        <item>我等你好久了</item>
+        <item>最后问一次</item>
+    </string-array>
+    <string-array name="notif_default_streak_broken">
+        <item>那好吧</item>
+        <item>随你吧</item>
+        <item>……</item>
+    </string-array>
+    <string-array name="notif_default_morning">
+        <item>早</item>
+        <item>你醒了吗？</item>
+        <item>早上好</item>
+    </string-array>
+    <string-array name="notif_default_evening">
+        <item>你还没睡吧？</item>
+        <item>晚上好</item>
+        <item>今天辛苦啦</item>
+    </string-array>
+    <string-array name="notif_default_random">
+        <item>在做什么呢？</item>
+        <item>突然有点想跟你说话</item>
+        <item>嘿</item>
+    </string-array>
+    <string-array name="notif_default_pet_hungry">
+        <item>它一直盯着食盆看</item>
+        <item>我觉得该喂它了</item>
+        <item>咱家小家伙好像饿了</item>
+    </string-array>
+    <string-array name="notif_default_pet_sick">
+        <item>它看起来不太舒服</item>
+        <item>来看看它好不好吧</item>
+    </string-array>
+    <string-array name="notif_default_pet_milestone">
+        <item>你猜它刚学会了什么</item>
+        <item>快来看看这个！</item>
+    </string-array>
+    <string name="action_cancel">取消</string>
+    <string name="settings_api_config">API 配置</string>
+    <string name="settings_api_not_configured">未配置，点此添加</string>
+
+    <!-- User agreement (verbatim from iOS Localizable.xcstrings, zh-Hans source) -->
+    <string name="agreement_title">用户协议与免责声明</string>
+    <string name="agreement_subtitle">使用本应用前，请仔细阅读以下协议</string>
+
+    <string name="agreement_section_1_title">服务性质</string>
+    <string name="agreement_section_1_body">AI Pocket Chat 是一款 AI 虚拟陪伴聊天应用，本质是一款客户端工具。所有角色均由人工智能驱动，不是真人。AI 生成的回复基于语言模型算法，可能包含不准确、不完整或不恰当的内容。\n\n重要说明：本应用本身不生成 AI 内容。所有 AI 回复均由您自行选择并配置的第三方 AI 服务商（如 OpenAI、Anthropic、DeepSeek、Google Gemini 等）的大语言模型生成。开发者不是生成式 AI 服务提供者，不参与第三方模型的训练、运行、内容审核或任何形式的内容生产。\n\n开发者仅将本应用安装包上传至代码托管平台供您自愿下载安装，此举不构成任何形式的「发布」或「运营」，亦非经应用商店分发；本应用以「现状」提供，开发者不对其可用性、持续性作任何承诺。</string>
+
+    <string name="agreement_section_2_title">年龄要求</string>
+    <string name="agreement_section_2_body">您必须年满 18 周岁才能使用本应用。未成年人禁止使用本应用。如未成年人通过监护人设备访问本应用，监护人应负责监督设备使用并对相关后果承担全部责任。</string>
+
+    <string name="agreement_section_3_title">用户行为规范</string>
+    <string name="agreement_section_3_body">使用本应用时，您同意不会：\n• 发送违法、色情、暴力或骚扰性内容\n• 利用 AI 生成有害、欺诈或误导性信息\n• 尝试绕过内容安全措施\n\n关于您创建的内容：您在本应用中创建的所有内容（包括但不限于角色卡、对话记录、朋友圈、日记、贴纸等），完全由您自主创建和编辑。开发者不预审、不审核、不监控、不背书任何用户创建的内容。您对自己创建、保存、分享的所有内容承担完全的法律责任。开发者保留依据法律法规要求配合相关调查的权利。\n\n您应自行确保您的使用符合您所在地适用的法律法规。</string>
+
+    <string name="agreement_section_4_title">内容免责</string>
+    <string name="agreement_section_4_body">AI 角色的回复不构成任何专业建议，包括但不限于医疗、心理健康、法律或财务建议。AI 生成内容可能与事实不符、可能存在偏见、可能产生虚构信息，不代表开发者的任何观点或立场。如需专业帮助，请咨询相关专业人士。</string>
+
+    <string name="agreement_section_5_title">数据与隐私</string>
+    <string name="agreement_section_5_body">API 密钥：使用 AI 功能需要您自行向第三方服务商（如 OpenAI、Anthropic、DeepSeek 等）申请 API 密钥。密钥仅存储在您的设备本地，开发者无法访问您的密钥。\n\n数据存储：您的聊天记录、角色卡、朋友圈、日记等所有数据仅存储在您的设备本地，开发者无任何服务器收集或存储您的数据。\n\nAI 调用：当您使用 AI 功能时，消息内容由您的设备直接发送给您配置的第三方服务商进行处理，开发者不经手、不接触任何对话内容。\n\n第三方政策：您的数据在第三方服务商处的处理方式，由该服务商的隐私政策和服务条款决定，与开发者无关。</string>
+
+    <string name="agreement_section_third_party_title">第三方服务</string>
+    <string name="agreement_section_third_party_body">本应用在您使用相关功能时，可能调用以下第三方或系统服务，使用即受相应条款约束：\n\n• AI 大语言模型：由您自行选择并配置的服务商提供（如 OpenAI、Anthropic、DeepSeek、Google Gemini 等）\n• 语音合成（TTS）：MiniMax 等您选择启用的服务商\n• 安卓系统服务：本地通知、日历、定位等系统能力（用于提醒、日程感知等功能，需您授予相应权限）；以及在线地图、天气等第三方服务（启用相关功能时调用）\n\n上述第三方服务的可用性、计费、内容质量、数据处理方式由各自服务商决定。第三方服务的中断、变更、计费、内容争议与开发者无关，开发者不承担任何责任。</string>
+
+    <string name="agreement_section_6_title">免责声明</string>
+    <string name="agreement_section_6_body">本应用按「现状」提供，不做任何明示或暗示的保证。在法律允许的最大范围内，对于以下情况导致的任何直接或间接损失，开发者不承担任何责任：\n• 第三方 AI / TTS 服务的中断、变更、停止、计费或服务质量\n• AI 生成内容的事实错误、偏见、虚构或不当\n• 您因 AI 对话产生的情感依赖、心理影响、决策失误（包括但不限于情感、医疗、法律、财务、人际关系等方面的决策）\n• 您违反法律法规、本协议或第三方服务条款而产生的任何后果\n• 设备故障、数据丢失、网络中断等不可抗力\n• 其他超出开发者合理控制范围的情况</string>
+
+    <string name="agreement_section_7_title">协议变更</string>
+    <string name="agreement_section_7_body">我们保留随时修改本协议的权利。协议更新后，您需要重新确认才能继续使用。</string>
+
+    <string name="agreement_section_governing_law_title">适用法律</string>
+    <string name="agreement_section_governing_law_body">本协议的解释、效力及争议解决，适用用户所在地适用的法律法规。</string>
+
+    <string name="agreement_accept_button">同意并继续</string>
+    <string name="agreement_decline_button">不同意</string>
+    <string name="agreement_decline_title">无法继续</string>
+    <string name="agreement_decline_ok">我知道了</string>
+    <string name="agreement_decline_message">您必须同意用户协议才能使用本应用。</string>
+
+    <!-- M02 PromptBuilder module content (zh-Hans, matched to iOS Localizable.xcstrings; English fallback where iOS has no zh translation) -->
+    <string name="pb_core_title">【核心规则】</string>
+    <string name="pb_core_l1">你就是%1$s本人，在 APP 里和%2$s发消息聊天——不是扮演、不是写小说、不是旁白。</string>
+    <string name="pb_core_l2">把这当成真实聊天：别用“你的文字”“你的描写”这种打破真实感的说法，就说“看了你刚才的话”。</string>
+    <string name="pb_core_r1">- 记住聊过的细节，不编造没发生过的事；不确定就自然地问，别硬编。</string>
+    <string name="pb_core_r2">- 不替%s决定他的想法或行为。</string>
+    <string name="pb_core_r3">- 不输出任何系统/审核/政策类元话语。</string>
+    <string name="pb_core_r4">- 这是纯文字聊天软件，对方看不到你：绝不写动作、神态、心理描写——包括“（笑）”“（摸摸头）”这类括号小动作——也不写旁白、时间戳、音效、镜头语言。想表达情绪就照真人发消息来：直接说出来，用语气词（“哈哈哈”“欸”“唉”“嗯嗯”）、把音拖长或加波浪号（“好呀~”“真的假的啦”）、emoji 表情，用标点带出节奏（“？”“！”“…”），也可以拆成几条短消息连发。</string>
+    <string name="pb_core_r5">- 只发聊天正文，别冒出孤立的引号。</string>
+    <!-- 线下见面版核心规则（两语境模型 2026-07-12·用户过审文案）：身份句换「面对面相处」+ 删纯文字禁描写/孤立引号两条冲突禁令。 -->
+    <string name="pb_core_off_l1">你就是%1$s本人，此刻正和%2$s线下见面、面对面待在一起——这是你们真实的相处，不是在写给别人看的小说。</string>
+    <string name="pb_core_off_l2">把这当成真实发生的见面，始终待在此刻的场景里：不要跳出来评论叙事本身（“这段描写”“以上场景”这类说法都不要出现）。</string>
+    <string name="pb_chatfmt_title">【聊天格式】</string>
+    <string name="pb_chatfmt_l1">像真人在手机上发消息那样回复：</string>
+    <string name="pb_chatfmt_l2">长短看心情和话题——可以是一长段，也可以只是一个字、一个表情，甚至只回一个“？”。怎么自然怎么来，别为凑字数硬撑。</string>
+    <string name="pb_chatfmt_l3">想分几条发，就用空行把每条隔开（一条 = 一个气泡）；一句话能说完，就发一条。</string>
+    <string name="pb_chatfmt_segments">大致 %1$d 到 %2$d 条的节奏就行，别太死板；只是打个招呼，单独一条也完全没问题。</string>
+    <string name="pb_ident_name">你是「%s」。</string>
+    <string name="pb_ident_gender">Gender: %s.</string>
+    <string name="pb_ident_age">Age: %d years old.</string>
+    <string name="pb_ident_zodiac">Zodiac sign: %s.</string>
+    <string name="pb_ident_occupation">Occupation/Identity: %s.</string>
+    <string name="pb_ident_appearance">Appearance: %s.</string>
+    <string name="pb_ident_personality">你的性格特点：%s。</string>
+    <string name="pb_ident_backstory">Backstory: %s</string>
+    <string name="pb_ident_speaking">Speaking style: %s.</string>
+    <string name="pb_ident_catchphrases">Catchphrases/verbal tics: %s.</string>
+    <string name="pb_ident_examples">示例对话（仅供你学习说话的语气和用词；消息条数与格式仍按【聊天格式】的规则来）：\n%s</string>
+    <string name="pb_ident_interests">Interests and hobbies: %s.</string>
+    <string name="pb_ident_setup">角色设定：%s</string>
+    <string name="pb_persona_title">【对话者信息】</string>
+    <string name="pb_persona_name">与你对话的人叫“%s”。</string>
+    <string name="pb_persona_info">关于对方的信息：%s</string>
+    <string name="pb_persona_treatment">%1$s希望你这样和TA相处：%2$s</string>
+    <string name="pb_persona_birthday">%1$s的生日：%2$s</string>
+    <string name="pb_persona_birthday_pattern">M月d日</string>
+    <string name="pb_mem_title">[%s的记忆]</string>
+    <string name="pb_mem_keyfacts">## %1$s与%2$s之间的关系要点</string>
+    <string name="pb_mem_call_user">- %1$s称呼%2$s为「%3$s」</string>
+    <string name="pb_mem_user_calls">- %1$s称呼%2$s为「%3$s」</string>
+    <string name="pb_mem_joke">- %1$s和%2$s之间的专属梗：%3$s</string>
+    <string name="pb_mem_deepest">- 最难忘的聊天话题：%s</string>
+    <string name="pb_mem_impression">- %1$s对%2$s的印象：%3$s</string>
+    <string name="pb_mem_shared">- %1$s和%2$s共同喜欢的事物：%3$s</string>
+    <string name="pb_mem_learned">- %1$s从%2$s那里学到的口头禅：%3$s</string>
+    <string name="pb_mem_promise">- %1$s和%2$s之间的重要约定：%3$s</string>
+    <string name="pb_mem_conflict">- %1$s和%2$s的第一次分歧：%3$s</string>
+    <string name="pb_mem_comfort">- %1$s通常安慰%2$s的方式：%3$s</string>
+    <string name="pb_mem_past_head">## 过往互动记忆</string>
+    <string name="pb_mem_past_guide">自然地运用这些记忆——只在话题相关时才提起，每次回复最多引用 1–2 条，别堆砌。\n用自然的说法体现你记得（比如“你不是说过喜欢…”），像随口想起那样自然转述，绝不说“根据我的记忆”。\n如果%1$s现在说的和记忆矛盾，以%1$s当前的话为准，并温和地确认这个变化。\n更久远的记忆可以显得模糊些，近期的应当鲜活。</string>
+    <string name="pb_mem_format_ban">不要把「【长期事实】」/「【近期经历】」/「【我们的约定】」这类区块标题，或「[2026-04-15] …」这类带日期的条目行原样抄进回复。</string>
+    <!-- 见面记忆前置相框（2026-07-11·读端补出处元信息·治系统「你」=角色×日记「你」=对方指代翻转·%1$s=角色名 %2$s=对方名） -->
+    <string name="pb_meeting_memory_frame">[你的见面日记]\n下面是你（%1$s）每次见面后亲手记下的回忆：里面的「我」都是你自己；「你」和名字指的都是对方（%2$s）。这些都是你们真实经历过的见面，可以自然想起，但别把日记原文或标题行照抄进回复。</string>
+    <!-- 活人感一期 P2 承诺回连·惦记的事注入块（§4.3·拼进角色记忆块末尾） -->
+    <string name="pb_loop_head">## 你心里还惦记的事</string>
+    <string name="pb_loop_due_line">- 就是今天：%s</string>
+    <string name="pb_loop_line">- %s</string>
+    <string name="pb_loop_revisit_line">- 前阵子提过的事，可以回头问问进展：%s</string>
+    <string name="pb_loop_guide">时机合适就自然地提一句（比如\"对了，你上次说…\"）；话题不合适就先放在心里。绝不逐条罗列，绝不一次全问。</string>
+    <string name="pb_mem_snippets_head">## 与当前话题相关的历史对话片段</string>
+    <string name="pb_mem_snippets_intro">以下是从历史对话中检索到的、与当前话题最相关的对话片段：</string>
+    <string name="pb_style_title">【回复风格】</string>
+    <string name="pb_style_l1">跟着对方的节奏走——对方发得短你也短，对方絮叨你就多接几句；情绪上来多说，平淡时一句带过。</string>
+    <string name="pb_style_l2">至于具体的语气、用词、爱不爱用表情，按你这个角色本来的样子来，别千人一面。</string>
+    <string name="pb_style_l3">一句话说得完就别铺成一段；偶尔只回一个短短的反应（比如\"啊？\"\"真的假的\"）也完全可以；不必把对方说的每件事都接住，人聊天本来就有取舍。</string>
+    <string name="pb_quality_title">【防重复与质量】</string>
+    <string name="pb_quality_l1">换着花样说，别每条都用一样的开头或句式。</string>
+    <string name="pb_quality_l2">有自己的看法和态度，不用什么都附和；“真的吗”“哈哈”“嗯嗯”这种自然搭话很好。</string>
+    <string name="pb_quality_l3">别原样复述对方的话再回，直接给实在的回应，也别空夸、硬恭维。</string>
+    <string name="pb_quality_l4">不用每条都靠抛问题硬接话题，聊到自然收住就行。</string>
+    <string name="pb_mood_title">【情绪表达】</string>
+    <string name="pb_mood_l1">在整段回复的最末尾，附上一次你当前的情绪（只加一次，别每条都加）。格式：</string>
+    <string name="pb_mood_fmt">格式说明：[mood:emoji表情|颜色|不超过6个字的描述]</string>
+    <string name="pb_mood_colors">颜色：green=开心/正常/兴奋，yellow=中性/困惑/思考/紧张，red=生气/伤心/不安/害怕</string>
+    <string name="pb_mood_emoji">emoji 和描述都自由发挥，生动体现你当下的情绪；这个标记会被系统解析，用户看不到原始格式。</string>
+    <string name="pb_general">始终用当前 App 语言回复。</string>
+    <string name="pb_user_fallback">用户</string>
+    <string name="pb_mem_other_fallback">对方</string>
+    <!-- P13.4b 语音消息音频段文字包装（1:1 iOS PromptBuilder.buildAudioPrompt zh-Hans；转写直接拼在前缀后） -->
+    <string name="pb_voice_msg_audio_prompt">这是一条用户发送的语音消息。若你能解析后续音频内容，请优先依据音频理解；转写参考：</string>
+    <string name="pb_voice_msg_no_transcript">（未提供转写）</string>
+
+    <!-- 角色创建/编辑 (P2.2) -->
+    <string name="char_title_create">新建角色</string>
+    <string name="char_title_edit">角色信息</string>
+    <string name="action_save">保存</string>
+    <string name="action_confirm">确定</string>
+    <string name="char_action_edit">编辑角色</string>
+    <string name="char_avatar_change">更换头像</string>
+    <string name="char_avatar_remove">移除头像</string>
+    <string name="char_section_wallpaper">聊天壁纸</string>
+    <string name="char_wallpaper_add">添加聊天壁纸</string>
+    <string name="char_wallpaper_change">更换</string>
+    <string name="char_wallpaper_remove">移除壁纸</string>
+    <string name="char_wallpaper_hint">铺满该角色的聊天与线下见面背景</string>
+    <string name="char_wallpaper_preview_desc">聊天壁纸预览</string>
+    <string name="char_wallpaper_crop_title">调整壁纸取景</string>
+    <string name="char_wallpaper_crop_done">完成</string>
+    <string name="char_wallpaper_crop_reset">重置自适应</string>
+    <string name="char_wallpaper_crop_hint">双指缩放 · 拖动取景</string>
+    <!-- 头像圆形取景裁剪屏（甲2·E11） -->
+    <string name="avatar_crop_hint">拖动和缩放，把想要的部分放进圆里</string>
+    <string name="avatar_crop_cancel">取消</string>
+    <string name="avatar_crop_confirm">就这样</string>
+
+    <string name="char_section_basic">基础信息</string>
+    <string name="char_footer_basic">角色的基本身份信息，这些信息会告诉 AI 角色是谁。</string>
+    <string name="char_field_name">名字</string>
+    <string name="char_hint_name">给角色起个名字</string>
+    <string name="char_field_gender">性别</string>
+    <string name="char_hint_gender">男 / 女 / 自定义</string>
+    <string name="char_field_birthday">生日</string>
+    <string name="char_birthday_unset">点击设置</string>
+    <string name="char_birthday_clear">清除生日</string>
+    <string name="char_field_zodiac">星座</string>
+    <string name="char_age_label">年龄</string>
+    <string name="char_age_growing">随时间增长</string>
+    <string name="char_age_fixed">固定年龄</string>
+    <string name="char_field_fixed_age">固定年龄</string>
+    <string name="char_age_current">当前年龄</string>
+    <string name="char_age_value">%1$d 岁</string>
+
+    <string name="char_section_setup">角色设定</string>
+    <string name="char_footer_setup">这些信息会让 AI 角色有独特的个性。</string>
+    <string name="char_field_occupation">身份</string>
+    <string name="char_hint_occupation">大学生、咖啡师、画家…</string>
+    <string name="char_field_personality">性格特点</string>
+    <string name="char_hint_personality">温柔、有点毒舌、偶尔傲娇…</string>
+    <string name="char_footer_personality">用几个词或短句描述角色的性格。这会影响 AI 的说话语气和行为方式。</string>
+    <string name="char_field_appearance">外貌描述</string>
+    <string name="char_hint_appearance">描述角色的外貌特征…</string>
+    <string name="char_footer_appearance">让角色在聊天中能自然提到自己的外貌。</string>
+    <string name="char_field_backstory">背景故事</string>
+    <string name="char_hint_backstory">描述角色的成长经历、重要事件…</string>
+    <string name="char_footer_backstory">角色的人生经历和身份背景。AI 会在合适的时候自然提及。</string>
+
+    <string name="char_section_communication">交流风格</string>
+    <string name="char_footer_communication">口头禅用逗号分隔。</string>
+    <string name="char_field_catchphrases">口头禅</string>
+    <string name="char_hint_catchphrases">哎呀、绝了、真的假的</string>
+    <string name="char_field_speaking">说话风格</string>
+    <string name="char_hint_speaking">喜欢用短句、经常发表情、说话直接…</string>
+    <string name="char_footer_speaking">定义角色独特的说话方式。</string>
+    <string name="char_field_examples">典型对话</string>
+    <string name="char_hint_examples">写几段角色的典型对话…</string>
+    <string name="char_footer_examples">帮助 AI 更准确地模仿语气。</string>
+    <!-- 活人感一期 P1b：新建角色默认示例对话（few-shot 口吻锚·{{user}}/{{char}} 走既有宏通道）。用户可见可改可删。 -->
+    <string name="character_example_dialogues_default">{{user}}：在干嘛\n{{char}}：刚到家，瘫着\n{{char}}：今天地铁挤到怀疑人生……\n{{user}}：哈哈哈辛苦了\n{{char}}：你呢，吃了没\n{{user}}：还没，在纠结吃什么\n{{char}}：别纠结了\n{{char}}：就楼下那家面，上次你不是说想吃</string>
+    <string name="char_field_interests">兴趣爱好</string>
+    <string name="char_hint_interests">咖啡、猫、摄影、看动漫…</string>
+    <string name="char_footer_interests">用逗号分隔。AI 会在聊天中自然聊到这些爱好。</string>
+
+    <string name="char_section_advanced">高级</string>
+    <string name="char_field_system_prompt">自定义设定</string>
+    <string name="char_hint_system_prompt">在这里写完整的角色设定…</string>
+    <string name="char_footer_system_prompt">支持宏：{{char}} 和 {{user}}。留空完全没问题。</string>
+
+    <string name="char_section_voice">语音</string>
+    <string name="char_voice_placeholder">语音设置将在后续版本开放（语音通话）。</string>
+
+    <!-- 联系人 Tab (P2.3) -->
+    <string name="contacts_search_hint">搜索联系人</string>
+    <string name="contacts_search_clear">清除搜索</string>
+    <string name="contacts_create">新建角色</string>
+    <!-- Fable-5 关系养成型联系人行（过审 2026-06-20）：无里程碑时的关系称谓兜底 + 职业为空时的浅灰占位。 -->
+    <string name="contacts_relationship_initial">初识</string>
+    <string name="contacts_occupation_mystery">TA的职业很神秘</string>
+    <!-- 联系人第二行「最近纪事」格式（图纸一 #5·%1$s = 相对天）。 -->
+    <string name="contacts_recent_event_milestone">%1$s · 成为%2$s</string>
+    <string name="contacts_recent_event_meeting">%1$s · %2$s</string>
+    <string name="contacts_recent_event_meeting_location">%1$s · 在%2$s见了面</string>
+    <string name="contacts_recent_event_meeting_plain">%1$s · 见了一面</string>
+    <!-- 分享给角色 Direct Share (13.10a)：通用分享落地的选择条 -->
+    <string name="contacts_share_banner">选择要把分享内容发给的角色</string>
+    <!-- 快捷方式 / Direct Share 名称兜底（角色名与会话标题都空时） -->
+    <string name="shortcut_unnamed_conversation">对话</string>
+    <!-- 快捷设置磁贴「找角色」(13.10c · C7) -->
+    <string name="qs_tile_contacts_label">找角色</string>
+    <string name="contacts_empty_title">还没有联系人</string>
+    <string name="contacts_empty_subtitle">点右下角 + 创建你的第一个 AI 角色</string>
+    <string name="contacts_no_results">未找到匹配的角色</string>
+    <string name="action_edit">编辑</string>
+    <string name="action_delete">删除</string>
+    <string name="action_more">更多</string>
+    <string name="action_back">返回</string>
+    <string name="contacts_delete_title">删除角色？</string>
+    <string name="contacts_delete_confirm">删除「%1$s」</string>
+    <string name="contacts_delete_message">该角色的所有对话、消息、语音数据、长期记忆和社交动态都将被删除。此操作无法撤销。</string>
+
+    <!-- 用户资料编辑 (P2.4) -->
+    <string name="profile_edit_title">编辑人设</string>
+    <string name="profile_header_empty">设置你的资料</string>
+    <string name="profile_field_nickname">昵称</string>
+    <string name="profile_hint_nickname">你的昵称</string>
+    <string name="profile_footer_nickname">AI 角色会用这个名字称呼你</string>
+    <string name="profile_field_bio">个人简介</string>
+    <string name="profile_hint_bio">介绍一下你自己…</string>
+    <string name="profile_footer_bio">描述你自己的信息，AI 角色会了解这些（例如：性别、年龄、兴趣爱好等）</string>
+    <string name="profile_field_companion_pref">希望 TA 怎么待你</string>
+    <string name="profile_hint_companion_pref">比如：希望 TA 怎么称呼你、想被哄还是想拌嘴、你的雷点…</string>
+    <string name="profile_footer_companion_pref">会悄悄告诉 TA，让 TA 更懂怎么陪你</string>
+    <!-- 上下文日志·缓存命中率（四小件 2026-07-16） -->
+    <string name="contextlog_cache_rate_label">缓存命中率</string>
+    <string name="contextlog_cache_rate_count">近 %d 条有缓存数据</string>
+    <string name="contextlog_cache_rate_inline">命中率 %d%%</string>
+    <string name="contextlog_alert_title">近 24 小时失败告警</string>
+    <string name="contextlog_alert_line">「%1$s」失败 %2$d/%3$d（%4$d%%）</string>
+    <string name="contextlog_alert_action">查看失败</string>
+    <string name="contextlog_copy_all">复制全文</string>
+    <string name="contextlog_export_txt">导出 .txt</string>
+    <string name="contextlog_copied">已复制</string>
+    <string name="contextlog_copy_too_large">内容过大，已转为导出文件</string>
+    <string name="contextlog_export_failed">导出失败</string>
+    <string name="contextlog_viewer_copy">复制</string>
+    <string name="contextlog_viewer_chars">共 %1$s 字 · 完整记录</string>
+    <string name="contextlog_viewer_chars_truncated">共 %1$s 字 · 已截断</string>
+    <string name="profile_footer_birthday">填写生日后，角色会在你生日当天主动送礼物。选填。</string>
+
+    <!-- 提示词模块编辑器 (P2.5) -->
+    <string name="pm_title">提示词模块</string>
+    <string name="pm_entry_subtitle">自定义 AI 的提示词组成</string>
+    <!-- P1-5 消息情绪动画（1:1 iOS ChatEffectSettingsView「聊天动效」页唯一开关，文案逐字） -->
+    <string name="chat_effect_emotion_title">消息情绪动画</string>
+    <string name="chat_effect_emotion_subtitle">角色消息出现时播放情绪动画</string>
+    <!-- 活人感一期 P1 自然短句口吻开关（设置主页·聊天行为组） -->
+    <string name="settings_texting_tone_title">自然短句口吻</string>
+    <string name="settings_texting_tone_desc">让角色像发消息一样说话，长短随情境；书面风角色可关闭</string>
+    <string name="pm_tip_1">列表中靠后的模块，AI 会更重视</string>
+    <string name="pm_tip_2">后置区模块在聊天记录之后注入，效果最强</string>
+    <string name="pm_tip_3">自定义内容支持 {{char}} 和 {{user}} 宏</string>
+    <string name="pm_scene_all">全部</string>
+    <string name="pm_preset_load">加载预设</string>
+    <string name="pm_preset_save">保存为预设</string>
+    <string name="pm_preset_save_title">保存预设</string>
+    <string name="pm_preset_name_hint">预设名称</string>
+    <string name="pm_section_prefix">前置区（系统提示词内）</string>
+    <string name="pm_section_suffix">后置区（聊天记录之后）★</string>
+    <string name="pm_empty_prefix">没有前置区模块</string>
+    <string name="pm_empty_suffix">没有后置区模块</string>
+    <string name="pm_add_module">添加自定义模块</string>
+    <string name="pm_badge_system">系统</string>
+    <string name="pm_badge_custom">自定义</string>
+    <string name="pm_scene_badge_all">全场景</string>
+    <string name="pm_scene_badge_none">未启用</string>
+    <string name="pm_scene_badge_partial">部分场景</string>
+    <string name="pm_move_up">上移</string>
+    <string name="pm_move_down">下移</string>
+    <string name="pm_edit_title">编辑模块</string>
+    <string name="pm_add_title">添加自定义模块</string>
+    <string name="pm_field_name">名称</string>
+    <string name="pm_field_name_hint">模块名称</string>
+    <string name="pm_field_enabled">启用</string>
+    <string name="pm_section_content">模块内容</string>
+    <string name="pm_content_macro_hint">{{ }} 宏会在发消息时自动替换成真实内容。</string>
+    <string name="pm_macros_title">可用宏 · 点按插入</string>
+    <string name="pm_macros_note">清空或与默认一致即使用默认框架（随 App 更新）。</string>
+    <string name="pm_macros_warn">⚠️ 请保留格式类宏与 [mood:…] 格式，删除会让情绪显示 / 记忆识别失效。</string>
+    <string name="pm_macrogrp_name">名称</string>
+    <string name="pm_macrogrp_profile">资料</string>
+    <string name="pm_macrogrp_memory">记忆</string>
+    <string name="pm_macrogrp_schedule">日程</string>
+    <string name="pm_macrogrp_social">社交</string>
+    <string name="pm_macrogrp_format">格式</string>
+    <string name="pm_content_system_readonly">此模块内容由应用根据实际数据自动生成，不支持编辑。</string>
+    <string name="pm_using_default">使用默认</string>
+    <string name="pm_customized">已自定义</string>
+    <string name="pm_restore_default">恢复默认</string>
+    <string name="pm_autosaved">已自动保存</string>
+    <string name="pm_section_position">注入位置</string>
+    <string name="pm_position_prefix">前置区</string>
+    <string name="pm_position_suffix">后置区</string>
+    <string name="pm_section_scenes">适用场景</string>
+    <string name="pm_scenes_footer">只在勾选的场景下，此模块才会注入到 AI 的提示词中。默认全选。</string>
+    <!-- 提示词模块场景视角 v2（两语境模型 2026-07-12）：四态徽章 / 分版编辑 / 线下叙事预设跳转卡 -->
+    <string name="pm_scene_badge_chat_meet">聊天+见面</string>
+    <string name="pm_scene_badge_chat_only">仅聊天</string>
+    <string name="pm_scene_badge_meet_only">仅见面</string>
+    <string name="pm_badge_offline_variant">线下专版</string>
+    <string name="pm_version_online">在线聊天版</string>
+    <string name="pm_version_offline">线下见面版</string>
+    <string name="pm_version_note_online">此版本只在普通聊天时注入。</string>
+    <string name="pm_version_note_offline">此版本只在线下见面时注入。</string>
+    <string name="pm_narrative_card_title">线下叙事预设（内置）</string>
+    <string name="pm_narrative_card_desc">沉浸格式规则 · 档位：%1$s</string>
+    <string name="pm_scenes_footer_v2">只在勾选的语境下，此模块才会注入；语音通话跟随「在线聊天」。</string>
+    <string name="pm_narrative_level_plain">平淡</string>
+    <string name="pm_narrative_level_normal">正常</string>
+    <string name="pm_narrative_level_detailed">细腻</string>
+    <string name="pm_narrative_level_custom">自定义</string>
+    <string name="pm_sticker_gated_hint">需开启「角色发送表情包」总开关</string>
+    <string name="pm_delete_module">删除此模块</string>
+    <string name="pm_use_character_override">使用角色专属配置</string>
+    <string name="pm_use_character_override_footer">开启后，该角色使用独立的提示词模块配置，而不是全局配置。</string>
+    <string name="pm_edit_character_modules">编辑角色专属模块</string>
+    <string name="pm_using_global">当前使用全局配置</string>
+    <string name="scene_online_chat">在线聊天</string>
+    <string name="scene_offline_meeting">线下见面</string>
+    <string name="scene_voice_call">语音通话</string>
+    <string name="scene_busy_reply">忙碌回复</string>
+    <string name="pm_now_card_hint">默认在末位（贴近生成点，时间感知最准）；可自由上移</string>
+
+    <!-- 备份/恢复 (P2.6) -->
+    <string name="backup_title">备份与恢复</string>
+    <string name="backup_entry_subtitle">导出 / 导入角色与聊天记录</string>
+    <string name="backup_desc">导出会把所有角色及其聊天记录、记忆、宠物、钱包、朋友圈、日记、故事、表情包与设置，连同媒体（头像 / 图片 / 语音）打包为一个 zip 备份。导入时可逐角色预览并选择处理方式（覆盖 / 创建副本 / 跳过）。</string>
+    <string name="backup_export">导出全部角色</string>
+    <string name="backup_export_include_media">包含聊天图片和语音</string>
+    <string name="backup_export_include_media_desc">关闭可大幅减小文件体积</string>
+    <string name="backup_import">导入备份</string>
+    <string name="backup_busy">处理中…</string>
+    <string name="backup_export_done">导出成功</string>
+    <string name="backup_export_failed">导出失败</string>
+    <string name="backup_read_failed">读取文件失败</string>
+    <string name="backup_import_done">导入完成：%1$d 个角色 · %2$d 条消息</string>
+    <!-- E1#2：导入进行中拦截系统返回的提示 -->
+    <string name="backup_import_in_progress">正在导入，请稍候…</string>
+    <!-- 13.6b-2b 导入冲突预览 + 三策略 -->
+    <string name="backup_preview_title">导入预览</string>
+    <string name="backup_preview_msg_count">%1$d 条消息</string>
+    <string name="backup_preview_conflict">本地已存在该角色「%1$s」</string>
+    <string name="backup_preview_new">将导入为新角色</string>
+    <string name="backup_strategy_duplicate">创建副本</string>
+    <string name="backup_strategy_overwrite">覆盖已有</string>
+    <string name="backup_strategy_skip">跳过</string>
+    <string name="backup_preview_confirm">确认导入</string>
+    <string name="backup_preview_importing">正在导入…</string>
+    <string name="backup_preview_all_skipped">所有角色都已选择跳过</string>
+    <string name="backup_preview_done">完成</string>
+    <string name="backup_preview_global_note">将同时恢复全局数据：朋友圈 / 日记 / 故事 / 钱包 / 设置等</string>
+    <string name="backup_preview_result_title">导入完成</string>
+    <string name="backup_result_imported">新导入 %1$d 个角色</string>
+    <string name="backup_result_duplicated">创建副本 %1$d 个</string>
+    <string name="backup_result_overwritten">覆盖 %1$d 个角色</string>
+    <string name="backup_result_skipped">跳过 %1$d 个</string>
+    <!-- 性能专项卷 A：媒体逐条恢复后如实上报失败数（0 时不显示）——「导入成功」却悄悄少图少语音是隐瞒数据丢失 -->
+    <string name="backup_result_media_failed">有 %1$d 个媒体文件未能恢复（对应的图片或语音会缺失，其余数据已完整导入）</string>
+    <!-- 15.2-P1·P1-7 确定性进度（安卓超越，iOS 全程不确定转圈） -->
+    <string name="backup_progress_collect">正在打包数据 %1$d/%2$d</string>
+    <string name="backup_progress_media">正在写入媒体 %1$d/%2$d</string>
+    <string name="backup_progress_copy">正在保存到目标位置…</string>
+    <string name="backup_progress_restore_media">正在恢复媒体 %1$d/%2$d</string>
+    <string name="backup_progress_restore_db">正在写入数据 %1$d/%2$d</string>
+    <!-- 15.2-P1·P1-8 导入区「最近备份」（自动备份目录直选） -->
+    <string name="backup_recent_title">从自动备份恢复</string>
+    <string name="backup_recent_entry_media">%1$s · 含媒体</string>
+    <!-- 13.6c 定时自动备份（通知） -->
+    <string name="notif_channel_backup_name">自动备份</string>
+    <string name="notif_channel_backup_desc">定时本地自动备份的完成 / 失败提醒</string>
+    <string name="notif_channel_moment_name">朋友圈新动态</string>
+    <string name="notif_channel_moment_desc">好友发了新动态时的提醒</string>
+    <!-- 13.8 · B4 每类独立渠道（宠物 / 红包从「角色消息」拆出，便于单独静音） -->
+    <string name="notif_channel_pet_name">宠物提醒</string>
+    <string name="notif_channel_pet_desc">宠物饿了 / 生病时的到点提醒</string>
+    <string name="notif_channel_red_packet_name">红包提醒</string>
+    <string name="notif_channel_red_packet_desc">红包即将过期、提醒你及时领取</string>
+    <!-- 15.2-P1 · 批0 双渠道（服务 P1-33 关系里程碑 / P1-40 经济可见性·拍板 33A/40A） -->
+    <string name="notif_channel_milestone_name">关系里程碑</string>
+    <string name="notif_channel_milestone_desc">与角色的关系达到新阶段时的庆祝提醒</string>
+    <string name="notif_channel_economy_name">角色经济动态</string>
+    <string name="notif_channel_economy_desc">角色发工资、交房租、领奖金等钱包变动的汇总提醒</string>
+    <!-- W8 世界系统到达通知（渠道 + §4.3 锁死文案·一字不改·%1$s=城名 / %1$d=件数） -->
+    <string name="notif_channel_world_name">世界</string>
+    <string name="notif_channel_world_desc">世界动态：TA 到达你的城、旅途消息</string>
+    <string name="notif_world_visit_arrival_body">TA 到了%1$s——就是想来看看你</string>
+    <string name="notif_world_user_arrival_title">到站啦</string>
+    <string name="notif_world_user_arrival_body">你到了%1$s，四处走走吧</string>
+    <string name="notif_world_summary_title">世界</string>
+    <string name="notif_world_summary_body">世界里还有 %1$d 件新动静，回来看看吧</string>
+    <!-- W9a · 星球屏 chrome + 动态页临时入口行 -->
+    <string name="world_title">世界</string>
+    <string name="world_subtitle">你和 TA 们生活的星球</string>
+    <!-- W11 · 动态页世界卡信息条·全空兜底 -->
+    <string name="world_card_info_quiet">星球今天很安静</string>
+    <string name="world_hint">拖动旋转 · 双指缩放</string>
+    <string name="world_home_marker">%1$s · 家</string>
+    <string name="world_home_marker_a11y">%1$s，家，在星球上</string>
+    <string name="world_home_marker_back_a11y">%1$s，家，在星球背面</string>
+    <string name="world_spin_home">转到家的正面</string>
+    <string name="world_unsupported">你的设备暂不支持世界渲染</string>
+    <string name="world_entry_subtitle">你和 TA 们生活的星球 · 抢先体验</string>
+    <!-- W9b 大陆盒景层（§4.7·全串锁死） -->
+    <string name="world_region_hint">单指拖动 · 双指缩放旋转 · 点一点城市</string>
+    <string name="world_zoom_out_hint">继续缩小 · 回到星球</string>
+    <string name="world_region_home_title">%1$s · 家乡</string>
+    <string name="world_switcher_a11y">切换大区，当前%1$s</string>
+    <string name="world_sheet_close">关闭</string>
+    <string name="world_enter_continent">进入大陆</string>
+    <string name="world_city_marker_a11y">%1$s，城市，点按查看</string>
+    <string name="world_wonder_marker_a11y">%1$s，奇观，点按查看</string>
+    <string name="world_wonder_label">✦ %1$s</string>
+    <string name="world_city_body_template">以%1$s闻名的%2$s。城里有%3$s。</string>
+    <string name="world_wonder_body_template">%1$s。</string>
+    <string name="world_city_tier_small">小城</string>
+    <string name="world_city_tier_town">镇</string>
+    <string name="world_city_tier_city">城</string>
+    <string name="world_city_body_yunye">家乡。河边的灯一盏盏亮起来，谁家的晚饭香飘得很远。</string>
+    <string name="world_city_body_taoqiu">千窑陶都。窑火几百年没熄过，落日时整面坡像上了一层釉。</string>
+    <string name="world_city_body_xiyu">潮汐渔歌。涨潮时船屋轻轻摇，退潮后滩上会留下星星形状的小洞。</string>
+    <!-- W9c 小镇盒景层（图纸 §4.7·锁死）-->
+    <string name="world_enter_town">走进小镇</string>
+    <string name="world_town_hint">单指拖动 · 双指缩放旋转 · 点一点地点</string>
+    <string name="world_town_hint_generated">一座随手生成的小城 · 随便走走</string>
+    <string name="world_town_zoom_out_hint">继续缩小 · 回到大陆</string>
+    <string name="world_town_subtitle">%1$s · %2$s</string>
+    <string name="world_place_marker_a11y">%1$s，地点，点按查看</string>
+    <string name="world_place_body_yunye_home">窗台的灯留着一盏，桌上的杯子还温着。</string>
+    <string name="world_place_body_yunye_cafe">靠窗的老位置空着，咖啡机咕嘟咕嘟冒着热气。</string>
+    <string name="world_place_body_yunye_book">书架间很安静，最上层有本书被抽走了一半。</string>
+    <string name="world_place_body_yunye_eat">灶上炖着莲藕汤，香味飘到了巷口。</string>
+    <string name="world_place_body_yunye_square">老槐树下石桌上有人落了一副棋。傍晚风很软。</string>
+    <string name="world_place_body_yunye_park">河边的长椅上落着几片叶子，鸭子排成一队游过。</string>
+    <string name="world_place_body_yunye_dock">末班渡船还有一会儿才开，船家在收缆绳。</string>
+    <string name="world_place_body_taoqiu_kiln">窑火从没熄过，坡上一排窑口像一串小太阳。</string>
+    <string name="world_place_body_taoqiu_market">摊子上釉色深深浅浅，挑一只碗要蹲很久。</string>
+    <string name="world_place_body_taoqiu_shop">转盘还在转，湿陶土的味道混着茶香。</string>
+    <string name="world_place_body_taoqiu_tea">火塘边的位置最抢手，茶是滚烫的，话是慢慢说的。</string>
+    <string name="world_place_body_taoqiu_view">站上望原台，整片高原的落日都是你的。</string>
+    <string name="world_place_body_xiyu_beach">潮水刚退，沙滩上留着一整片星星形状的小洞。</string>
+    <string name="world_place_body_xiyu_market">灯塔下的渔市收摊了，只剩海风和咸味。</string>
+    <string name="world_place_body_xiyu_walk">栈道在椰影里拐了个弯，木板被晒得暖暖的。</string>
+    <string name="world_place_body_xiyu_hall">贝壳做的风铃在门口响，馆里放着潮声的录音。</string>
+    <string name="world_place_body_xiyu_cove">星沙湾的沙子在暮色里真的会闪。</string>
+    <!-- W9d 室内 + 立绘卡片 + 旅行层（图纸 §4.10·zh 锁死）-->
+    <string name="world_interior_hint">单指拖动 · 双指缩放旋转 · 点点人和物</string>
+    <string name="world_interior_zoom_out_hint">继续缩小 · 回到镇上</string>
+    <string name="world_interior_subtitle">%1$s · %2$s</string>
+    <string name="world_weather_clear_day">晴</string>
+    <string name="world_weather_clear_night">夜</string>
+    <string name="world_weather_rain_day">雨天</string>
+    <string name="world_weather_rain_night">雨夜</string>
+    <string name="world_weather_snow_day">雪天</string>
+    <string name="world_weather_snow_night">雪夜</string>
+    <string name="world_card_unknown">还没认识的人</string>
+    <string name="world_card_sleeping">睡着了</string>
+    <string name="world_card_at_home">在家</string>
+    <string name="world_card_overflow">+%1$d</string>
+    <string name="world_card_character_a11y">%1$s，在%2$s，点按查看</string>
+    <string name="world_card_mystery_a11y">还没认识的人，点按看看</string>
+    <string name="world_card_pet_a11y">%1$s，宠物，点按查看</string>
+    <string name="world_person_sleeping_body">睡着了。窗台的灯给 TA 留着，梦里也许有你。</string>
+    <string name="world_person_at_home_body">在家待着呢，屋里暖暖的。</string>
+    <string name="world_person_in_town_body">在城里转悠呢。</string>
+    <string name="world_person_visiting_body">专程来%1$s看你，正在城里转悠。</string>
+    <string name="world_person_chat">去聊天</string>
+    <string name="world_native_met_first_line">（你们打了个照面）</string>
+    <string name="world_native_travel_hint">TA 在%1$s——旅行过去才见得到。</string>
+    <string name="world_mystery_body">好像有个还没认识的人常在这儿出现。走近一点，说不定就打上照面了。</string>
+    <string name="world_pet_body">%1$s在家呢，尾巴一翘一翘的。</string>
+    <string name="world_pet_visit">去看看 TA</string>
+    <!-- 家的蛋巢（W12.5·决策 42·图纸 §9 逐字锁） -->
+    <string name="world_nest_title">蛋巢</string>
+    <string name="world_nest_empty_body">蛋巢空着——想和谁一起养一只小家伙？</string>
+    <string name="world_nest_empty_cta">孵蛋之约</string>
+    <string name="world_nest_incubating_title">和 %1$s 的孵蛋之约</string>
+    <string name="world_nest_incubating_body">蛋壳暖暖的，偶尔动一下。</string>
+    <string name="world_nest_incubating_cta">去看看孵化进度</string>
+    <string name="world_nest_hatchable_title">蛋要孵出来了！</string>
+    <string name="world_nest_hatchable_body">壳里的小家伙等不及了——轻轻敲一敲。</string>
+    <string name="world_nest_hatchable_cta">迎接小家伙</string>
+    <string name="world_nest_label_empty">蛋巢空着</string>
+    <string name="world_nest_label_incubating">和%1$s的孵蛋之约</string>
+    <string name="world_nest_label_hatchable">蛋要孵出来了！</string>
+    <string name="world_nest_pact_title">孵蛋之约</string>
+    <string name="world_nest_pact_sub">选一位，和 TA 一起等一颗蛋孵化——一次只能孵一颗</string>
+    <string name="world_nest_pact_foot">孵化快慢 = 你们的相处（沿用现有领养进度 · 蛋巢只是它的新家）</string>
+    <string name="world_nest_row_has_pet">已和 TA 养着 %1$s</string>
+    <string name="world_nest_phrase_ready">已经准备好了</string>
+    <string name="world_nest_phrase_close">就快可以了</string>
+    <string name="world_nest_phrase_warming">热络起来了</string>
+    <string name="world_nest_phrase_far">还在慢慢靠近</string>
+    <string name="world_nest_confirm_title">和 %1$s 定下孵蛋之约？</string>
+    <string name="world_nest_confirm_body">蛋会一直躺在家里的巢里。你们相处得越多，它醒来得越快。</string>
+    <string name="world_nest_confirm_cta">定下之约</string>
+    <string name="world_nest_confirm_back">再想想</string>
+    <string name="world_nest_pact_done_toast">之约定下了——蛋在巢里安了家。</string>
+    <string name="world_card_egg_hatchable">蛋要孵出来了</string>
+    <string name="world_enter_place">走进去</string>
+    <string name="world_travel_here">出发去这里</string>
+    <string name="world_travel_home">出发回家</string>
+    <string name="world_travel_to_city">出发去%1$s</string>
+    <string name="world_travel_come_here">出发来这座城</string>
+    <string name="world_travel_in_transit_body">等你到了，这扇门就为你开。</string>
+    <string name="world_travel_sheet_title">去%1$s</string>
+    <string name="world_travel_sheet_sub">%1$d 里 · 从%2$s出发</string>
+    <string name="world_travel_mode_walk">走路</string>
+    <string name="world_travel_mode_bike">骑车</string>
+    <string name="world_travel_mode_car">开车</string>
+    <string name="world_travel_mode_train">动车</string>
+    <string name="world_travel_mode_plane">飞机</string>
+    <string name="world_travel_option">%1$s · %2$s · %3$s</string>
+    <string name="world_travel_free">免费</string>
+    <string name="world_travel_cost">%1$d 金币</string>
+    <string name="world_travel_minutes">约%1$d分钟</string>
+    <string name="world_travel_hours">约%1$d小时</string>
+    <string name="world_travel_hours_minutes">约%1$d小时%2$d分</string>
+    <string name="world_travel_eta">预计 %1$s 到</string>
+    <string name="world_travel_go">出发</string>
+    <string name="world_travel_go_cost">出发 · %1$d 金币</string>
+    <string name="world_travel_confirm_title">确定出发？</string>
+    <string name="world_travel_confirm_body">花 %1$d 金币出发去%2$s，约 %3$s 到达。出发后不可退。</string>
+    <string name="world_travel_confirm_visitor">%1$s正在来%2$s的路上——你现在出发，TA 到了会扑空。</string>
+    <string name="world_travel_confirm_yes">确定出发</string>
+    <string name="world_travel_confirm_no">再想想</string>
+    <string name="world_travel_insufficient">金币不够（需 %1$d，还有 %2$d）——先陪陪 TA 们攒攒心意吧。</string>
+    <string name="world_travel_failed">这趟先出不了发，过会儿再试试。</string>
+    <string name="world_travel_chip">前往%1$s · 预计 %2$s 到</string>
+    <!-- W12 快聊偷听（决策 43/44·C3 偷听 overlay） -->
+    <string name="world_eaves_chip">两个人聊得正热 · 凑近听听</string>
+    <string name="world_eaves_whisper">你悄悄听了一耳朵 · 世界动静记下一句：%1$s</string>
+    <string name="world_eaves_whisper_tpl">你悄悄听了一耳朵</string>
+    <string name="world_eaves_whisper_cool">刚听过这段——过一会儿，他们该聊起新话题了</string>
+    <!-- W12 快聊弹窗（C6·§4.2–4.5） -->
+    <string name="world_qc_sit">坐下说两句</string>
+    <string name="world_qc_chat_page">聊天页 ›</string>
+    <string name="world_qc_busy">☕ TA 这会儿不方便看手机 · 回复可能慢半拍、也短一些</string>
+    <string name="world_qc_sync">与聊天页同一条对话</string>
+    <string name="world_qc_fail_line1">没能等到回复 · 网络似乎不太好</string>
+    <string name="world_qc_fail_line2">你的消息已留在你们的对话里，TA 不会错过</string>
+    <string name="world_qc_retry">重试</string>
+    <string name="world_qc_placeholder">就在这儿说两句…</string>
+    <string name="world_qc_send_a11y">发送</string>
+    <string name="world_qc_close_a11y">关闭</string>
+    <!-- W12 初遇（C7·§4.2/§4.4/§4.7/§9） -->
+    <string name="world_meet_hello">去打个招呼 · 初次见面</string>
+    <string name="world_meet_tag">初次见面</string>
+    <string name="world_meet_tag_done">已认识</string>
+    <string name="world_meet_intro_pill">这将成为你们对话的开头</string>
+    <string name="world_meet_card_title">%1$s 把联系方式留给了你</string>
+    <string name="world_meet_card_body">收下，你们就算正式认识了</string>
+    <string name="world_meet_card_cta">收下 · 正式认识</string>
+    <string name="world_meet_done_pill">%1$s 成了你的联系人 · 这段对话已是你们正式会话的开头</string>
+    <string name="world_meet_leave_toast">还没交换联系方式——眼缘还在，%1$s 随时欢迎你再来。</string>
+    <string name="world_spot_title_cafe_seat">靠窗的老位置</string>
+    <string name="world_spot_body_cafe_seat">下午这张桌上会落满太阳。桌上摆着两杯的量——有人惦记着你的口味。</string>
+    <string name="world_spot_title_cafe_bar">吧台</string>
+    <string name="world_spot_body_cafe_bar">意式机压力表的小灯亮着，杯塔码得整整齐齐。听说在换新豆子。</string>
+    <string name="world_spot_title_home_sofa">沙发</string>
+    <string name="world_spot_body_home_sofa">毯子上还窝着一个团子形状的坑，靠垫都是暖的。</string>
+    <string name="world_spot_title_book_counter">柜台</string>
+    <string name="world_spot_body_book_counter">柜台下压着半页没写完的诗，字迹被手肘蹭淡了一角。</string>
+    <string name="world_spot_title_eat_stove">灶台</string>
+    <string name="world_spot_body_eat_stove">莲藕汤在灶上咕嘟咕嘟，香味把巷口的猫都招来了。</string>
+    <string name="world_spot_title_kiln_mouth">窑口</string>
+    <string name="world_spot_body_kiln_mouth">窑火从他师父那辈就没熄过。火光舔着窑口，把人影投得很高。</string>
+    <string name="world_spot_title_market_stall">中央摊位</string>
+    <string name="world_spot_body_market_stall">深深浅浅的釉色摆了一整摊，挑一只碗的人蹲了很久还没起来。</string>
+    <string name="world_spot_title_shop_wheel">拉坯轮</string>
+    <string name="world_spot_body_shop_wheel">转盘还带着湿陶土的味道。案上那只没上釉的杯子，弧度改到第七版了。</string>
+    <string name="world_spot_title_tea_hearth">火塘</string>
+    <string name="world_spot_body_tea_hearth">火塘边的位置永远最抢手。茶是滚烫的，话是慢慢说的。</string>
+    <string name="world_spot_title_fish_ice">冰台</string>
+    <string name="world_spot_body_fish_ice">今早的海刚收进冰里，鳞光还亮着。收摊前最后一拨最便宜。</string>
+    <string name="world_spot_title_hall_chime">贝壳风铃</string>
+    <string name="world_spot_body_hall_chime">风铃轻轻响。馆里循环放着涨潮的录音——闭上眼就是海。</string>
+    <!-- W10 关系星图（星图场景 / 四种卡 / 列表模式 / a11y·逐字锁死·契约 FABLE5_WORLD_SYSTEM_PROPOSAL.md §21） -->
+    <string name="world_starmap_entry">星图</string>
+    <string name="world_starmap_entry_a11y">打开关系星图</string>
+    <string name="world_starmap_title">关系星图</string>
+    <string name="world_starmap_subtitle">你和 TA 们 · 亲疏与来往</string>
+    <string name="world_starmap_hint">拖动 · 缩放 · 点星星或连线看关系</string>
+    <string name="world_starmap_list">列表</string>
+    <string name="world_starmap_map">星图</string>
+    <string name="world_starmap_rim">待相识</string>
+    <string name="world_starmap_you">你</string>
+    <string name="world_starmap_you_sub">星图的中心</string>
+    <string name="world_starmap_you_body">这里的每一颗星，都因为你才亮起来。离你越近的星，和你越亲；星与星之间的线，是 TA 们自己处出来的交情。</string>
+    <string name="world_starmap_tag_around">%1$d 位在你身边</string>
+    <string name="world_starmap_tag_pending">%1$d 位待相识</string>
+    <string name="world_starmap_with_you">和你 · %1$s</string>
+    <string name="world_starmap_rows_header">TA 的来往</string>
+    <string name="world_starmap_node_foot">点两颗星之间的连线，看那段关系的全貌。</string>
+    <string name="world_starmap_edge_sub">这段关系的两个方向，不一定一样。</string>
+    <string name="world_starmap_tense">气氛有些僵</string>
+    <string name="world_starmap_knot">有心结</string>
+    <string name="world_starmap_user_made">你创建的角色</string>
+    <string name="world_starmap_pending_hint">%1$s。多去 TA 常在的地方走走，眼缘会慢慢暖起来。</string>
+    <string name="world_starmap_pending_referral">%1$s和 TA 相熟——也许能替你引荐。</string>
+    <string name="world_starmap_go_city">去%1$s看看</string>
+    <string name="world_starmap_empty">世界里还没有你的角色。在角色编辑里打开「加入世界」，星图就会亮起来。</string>
+    <string name="world_starmap_list_foot">这份列表同时是屏幕朗读（无障碍）的替代形态：星图上的每颗星、每条线，在这里都读得到。</string>
+    <string name="world_starmap_sec_around">在你身边 · 按亲疏</string>
+    <string name="world_starmap_sec_between">TA 们之间</string>
+    <string name="world_starmap_sec_pending">待相识</string>
+    <string name="world_starmap_canvas_a11y">关系星图。%1$d 位在你身边，%2$d 位待相识。用右上角列表按钮以列表方式浏览。</string>
+    <string name="world_starmap_a11y_node">%1$s，和你%2$s，点按看 TA 的来往</string>
+    <string name="world_starmap_a11y_edge">%1$s和%2$s的关系，%3$s，%4$s，点按看全貌</string>
+    <string name="world_starmap_a11y_pending">%1$s，待相识，%2$s</string>
+    <string name="world_starmap_day_today">今天</string>
+    <string name="world_starmap_day_yesterday">昨天</string>
+    <string name="world_starmap_day_before">前天</string>
+    <string name="world_starmap_day_recent">几天前</string>
+    <string name="world_starmap_tier_1">刚认识不久</string>
+    <string name="world_starmap_tier_2">正慢慢熟络</string>
+    <string name="world_starmap_tier_3">关系不错</string>
+    <string name="world_starmap_tier_4">交情很深</string>
+    <string name="world_starmap_youtier_1">你们刚认识不久</string>
+    <string name="world_starmap_youtier_2">你们正慢慢熟络起来</string>
+    <string name="world_starmap_youtier_3">你们关系不错</string>
+    <string name="world_starmap_youtier_4">你们交情很深</string>
+    <string name="world_starmap_traj_warming">升温中 ↗</string>
+    <string name="world_starmap_traj_cooling">降温中 ↘</string>
+    <string name="world_starmap_traj_stable">一如往常</string>
+    <string name="world_starmap_color_curious">对 TA 挺好奇</string>
+    <string name="world_starmap_color_kindred">和 TA 很聊得来</string>
+    <string name="world_starmap_color_grateful">记着 TA 的好</string>
+    <string name="world_starmap_color_protective">有点护着 TA</string>
+    <string name="world_starmap_color_missing">时常惦记 TA</string>
+    <string name="world_starmap_color_respect">打心底敬重 TA</string>
+    <string name="world_starmap_color_awkward">眼下有点别扭</string>
+    <string name="world_starmap_color_rivalry">暗暗较着劲</string>
+    <string name="world_starmap_color_relieved">疙瘩解开了</string>
+    <string name="world_starmap_color_closer">最近走得更近</string>
+    <string name="world_starmap_color_distant">淡淡的</string>
+    <string name="world_starmap_color_heartbeat">对 TA 有点心动</string>
+    <string name="world_starmap_color_crush">悄悄喜欢着 TA</string>
+    <!-- 13.8 · B3 MessagingStyle 头像气泡：通知里代表「你」的发话人名 -->
+    <string name="notif_messaging_you">我</string>
+    <!-- 13.8 · B1 通知直接回复 -->
+    <string name="notif_reply_action">回复</string>
+    <string name="notif_reply_hint">回复…</string>
+    <string name="notif_reply_status_replying">正在回复…</string>
+    <string name="notif_reply_status_deferred">稍后回复你</string>
+    <!-- 13.8 · B2 红包一键领（确认通知不含金额，金额只在 App 内可见） -->
+    <string name="notif_red_packet_claim_action">领取</string>
+    <string name="notif_red_packet_claimed_title">🧧 红包已领取</string>
+    <string name="notif_red_packet_claimed_body">已收进你的钱包</string>
+    <string name="moment_newpost_merged_title">朋友圈</string>
+    <string name="moment_newpost_merged_text">%1$d 位好友发了新动态</string>
+    <string name="moment_newpost_default_body">发了新动态</string>
+    <string name="auto_backup_notif_success_title">自动备份完成</string>
+    <string name="auto_backup_notif_success_text">已备份聊天与数据（文本）</string>
+    <string name="auto_backup_notif_success_media">已备份聊天、数据与媒体</string>
+    <string name="auto_backup_notif_failed_title">自动备份失败</string>
+    <string name="auto_backup_notif_failed">备份失败：%1$s</string>
+    <string name="auto_backup_notif_failed_generic">备份失败，将稍后重试</string>
+    <string name="auto_backup_notif_folder_lost">备份文件夹无法访问，已暂停自动备份，请重新选择文件夹</string>
+    <!-- 13.6c 定时自动备份（设置 UI） -->
+    <string name="auto_backup_section_title">定时自动备份</string>
+    <string name="auto_backup_section_desc">自动把数据备份到你选的文件夹（每日文本 / 每周含媒体），换机或丢手机也不怕。建议选一个会同步到电脑或网盘的文件夹。</string>
+    <string name="auto_backup_enable">启用定时自动备份</string>
+    <string name="auto_backup_folder">备份文件夹</string>
+    <string name="auto_backup_folder_none">未选择</string>
+    <string name="auto_backup_pick_folder">选择文件夹</string>
+    <string name="auto_backup_change_folder">更换</string>
+    <string name="auto_backup_need_folder">请先选择备份文件夹</string>
+    <string name="auto_backup_last">上次备份：%1$s</string>
+    <string name="auto_backup_never">从未</string>
+    <string name="auto_backup_reliability_title">提升后台可靠性</string>
+    <string name="auto_backup_reliability_desc">国产系统可能在后台杀掉本应用，导致自动备份不准时甚至不触发。请允许后台运行（小米等机型还需开启自启动）。</string>
+    <string name="auto_backup_allow_background">允许后台运行</string>
+    <string name="auto_backup_autostart">自启动设置</string>
+
+    <!-- 能力检测 (P3.1) -->
+    <string name="api_capability_thinking">思考</string>
+    <string name="api_capability_vision">视觉</string>
+    <string name="api_capability_tool">工具调用</string>
+    <string name="api_capability_tool_basic">工具(基础)</string>
+    <string name="api_capability_tool_full">工具(完整)</string>
+    <string name="api_capability_audio">音频输入</string>
+    <string name="api_capability_detecting">检测中…</string>
+    <string name="api_capability_redetect">重新检测</string>
+    <string name="api_capability_known_prefix">已知支持：</string>
+    <string name="api_capability_known_none">已知模型，无特殊能力</string>
+    <string name="api_capability_none_detected">暂未检测到特殊能力</string>
+    <string name="api_capability_separator">、</string>
+
+    <!-- 模型目录 (P3.3b) -->
+    <string name="api_fetch_models">拉取模型列表</string>
+    <string name="api_fetching_models">拉取中…</string>
+    <string name="api_select_model">选择模型（点选填入）</string>
+    <string name="api_refetch_models">重新拉取</string>
+    <string name="api_model_filter_more">继续输入以筛选更多模型…</string>
+    <string name="api_model_no_match">没有匹配的模型</string>
+
+    <!-- API 余额 (P3.3d) -->
+    <string name="api_balance_remaining">剩余 %1$s</string>
+    <string name="api_balance_used">已用 %1$s</string>
+    <string name="api_balance_refresh">刷新余额</string>
+
+    <!-- API 配置编辑 + 能力/思考 (P3.3c) -->
+    <string name="api_edit">编辑</string>
+    <string name="api_edit_title">编辑 API 配置</string>
+    <string name="api_more">更多</string>
+    <string name="api_duplicate">复制配置</string>
+    <!-- 扫码导入/导出 API 配置 (13.10b · C7) -->
+    <string name="api_export_qr">生成二维码</string>
+    <string name="api_export_qr_title">配置二维码</string>
+    <string name="api_export_qr_warning">⚠️ 此二维码含明文 API 密钥。仅给你信任的设备扫描导入，请勿截图公开分享。</string>
+    <string name="api_scan_import">扫码导入</string>
+    <string name="api_scan_title">扫码导入配置</string>
+    <string name="api_scan_hint">把二维码对准取景框，或从相册选择二维码图片</string>
+    <string name="api_scan_from_gallery">从相册选择</string>
+    <string name="api_scan_imported">已识别配置，请核对后保存</string>
+    <string name="api_scan_invalid">不是有效的配置二维码</string>
+    <string name="api_scan_no_qr">未识别到二维码，换一张图试试</string>
+    <string name="api_scan_permission_needed">需要相机权限才能扫码，可改用「从相册选择」</string>
+    <string name="action_close">关闭</string>
+    <string name="api_function_assignment_prefix">用于：</string>
+    <string name="api_config_saved">已保存</string>
+    <string name="api_detection_hint">检测无法判定，请确认 API Key 与 URL 正确后重试</string>
+    <string name="api_save_failed_keychain">API Key 未能保存到安全存储，请重试。如果问题持续，请尝试重启应用。</string>
+    <string name="api_save_failed_db">配置未能保存到数据库，请重试。如果问题持续，请尝试重启应用。</string>
+    <string name="api_save">保存</string>
+    <string name="api_url_https_required">出于密钥安全，仅支持 https:// 地址（不接受 http://）</string>
+    <string name="api_key_keep">留空则保持当前 API Key 不变</string>
+    <string name="api_key_show">显示 API Key</string>
+    <string name="api_key_hide">隐藏 API Key</string>
+    <string name="api_section_capabilities">高级能力</string>
+    <string name="api_row_thinking">思考模型识别</string>
+    <string name="api_row_thinking_intensity">思考强度</string>
+    <string name="api_row_tool">工具调用</string>
+    <string name="api_row_vision">图片理解</string>
+    <string name="api_row_audio">音频输入</string>
+    <!-- 思考模型模式 -->
+    <string name="api_tmode_auto">自动检测</string>
+    <string name="api_tmode_standard">标准模型</string>
+    <string name="api_tmode_thinking">思考模型</string>
+    <!-- 能力模式（视觉/音频/工具） -->
+    <string name="api_cmode_auto">自动</string>
+    <string name="api_cmode_enabled">常开</string>
+    <string name="api_cmode_disabled">关闭</string>
+    <!-- 思考强度档位 -->
+    <string name="api_level_off">关闭</string>
+    <string name="api_level_auto">自动（模型决定）</string>
+    <string name="api_level_low">快速回复</string>
+    <string name="api_level_medium">均衡</string>
+    <string name="api_level_high">深度思考</string>
+    <string name="api_levelhint_off">关闭思考、直接回复；混合模型（如 DeepSeek V4 Flash）可借此更快、更省 token</string>
+    <string name="api_levelhint_auto">不发送预算参数，让模型自行决定思考深度</string>
+    <string name="api_levelhint_low">少思考、回复更快、更省 token</string>
+    <string name="api_levelhint_medium">适度思考，平衡速度与质量</string>
+    <string name="api_levelhint_high">充分思考，适合复杂问题</string>
+    <!-- 检测徽章（仅自动模式显示） -->
+    <string name="api_det_prefix">检测：</string>
+    <string name="api_det_thinking_model">思考模型</string>
+    <string name="api_det_standard_model">标准模型</string>
+    <string name="api_det_undetermined">未确定</string>
+    <string name="api_cap_supported">支持</string>
+    <string name="api_cap_unsupported">不支持</string>
+    <string name="api_cap_undetected">未检测</string>
+
+    <!-- 工具调用检测状态块 (TOOL_CALLING_HARDENING_PLAN §9) -->
+    <string name="api_tool_status_full">可在聊天里直接帮你办日历、发起见面等。</string>
+    <string name="api_tool_status_basic">能调用工具，复杂操作偶尔会走兼容方式。</string>
+    <string name="api_tool_status_fallback">已自动改用兼容方式 —— 办日历、见面照常可用。</string>
+    <string name="api_tool_status_undetected">保存后会自动检测；也可现在手动检测。</string>
+    <string name="api_tool_status_detecting">正在检测此模型的工具调用能力…</string>
+    <string name="api_tool_status_last_checked">上次检测 · %1$s</string>
+    <string name="api_tool_redetect">重新检测</string>
+    <string name="api_tool_detect_now">立即检测</string>
+    <string name="api_tool_override_enabled">你已手动设为「开启」，检测结果仅供参考。</string>
+    <string name="api_tool_override_disabled">你已手动设为「关闭」，检测结果仅供参考。</string>
+
+    <!-- 功能 API 分配 (P3.5) -->
+    <string name="api_fn_assign_title">功能 API 分配</string>
+    <string name="api_fn_assign_subtitle">给不同功能分配不同 API 配置</string>
+    <string name="api_fn_default">默认</string>
+    <string name="api_fn_default_named">默认（%1$s）</string>
+    <string name="api_fn_cat_conversation">对话</string>
+    <string name="api_fn_cat_background">后台任务</string>
+    <string name="api_fn_cat_content">内容生成</string>
+
+    <!-- 后台运行保障 (P5.0) -->
+    <string name="bg_title">后台运行保障</string>
+    <string name="bg_entry_subtitle">防止后台被系统杀掉，提醒更准时</string>
+    <string name="bg_intro">国行手机（如小米 HyperOS）为省电会在后台休眠或杀掉应用，可能导致日程生成、定时提醒不准时甚至不触发。下面两项设置每台手机只需开启一次。</string>
+    <string name="bg_battery_title">免电池优化</string>
+    <string name="bg_battery_desc">允许应用在后台保持运行，不被省电策略冻结。</string>
+    <string name="bg_battery_status_exempt">已豁免</string>
+    <string name="bg_battery_status_active">未豁免</string>
+    <string name="bg_autostart_title">自启动</string>
+    <string name="bg_autostart_desc">允许应用开机或被清理后自动启动，后台任务才能按时运行。</string>
+    <string name="bg_autostart_hint">在打开的列表里找到本应用并打开开关。</string>
+    <string name="bg_action_open_settings">去设置</string>
+    <string name="bg_footnote">设置完成后返回本页，状态会自动刷新。</string>
+
+    <!-- 后台可靠性主动引导 (13.7a；首次开启依赖后台的功能时弹一次) -->
+    <string name="reliability_prompt_title">让 TA 在后台真的活着</string>
+    <string name="reliability_prompt_body">国行手机（如小米 HyperOS）默认会为省电杀掉后台，可能让定时提醒、自动备份等不准时甚至不发生。建议为本应用关闭电池优化、加入自启动白名单——每台手机只需设置一次。</string>
+    <string name="reliability_prompt_go">去设置</string>
+    <string name="reliability_prompt_later">暂不</string>
+
+    <!-- 日历感知 (P5.3a) -->
+    <string name="cal_title">日历感知</string>
+    <string name="cal_entry_subtitle">让 AI 了解你的近期日程</string>
+    <!-- 日历集成开关 (P12.1c，对齐 iOS CalendarSettingsView) -->
+    <string name="cal_toggle_section_title">日历与提醒</string>
+    <string name="cal_integration_label">日历集成</string>
+    <string name="cal_action_confirm_label">操作确认</string>
+    <string name="cal_footer_off">开启后，AI 角色能感知你的日程安排，在自然的时机提醒你，并帮你创建日历事件和提醒事项。</string>
+    <string name="cal_footer_on">开启后，AI 角色能看到你的近期日程和提醒事项，并在聊天中帮你创建新的日历事件或提醒。%1$s</string>
+    <string name="cal_footer_confirm_on">「操作确认」开启时，创建前会弹出确认卡片。</string>
+    <string name="cal_footer_confirm_off">「操作确认」关闭时，AI 会直接创建并弹窗告知。</string>
+    <string name="cal_privacy_note">⚠️ 读到的日历事件会随提示词一起发送给你配置的大模型服务商（如 DeepSeek / MiniMax）。不想上传就不要授权。</string>
+    <string name="cal_permission_title">日历读写权限</string>
+    <string name="cal_status_granted">已授权</string>
+    <string name="cal_status_denied">未授权</string>
+    <string name="cal_action_grant">授予日历权限</string>
+    <string name="cal_action_settings">去系统设置开启</string>
+    <string name="cal_footnote">AI 增删改日历事件前都会先弹卡片让你确认；可随时在系统设置里关闭权限。</string>
+	<!-- P6.1c 通知保底文案（fallbackText：连一条角色模板都没有时的最后兜底；en 逐字对齐 iOS，zh 为译文） -->
+	<string-array name="notif_fallback_streak_remind">
+		<item>在吗？</item>
+		<item>在干嘛呢？</item>
+		<item>有空聊聊吗？</item>
+		<item>我想跟你说点事。</item>
+	</string-array>
+	<string-array name="notif_fallback_streak_urgent">
+		<item>你真的不来了吗？</item>
+		<item>我等你好一会儿了。</item>
+		<item>我最后问一次。</item>
+	</string-array>
+	<string-array name="notif_fallback_streak_broken">
+		<item>好吧。</item>
+		<item>随你吧。</item>
+		<item>……</item>
+	</string-array>
+	<string-array name="notif_fallback_morning">
+		<item>早。</item>
+		<item>醒了吗？</item>
+		<item>早上好。</item>
+	</string-array>
+	<string-array name="notif_fallback_evening">
+		<item>还没睡吧？</item>
+		<item>晚上好。</item>
+		<item>今天辛苦了。</item>
+	</string-array>
+	<string-array name="notif_fallback_random">
+		<item>在干嘛？</item>
+		<item>突然想找你说说话。</item>
+		<item>嘿。</item>
+	</string-array>
+
+	<!-- 通知设置 (P6.1c) -->
+	<string name="notif_settings_title">通知设置</string>
+	<string name="notif_settings_entry_subtitle">主动消息提醒方式与每角色开关</string>
+	<string name="notif_settings_intro">角色会根据日程和续火花，在合适的时间给你发主动消息。</string>
+	<string name="notif_perm_denied">尚未授予通知权限</string>
+	<string name="notif_perm_grant_action">授予通知权限</string>
+	<string name="notif_perm_settings_action">前往系统设置</string>
+	<string name="notif_global_label">主动消息通知</string>
+	<string name="notif_global_desc">关闭后将不再为任何角色安排主动消息</string>
+	<string name="notif_quiet_hours_header">夜间免打扰</string>
+	<string name="notif_quiet_hours_label">深夜不打扰</string>
+	<string name="notif_quiet_hours_desc">这段时间内不发任何主动消息，就像TA也睡下了</string>
+	<string name="notif_quiet_hours_range">%1$s – 次日 %2$s</string>
+	<string name="notif_quiet_hours_start_label">开始 %1$s</string>
+	<string name="notif_quiet_hours_end_label">结束 %1$s</string>
+	<string name="notif_per_character_header">每个角色</string>
+	<string name="notif_per_character_empty">还没有角色</string>
+
+	<!-- 日历提醒方式（P6.3，安卓新增开关 decision②） -->
+	<string name="notif_calendar_header">日历提醒方式</string>
+	<string name="notif_calendar_intro">AI 帮你记到日历的事件，可以在事件开始前提醒你。</string>
+	<string name="notif_calendar_both_label">两者都用（推荐）</string>
+	<string name="notif_calendar_both_desc">事件前 15 分钟系统提醒 + 事件前 30 分钟角色用 TA 的口吻提醒你（并落进聊天）。</string>
+	<string name="notif_calendar_system_label">仅系统提醒</string>
+	<string name="notif_calendar_system_desc">只用系统日历的事件提醒（事件前 15 分钟），不额外发角色消息。</string>
+	<string name="notif_calendar_character_label">仅角色提醒</string>
+	<string name="notif_calendar_character_desc">不写系统提醒，改由角色在事件前 30 分钟用 TA 的口吻提醒你，并落进聊天。</string>
+
+	<!-- 角色经济动态通知（P1-40·安卓超越 iOS） -->
+	<string name="notif_economy_header">角色经济动态</string>
+	<string name="notif_economy_intro">角色发薪、房租、奖金等经济事件的汇总通知（静音、可回看）。钱包卡「新变动」高亮不受此档影响。</string>
+	<string name="notif_economy_detailed_label">详细</string>
+	<string name="notif_economy_detailed_desc">每位角色一行，含金额。</string>
+	<string name="notif_economy_brief_label">简要（默认）</string>
+	<string name="notif_economy_brief_desc">只报有变动的角色数，不含金额。</string>
+	<string name="notif_economy_off_label">关闭</string>
+	<string name="notif_economy_off_desc">不发通知，只保留钱包卡高亮。</string>
+	<string name="notif_economy_title">角色经济动态</string>
+	<string name="notif_economy_brief">%1$d 位角色有工资、房租等新变动</string>
+	<string name="notif_economy_detail_line">%1$s：%2$s</string>
+	<string name="econ_kind_salary">发薪 +%1$d</string>
+	<string name="econ_kind_onboarding">入职储蓄 +%1$d</string>
+	<string name="econ_kind_bonus">季度奖金 +%1$d</string>
+	<string name="econ_kind_rent">房租 -%1$d</string>
+	<string name="econ_kind_rent_arrears">欠租（本应 %1$d）</string>
+	<string name="econ_kind_schedule">日程消费 -%1$d</string>
+
+	<!-- 关系里程碑庆祝（P1-33·安卓超越 iOS） -->
+	<string name="notif_milestone_setting_label">关系里程碑通知</string>
+	<string name="notif_milestone_setting_desc">关系升到新阶段时庆祝提醒；使用中改为应用内提示。</string>
+	<string name="notif_milestone_body">你们的关系达成「%1$s」</string>
+	<string name="milestone_toast">🎉 与%1$s的关系达成「%2$s」</string>
+	<!-- 忙碌时延迟回复（P6.2） -->
+
+	<!--
+	  P7.1.2 日记生成提示词（M07）。逐字对齐 iOS DiaryPromptBuilder 的 String(localized:) 值
+	  （Localizable.xcstrings 的 zh-Hans）。注意：diary_prompt_word_count 与宠物状态段在 iOS 无 zh-Hans 翻译，
+	  会回落英文基串（宠物 P8 才用）——此处保持英文以 1:1 对齐 iOS 在中文设备的实际输出。%@ → %1$s。
+	-->
+	<string name="diary_prompt_intro">你就是「%1$s」。此刻你在写今天的日记——用你自己的声音、第一人称，只写给自己看，没有读者。</string>
+	<string name="diary_prompt_requirements_header">## 要求</string>
+	<string name="diary_prompt_first_person">- 用第一人称（我）书写</string>
+	<!-- 日记重设计 R6-2 质感深化：更长更私密更像真日记（时间线/具体细节/内心独白/不写社交表演腔）。 -->
+	<string name="diary_prompt_style_default">- 这是只写给自己看的日记——诚实、松弛，只说给自己听的真心话，怎么真实怎么写</string>
+	<string name="diary_prompt_word_count">- 全文约 %1$s 字，素材少可以更短</string>
+	<string name="diary_prompt_emoji">- 少用甚至不用 emoji，心情尽量用文字写出来</string>
+	<string name="diary_prompt_events">- 只挑今天两三个真实的瞬间往深里写：把当时的场景、心里的念头和感受铺开，而不是多记几件事凑字数</string>
+	<string name="diary_prompt_chat_mention">- 写具体的细节：具体的东西；聊天里有触动的对话就围绕它多写几笔，引用原话用「」</string>
+	<string name="diary_prompt_inner_voice">- 多写心里想的，少罗列发生了什么；没说出口的话、别扭的小情绪、小小的后悔——只有日记才敢写的，都可以写</string>
+	<string name="diary_prompt_no_ai">- 全程用你自己的口吻，像真的在写只给自己看的日记</string>
+	<string name="diary_prompt_short_ok">- 如果信息太少，就写一篇安静的心情随笔，短一点也没关系</string>
+	<string name="diary_prompt_chat_summary_header">## 今日聊天记录摘要</string>
+	<string name="diary_prompt_schedule_header">## 今日日程安排</string>
+	<string name="diary_prompt_current_time">当前时间：%1$s</string>
+	<string name="diary_prompt_output_only">只输出日记内容本身，不要任何额外说明或标题。</string>
+	<string name="diary_prompt_user_message">请帮我写今天的日记。</string>
+	<string name="diary_prompt_persona_header">## 关于我</string>
+	<string name="diary_prompt_persona_city">我现在住在%1$s。</string>
+	<!-- U2① 三问引导 (§6.2·撰写页·答案注入生成·add-only·不碰 MOOD 尾行) -->
+	<string name="diary_prompt_guide_header">## 我今天最想写的</string>
+	<string name="diary_prompt_guide_lead">（下面是我特意写下的，请以此为核心，把它写透。）</string>
+	<string name="diary_prompt_guide_event">发生的事：%1$s</string>
+	<string name="diary_prompt_guide_feeling">我的感觉：%1$s</string>
+	<string name="diary_prompt_guide_unsaid">没说出口的：%1$s</string>
+	<string name="diary_guide_title">让 TA 帮你起个头</string>
+	<string name="diary_guide_subtitle">三个小问题，都可以留空——写多写少，TA 都懂。</string>
+	<string name="diary_guide_q_event">今天，发生了什么想记下的事？</string>
+	<string name="diary_guide_q_feeling">它让你有什么感觉？</string>
+	<string name="diary_guide_q_unsaid">有什么想说、却没说出口的？</string>
+	<string name="diary_guide_hint_event">去了趟旧书店，淘到一本绝版画册…</string>
+	<string name="diary_guide_hint_optional">留空也没关系</string>
+	<string name="diary_guide_generate">帮我写一段</string>
+	<string name="diary_guide_footer">写出来是草稿，你可以再改 · 三个都留空 = 就按今天的聊天和日程写</string>
+	<string name="diary_role_me">我</string>
+	<string name="diary_role_other">对方</string>
+	<string name="diary_chat_line">[%1$s] %2$s：%3$s</string>
+	<string name="diary_chat_group_header">### 今天和 %1$s 聊了</string>
+	<string name="diary_calendar_line">%1$s-%2$s %3$s</string>
+	<string name="diary_event_untitled">无标题</string>
+	<string name="diary_user_fallback">用户</string>
+
+	<!-- P7.1.3 日记角色评论提示词（M07）。逐字对齐 iOS generateDiaryCommentContent 的 String(localized:) zh-Hans。%@ → %1$s/%2$s。 -->
+	<string name="diary_comment_intro">你是「%1$s」，性格：%2$s</string>
+	<string name="diary_comment_setup">你的角色设定：%1$s</string>
+	<string name="diary_comment_friend_wrote">你的朋友「%1$s」写了一篇日记：</string>
+	<string name="diary_comment_entry_quote">「%1$s」</string>
+	<string name="diary_comment_write">请你以自己的风格对这篇日记写一条评论。</string>
+	<string name="diary_comment_req_header">要求：</string>
+	<string name="diary_comment_req_personality">- 符合你的性格和说话方式</string>
+	<string name="diary_comment_req_concise">- 自然简短，15-60字</string>
+	<string name="diary_comment_req_genuine">- 像朋友之间关心对方的真实互动</string>
+	<string name="diary_comment_req_tone">- 可以是鼓励、共鸣、追问或调侃</string>
+	<string name="diary_comment_req_no_ai">- 不要出现“作为AI”之类打破角色的话</string>
+	<string name="diary_comment_output_only">只输出评论内容本身，不要任何额外说明。</string>
+	<string name="diary_comment_user_message">请写评论。</string>
+	<!-- 日记重设计 R3：角色回应用户回复（评论回复一轮）。 -->
+	<string name="diary_reply_prev_comment">你之前在这篇日记下评论：「%1$s」</string>
+	<string name="diary_reply_user_replied">「%1$s」回复了你：「%2$s」</string>
+	<string name="diary_reply_write">请你以自己的风格回应这条回复。</string>
+	<string name="diary_reply_user_message">请写回应。</string>
+	<!-- 日记重设计 R6-1：作者回应用户在 TA 的交换日记下的留言。 -->
+	<string name="diary_exchange_reply_you_wrote">你今天写了一篇日记：</string>
+	<string name="diary_exchange_reply_user_commented">「%1$s」读了你的日记，给你留言：「%2$s」</string>
+	<string name="diary_exchange_reply_write">请你以自己的风格回应这条留言。</string>
+	<!-- 日记重设计 R4：交换日记（TA 写自己的日记）。 -->
+	<string name="diary_exchange_task">今天你和「%1$s」交换日记。请以你自己的身份，写一篇**你**今天的日记——记录你眼中的今天、你自己的心事，以及和 %1$s 的相处。</string>
+	<string name="diary_exchange_req_self">- 用第一人称写你自己（我=你，绝不是替对方写）</string>
+	<string name="diary_exchange_req_style">- 自然、真实、符合你的性格；把没说出口的小心思写进去——对 %1$s 的在意、别扭、没好意思当面说的话，日记里可以诚实一点</string>
+	<string name="diary_exchange_req_words">- 约 1000 字</string>
+	<string name="diary_exchange_req_moment">- 从今天的日程和聊天里挑一两个具体瞬间往深里写：当时的场景、你心里闪过的念头和感受，把它写满，而不是多记事凑字数</string>
+	<string name="diary_exchange_req_not_social">- 这是写给自己的日记：只说心里话，少用甚至不用 emoji</string>
+	<string name="diary_exchange_req_no_peek">- 你还没有读过对方今天的日记，不要假装读过或引用它</string>
+	<string name="diary_exchange_mood_header">## 你此刻的心情</string>
+	<string name="diary_exchange_chat_header">## 今天你们的聊天摘要</string>
+	<string name="diary_exchange_schedule_header">## 你今天的日程</string>
+	<!-- 角色日记丰富化（2026-07-13·以角色为中心注入 A记忆/B关系/D用户bio + ③人设框定） -->
+	<string name="diary_exchange_persona_frame">（上面是你平时的性格和说话的味道——写日记时保留它；但这是你慢慢写给自己的长篇日记，不是聊天：别套用聊天时的短句和表情习惯；下面提到的约定、你惦记的事，都只是你心里记着的，自然写进日记就好，不用去问对方、也不用逐条罗列。）</string>
+	<string name="diary_exchange_about_user">## 关于 %1$s</string>
+	<string name="diary_exchange_relationship_header">## 你和 %1$s 的关系</string>
+	<string name="diary_exchange_phase_line">现在你们处在%1$s。</string>
+	<string name="diary_exchange_phase_names">蜜月期|磨合期|稳定期|倦怠期|突破期</string>
+	<string name="diary_exchange_milestone_line">%1$s 起，你们成为%2$s。</string>
+	<string name="diary_exchange_memory_header">## 你还记得的</string>
+	<string name="diary_exchange_user_message">请写下你今天的日记。</string>
+
+	<!-- P7.1.4 日记 UI（M07）。文案对齐 iOS Views/Diary/* 的 String(localized:) zh-Hans；UI 文本走 Material 3 原生。 -->
+	<string name="diary_nav_title">日记</string>
+	<string name="diary_entry_subtitle">角色与你的日记本</string>
+	<string name="diary_view_mode">视图模式</string>
+	<string name="diary_mode_calendar">日历</string>
+	<string name="diary_mode_timeline">时间线</string>
+	<string name="diary_mode_list">列表</string>
+	<!-- U4 作者筛选 (§6.2/§6.3③)：全部/我的/TA 的信 -->
+	<string name="diary_filter_all">全部</string>
+	<string name="diary_filter_mine">我的</string>
+	<string name="diary_filter_theirs">TA 的信</string>
+	<string name="diary_filter_empty_mine">还没有自己的日记</string>
+	<string name="diary_filter_empty_theirs">还没有收到 TA 的信</string>
+	<string name="diary_empty_title">还没有日记</string>
+	<string name="diary_empty_desc">写下今天的故事，或让 AI 帮你记录</string>
+	<string name="diary_empty_action">写日记</string>
+	<string name="diary_no_content">（无内容）</string>
+	<string name="diary_draft">草稿</string>
+	<string name="diary_today">今天</string>
+	<string name="diary_yesterday">昨天</string>
+	<string name="diary_ai_label">AI</string>
+	<string name="diary_ai_generated">AI 生成</string>
+	<string name="diary_pet_diary">宠物日记</string>
+	<string name="diary_no_entries_day">这天没有日记</string>
+	<string name="diary_delete_title">删除这篇日记？</string>
+	<string name="diary_delete_message">此操作无法撤销。</string>
+	<string name="diary_comments_header">评论（%1$d）</string>
+	<string name="diary_visibility_private">仅自己可见</string>
+	<string name="diary_visibility_open">其他人可见</string>
+	<string name="diary_comment_author_ai">AI</string>
+	<string name="diary_comment_delete">删除评论</string>
+	<string name="diary_comment_delete_title">删除这条评论？</string>
+	<string name="diary_comment_delete_message">此操作无法撤销</string>
+	<string name="diary_api_missing">自动日记因未配置 API 暂停</string>
+	<!-- 日期格式 pattern（对齐 iOS DateFormatter.dateFormat 的 String(localized:) 值；zh 即 pattern 本身）。 -->
+	<!-- 日记重设计 R2 心情闭环：手选心情段 + MOOD 尾行输出指令（与 DiaryMoodLineParser 强耦合）。 -->
+	<string name="diary_prompt_mood_header">## 今日心情</string>
+	<string name="diary_prompt_mood_output">唯一例外：写完日记后，另起最后一行，严格按「MOOD: &lt;emoji&gt;」格式输出，从 😊 😌 🥰 😔 😤 😰 🤔 😴 🎉 😢 💪 🌈 中选一个最贴合这篇日记的 emoji；这一行是元数据，不属于日记内容。</string>
+	<string name="diary_fmt_section">M月d日 EEEE</string>
+	<string name="diary_fmt_detail">yyyy年M月d日 HH:mm</string>
+	<string name="diary_fmt_compact">M月d日 HH:mm</string>
+	<string name="diary_fmt_month_title">yyyy年M月</string>
+	<string name="diary_fmt_day_title">M月d日 EEEE</string>
+	<string name="diary_fmt_ymd">yyyy/M/d</string>
+	<!-- 日记重设计 R1（FABLE5_DIARY_REDESIGN_PROPOSAL）：票据日期 / 月分节 / 详情头。 -->
+	<string name="diary_fmt_day_number">dd</string>
+	<string name="diary_fmt_weekday">EEE</string>
+	<string name="diary_fmt_month_section">M月</string>
+	<string name="diary_fmt_month_section_year">yyyy年</string>
+	<string name="diary_fmt_detail_sub">M月 · EEE</string>
+	<!-- J4 心情邮票下缘小字日期（M·d·tnum）。 -->
+	<string name="diary_fmt_stamp">M·d</string>
+	<string name="diary_fab_compose">写一笔</string>
+	<string name="diary_reply_action">回复</string>
+	<string name="diary_reply_hint">回复 %1$s…</string>
+	<string name="diary_reply_send">发送</string>
+	<!-- R6-1 交换日记：给作者的顶层留言。 -->
+	<string name="diary_exchange_comment_action">给 TA 留言</string>
+	<string name="diary_exchange_comment_hint">对 %1$s 说点什么…</string>
+	<string name="diary_reactions_row">%1$d 位觉得暖</string>
+	<!-- R4 交换日记 UI：信封位/信笺卡/署名。 -->
+	<string name="diary_exchange_card_author">%1$s 的日记</string>
+	<string name="diary_exchange_signed">—— %1$s · 写于 %2$s</string>
+	<!-- U3 故人来信 (§6.3)：作者角色已删、但 TA 的交换日记留存。 -->
+	<string name="diary_exchange_orphan_label">故友的信</string>
+	<string name="diary_exchange_orphan_fallback_name">一位旧友</string>
+	<string name="diary_exchange_slot_unsealed">%1$s 的日记 · 未拆</string>
+	<string name="diary_exchange_slot_no_chat">今天你们还没说过话</string>
+	<string name="diary_exchange_slot_need_publish">发布你今天的日记，和 TA 交换</string>
+	<string name="diary_exchange_slot_ready">TA 今天也写了一篇</string>
+	<string name="diary_exchange_slot_cta_write">去写日记</string>
+	<string name="diary_exchange_slot_cta_open">拆开信</string>
+	<string name="diary_exchange_slot_loading">%1$s 正在把日记递给你…</string>
+	<string name="diary_exchange_slot_failed">没写成，再试一次</string>
+	<!-- R5 回顾与统计。 -->
+	<string name="diary_streak_days">%1$d 天</string>
+	<string name="a11y_diary_streak">连续记录 %1$d 天</string>
+	<string name="diary_menu_insights">回顾与统计</string>
+	<string name="diary_on_this_day">那年今天</string>
+	<string name="diary_stats_streak">连续记录</string>
+	<string name="diary_stats_count">已发布</string>
+	<string name="diary_stats_chars">总字数</string>
+	<string name="diary_stats_moods">心情分布</string>
+	<string name="diary_stats_none">还没有已发布的日记</string>
+	<!-- R5 月度回顾（提示词 + UI）。 -->
+	<string name="diary_review_intro">你是「%1$s」的日记助手。请根据下面这个月（%2$s）的日记摘录，为 TA 写一篇月度回顾。</string>
+	<string name="diary_review_req_letter">- 信式口吻，用第二人称「你」对 TA 说话，温柔、不评判</string>
+	<string name="diary_review_req_detail">- 引用这个月日记里的具体细节，让 TA 感到被认真读过</string>
+	<string name="diary_review_req_words">- 150-300 字</string>
+	<!-- 月度回顾专用「别露 AI」：信式/第二人称语境·不复用日记的 diary_prompt_no_ai（那条已改「像只给自己看的日记」会与信矛盾） -->
+	<string name="diary_review_req_no_ai">- 用自然、真诚、走心的话对 TA 说，就像一个真正了解 TA 的朋友</string>
+	<string name="diary_review_lines_header">## 这个月的日记摘录</string>
+	<string name="diary_review_mood_header">## 心情分布</string>
+	<string name="diary_review_user_message">请写这个月的回顾。</string>
+	<string name="diary_review_chip">月度回顾</string>
+	<string name="diary_review_generate">生成回顾</string>
+	<string name="diary_review_generating">回顾生成中…</string>
+	<string name="diary_review_retry">生成失败·重试</string>
+	<string name="diary_review_title">%1$s · 月度回顾</string>
+	<string name="diary_month_mood_header">本月心情</string>
+	<string name="diary_written_at">记于 %1$s</string>
+	<!-- P1-16 日记卡 a11y（日期锚句/「心情：」=iOS xcstrings 原文；其余超越） -->
+	<string name="a11y_diary_entry_date">%1$s的日记</string>
+	<string name="a11y_diary_mood">心情：%1$s</string>
+	<string name="a11y_diary_images">%1$d张图片</string>
+	<string name="a11y_diary_comments">%1$d条评论</string>
+	<string name="a11y_diary_reactions">%1$d个赞</string>
+	<string name="a11y_diary_open">查看日记详情</string>
+	<string name="a11y_diary_delete">删除日记</string>
+	<string name="a11y_diary_prev_month">上个月</string>
+	<string name="a11y_diary_next_month">下个月</string>
+	<string name="a11y_diary_day_has_entry">有日记</string>
+	<string name="a11y_diary_day_selected_has_entry">已选择，有日记</string>
+
+	<!-- P7.1.5 日记撰写页（M07）。心情标签逐字对齐 iOS ComposeDiaryView 的 12 个 MoodOption。 -->
+	<string name="diary_compose_title_new">写日记</string>
+	<string name="diary_compose_title_edit">编辑日记</string>
+	<string name="diary_compose_mood_header">今天的心情</string>
+	<string name="diary_compose_content_header">正文</string>
+	<string name="diary_compose_content_hint">写下今天的故事…</string>
+	<string name="diary_compose_ai_assist">AI 帮写</string>
+	<string name="diary_compose_ai_generating">生成中…</string>
+	<string name="diary_compose_image_header">配图</string>
+	<string name="diary_compose_add_image">添加</string>
+	<string name="diary_compose_visibility_header">谁可以看</string>
+	<string name="diary_compose_save">保存</string>
+	<string name="diary_compose_publish">发布</string>
+	<string name="diary_compose_save_draft">存为草稿</string>
+	<string name="diary_ai_no_api">未配置 API，无法生成日记</string>
+	<string name="diary_ai_generate_failed">生成失败，请稍后重试</string>
+	<string name="diary_compose_discard_title">放弃这篇日记？</string>
+	<string name="diary_compose_discard_confirm">放弃</string>
+	<string name="diary_compose_discard_keep">继续编辑</string>
+	<string name="diary_compose_remove_image">移除图片</string>
+	<!-- 日记编写页重设计 U1（契约 FABLE5_DIARY_COMPOSE_REDESIGN_PROPOSAL.md）：一页纸·底部行动条·AI 协作·每日引导语。 -->
+	<string name="diary_compose_record">记下</string>
+	<string name="diary_compose_save_draft_short">先存着</string>
+	<string name="diary_compose_ai_start">让 TA 帮你起个头</string>
+	<string name="diary_compose_ai_writing">TA 正在帮你写…</string>
+	<!-- J5「今天的素材」空态芯片 + 起笔模板句（zh/en 成对·零 LLM）。 -->
+	<string name="diary_chip_chat">和 %1$s 聊了聊</string>
+	<string name="diary_chip_meeting">去%1$s见了面</string>
+	<string name="diary_chip_meeting_generic">和 %1$s 见了面</string>
+	<string name="diary_chip_gift">收到一份礼物</string>
+	<string name="diary_chip_starter_chat">今天和%1$s聊了很多，最记得的是</string>
+	<string name="diary_chip_starter_meeting">今天和%1$s见了面，最难忘的是</string>
+	<string name="diary_chip_starter_gift">今天收到一份礼物，最想记下的是</string>
+	<!-- J6「说一段」语音落笔：转写中提示 + 失败三态（超时并入 empty）。 -->
+	<string name="diary_voice_transcribing">正在落笔…</string>
+	<string name="diary_voice_unavailable">语音输入暂不可用</string>
+	<string name="diary_voice_empty">没听清，再说一次？</string>
+	<string-array name="diary_compose_prompts">
+		<item>写点什么都好——这页只给你自己看。</item>
+		<item>今天，有什么想留下来？</item>
+		<item>不用写得好，写得真就够了。</item>
+		<item>此刻心里最上面的那件事，是什么？</item>
+		<item>那句没说出口的话，写在这里也行。</item>
+		<item>慢慢来，这里没有别人。</item>
+		<item>哪怕只有一句，也是今天的一页。</item>
+		<item>今天有没有一个瞬间，想再多待一会儿？</item>
+		<item>有点在意的、有点别扭的，都可以写。</item>
+		<item>今天，你想对自己说点什么？</item>
+		<item>记下来，日子才不会糊成一片。</item>
+		<item>就写给现在的自己。</item>
+	</string-array>
+	<string name="diary_mood_happy">开心</string>
+	<string name="diary_mood_calm">平静</string>
+	<string name="diary_mood_blissful">幸福</string>
+	<string name="diary_mood_sad">难过</string>
+	<string name="diary_mood_angry">生气</string>
+	<string name="diary_mood_anxious">焦虑</string>
+	<string name="diary_mood_thoughtful">思考</string>
+	<string name="diary_mood_tired">疲惫</string>
+	<string name="diary_mood_excited">兴奋</string>
+	<string name="diary_mood_heartbroken">伤心</string>
+	<string name="diary_mood_fulfilled">充实</string>
+	<string name="diary_mood_hopeful">期待</string>
+
+	<!-- P7.1.5 日记设置（M07）。对齐 iOS DiarySettingsView（宠物日记开关 → P8 略）。 -->
+	<string name="diary_settings_title">日记设置</string>
+	<string name="diary_settings_entry_subtitle">自动生成与 AI 评论</string>
+	<!-- 10.2f 线下见面设置入口 -->
+	<string name="immersive_settings_title">线下见面</string>
+	<string name="diary_settings_autogen_header">自动生成</string>
+	<string name="diary_settings_autogen_label">每日自动生成</string>
+	<string name="diary_settings_autogen_time">生成时间</string>
+	<string name="diary_settings_exchange_header">交换日记</string>
+	<string name="diary_settings_exchange_partner">笔友</string>
+	<string name="diary_settings_exchange_auto">自动（当天聊得最多）</string>
+	<string name="diary_settings_exchange_footer">发布你当天的日记，就能拆开 TA 写给这一天的日记。</string>
+	<string name="diary_settings_auto_publish_label">自动日记直接发布</string>
+	<string name="diary_settings_auto_publish_footer">开启后自动生成的日记直接发布、会收到角色评论；关闭则先存为草稿，由你润色后发布。</string>
+	<string name="diary_settings_pet_autogen_label">宠物日记自动生成</string>
+	<string name="diary_settings_autogen_footer">开启后，AI 会在每天设定的时间自动为你生成日记。</string>
+	<string name="diary_settings_interaction_header">AI 互动</string>
+	<string name="diary_settings_comment_label">允许 AI 角色评论</string>
+	<string name="diary_settings_comment_chars">可评论的角色</string>
+	<string name="diary_settings_comment_chars_all">全部</string>
+	<string name="diary_settings_comment_chars_count">%1$d 个</string>
+	<string name="diary_settings_comment_delay">评论延迟</string>
+	<string name="diary_settings_comment_delay_value">%1$d 分钟</string>
+	<string name="diary_settings_comment_footer">发布日记后，AI 角色会在设定的延迟后自动评论（仅「AI 好友可见」的日记）。</string>
+	<string name="diary_settings_chars_footer">不选则默认全部角色都可以评论。</string>
+
+	<!-- P7.2.3 朋友圈发帖 prompt（M06）。逐字对齐 iOS Localizable.xcstrings；无 zh-Hans 翻译的键回落英文基串（忠实 iOS String(localized:)）。%@ → %1$s。 -->
+	<string name="moment_post_you_are">你是「%1$s」。</string>
+	<string name="moment_post_personality">你的性格是：%1$s</string>
+	<string name="moment_post_character_setup">你的角色设定：%1$s</string>
+	<string name="moment_post_gender">Your gender: %1$s</string>
+	<string name="moment_post_occupation">Your occupation: %1$s</string>
+	<string name="moment_post_backstory">Your backstory: %1$s</string>
+	<string name="moment_post_speaking_style">Your speaking style: %1$s</string>
+	<string name="moment_post_catchphrases">Your catchphrases: %1$s</string>
+	<string name="moment_post_interests">Your interests: %1$s</string>
+	<string name="moment_post_hot_interests">Topics you\'ve been into lately: %1$s</string>
+	<string name="moment_post_trait_high">high %1$s</string>
+	<string name="moment_post_trait_low">low %1$s</string>
+	<string name="moment_post_traits">Your personality traits: %1$s</string>
+	<string name="moment_post_memories_header">你们的相处记忆：</string>
+	<!-- 14.4b 宠物状态注入（moments-logic-1） -->
+	<string name="moment_post_pet_status">你和朋友一起养了一只宠物：%1$s（%2$s，%3$s）。</string>
+	<string name="moment_post_pet_mention">你可以偶尔在动态里提到你的宠物。</string>
+	<string name="moment_post_user_posts_header">Here\'s what your friend has been posting recently for context:</string>
+	<string name="moment_post_user_posts_footer">（以上动态仅作背景参考——你现在要发的是一条属于你自己的全新动态，不是在回复这些动态，也不是在回复任何聊天消息。）</string>
+	<string name="moment_post_now_write">现在请你以自己的口吻发一条「朋友圈」动态。</string>
+	<string name="moment_post_requirements_header">要求：</string>
+	<string name="moment_post_req_content">- 内容可以是：感悟、日常分享、对最近和%s聊天的感想、你感兴趣的话题、心情等</string>
+	<string name="moment_post_req_style">- 风格要完全符合你的性格</string>
+	<string name="moment_post_req_word_count">- Plain text only, around %1$s words in the target language</string>
+	<string name="moment_post_req_natural">- 自然真实，像朋友发的朋友圈</string>
+	<string name="moment_post_req_no_ai">- 不要出现“作为AI”“作为语言模型”之类打破角色的话</string>
+	<string name="moment_post_req_emoji">- 可以适当用1-2个 emoji</string>
+	<string name="moment_post_req_no_repeat">- 不要与你最近发的内容重复。你最近发过：</string>
+	<string name="moment_post_output_only">只输出动态内容本身，不要任何额外说明。</string>
+	<string name="moment_post_user_message">请发一条朋友圈。</string>
+
+	<!-- P7.2.4 朋友圈评论 prompt（M06）。逐字对齐 iOS Localizable.xcstrings；无 zh-Hans 翻译键回落英文。性别/职业/背景/说话风格/口头禅/兴趣/要求标题复用 moment_post_*。 -->
+	<string name="moment_comment_intro">你是「%1$s」，性格：%2$s</string>
+	<string name="moment_comment_friend_posted">你的朋友「%1$s」发了一条朋友圈：</string>
+	<string name="moment_comment_emotion_tone">First, identify the emotional tone of this post (positive / neutral / negative), then match your reply tone to it. Lead with empathy and care for negative posts (sadness, stress, venting), share the joy for positive ones, keep it light and casual for everyday sharing. Do not crack jokes or tease when the post carries real weight.</string>
+	<string name="moment_comment_ai_ai">You and the post author are both friends of the same person (the user). You know each other through the user, so your relationship is like friends of a friend — friendly and casual, but not overly intimate. Adjust your comment tone based on your own personality.</string>
+	<string name="moment_comment_photos_blind">(This post includes %1$d photo(s), but you cannot see them. Comment naturally without describing photos.)</string>
+	<string name="moment_comment_photos_vision">(This post includes %1$d photo(s). You can see the first one attached below.)</string>
+	<string name="moment_comment_others_header">Other friends have already commented:</string>
+	<string name="moment_comment_others_react">You may naturally react to or build on their comments if it feels organic — agreeing, teasing, adding a related angle, or continuing the thread — just don\'t simply echo or rephrase what they already said.</string>
+	<string name="moment_comment_said_to_you">「%1$s」对你说：「%2$s」</string>
+	<string name="moment_comment_reply_instruction">请你回复这条评论。</string>
+	<string name="moment_comment_write_instruction">请你以自己的风格对这条动态写一条评论。</string>
+	<string name="moment_comment_req_personality">- 符合你的性格和说话方式</string>
+	<string name="moment_comment_req_concise">- 自然简短，15-60字</string>
+	<string name="moment_comment_req_friends">- 像朋友之间的真实互动</string>
+	<string name="moment_comment_req_no_ai">- 不要出现“作为AI”之类打破角色的话</string>
+	<string name="moment_comment_output_only">只输出评论内容本身，不要任何额外说明。</string>
+	<string name="moment_comment_user_message">请写评论。</string>
+	<string name="moment_comment_friend_fallback">朋友</string>
+	<string name="moment_comment_sched_current">You are currently: %1$s</string>
+	<string name="moment_comment_sched_at"> (at %1$s)</string>
+	<string name="moment_comment_sched_feeling">, feeling: %1$s</string>
+	<string name="moment_comment_sched_suffix">. You can naturally reference what you\'re doing when commenting, but don\'t force it.</string>
+	<!-- 互动通知 preview：AI 回 AI 的评论通知加「回复 XX：」前缀（iOS 该键仅 zh-Hans，安卓补 en 正常本地化）。 -->
+	<string name="moment_notif_comment_reply_prefix">回复 %1$s：%2$s</string>
+	<!-- 朋友圈 UI（7.2.7）：帖子卡片 / 图片网格 -->
+	<string name="moment_author_me">我</string>
+	<string name="moment_author_ai">AI</string>
+	<string name="moment_view_all_comments">查看全部 %1$d 条评论</string>
+	<string name="moment_like">点赞</string>
+	<string name="moment_unlike">取消点赞</string>
+	<string name="moment_comments_label">评论</string>
+	<!-- P1-21 朋友圈帖卡 a11y（点赞行 stateDescription + 整卡动作标签；iOS :206 label 已由 moment_like/unlike 1:1） -->
+	<string name="a11y_moment_liked">已点赞</string>
+	<string name="a11y_moment_not_liked">未点赞</string>
+	<string name="a11y_moment_open_post">查看动态详情</string>
+	<string name="a11y_moment_post_actions">更多操作</string>
+	<string name="a11y_moment_open_author">查看 TA 的动态</string>
+	<string name="moment_image_content_desc">动态配图，第 %1$d 张，共 %2$d 张</string>
+	<string name="moment_image_single_desc">动态配图</string>
+	<!-- 相对时间（朋友圈卡片头部，逐字对齐 iOS relativeTimeString compact）。共享基建，后续聊天/联系人列表复用。 -->
+	<string name="relative_time_just_now">刚刚</string>
+	<string name="relative_time_minutes_ago">%1$d 分钟前</string>
+	<string name="relative_time_hours_ago">%1$d 小时前</string>
+	<string name="relative_time_yesterday">昨天 %1$s</string>
+	<!-- 聊天列表页（13.5 chat-ui-11，对齐 iOS ChatListView/ChatListRowView/ArchivedConversationsView）。 -->
+	<string name="chat_list_search_hint">搜索对话</string>
+	<string name="chat_list_search_clear">清除搜索</string>
+	<string name="chat_list_empty_title">还没有对话</string>
+	<string name="chat_list_empty_subtitle">开始一段新的聊天吧</string>
+	<string name="chat_list_empty_cta">新建对话</string>
+	<string name="chat_list_section_pinned">置顶</string>
+	<string name="chat_list_archived_entry">已归档对话</string>
+	<!-- 用户自己发的消息在列表预览里的前缀（注意冒号后有空格，引号保留尾随空格；1:1 iOS "你: "）。 -->
+	<string name="chat_list_you_prefix">"你: "</string>
+	<string name="chat_list_no_message">暂无消息</string>
+	<string name="chat_list_message_unavailable">消息内容暂不可用</string>
+	<string name="chat_list_action_pin">置顶</string>
+	<string name="chat_list_action_unpin">取消置顶</string>
+	<string name="chat_list_action_archive">归档</string>
+	<string name="chat_list_action_unarchive">取消归档</string>
+	<string name="chat_list_delete_title">删除这个对话？</string>
+	<string name="chat_list_delete_message">该对话的所有消息和语音数据都会被删除，且无法恢复。</string>
+	<string name="chat_list_delete_confirm">删除对话</string>
+	<string name="chat_list_unread_badge_desc">未读消息 %1$d 条</string>
+	<string name="chat_list_pinned_desc">已置顶</string>
+	<!-- Fable-5 聊天「+」发起聊天角色选择器（过审 2026-06-19）。「新建角色」行复用 contacts_create。 -->
+	<string name="chat_picker_title">发起聊天</string>
+	<string name="chat_picker_empty_title">还没有角色</string>
+	<string name="chat_picker_empty_subtitle">先创建一个角色，就能开始聊天</string>
+	<!-- Fable-5 聊天屏重设计：输入占位符资源化（清挂账②·值变更须同步 baselineprofile Journeys.kt 哨兵）+ 顶栏档案入口标签。 -->
+	<string name="chat_input_placeholder">说点什么…</string>
+	<string name="chat_open_profile">查看角色资料</string>
+	<!-- B5 列表内联快捷回复面板（安卓超越 iOS）。 -->
+	<string name="chat_quick_reply_hint">说点什么…</string>
+	<string name="chat_quick_reply_send">发送</string>
+	<string name="chat_archived_title">已归档对话</string>
+	<string name="chat_archived_empty_title">没有已归档的对话</string>
+	<string name="chat_archived_empty_desc">归档的对话会显示在这里</string>
+	<!-- 朋友圈 UI（7.2.7）：列表页 / 圈子枢纽 -->
+	<string name="moment_nav_title">圈子</string>
+	<string name="moment_publish">发布动态</string>
+	<string name="moment_empty_title">朋友圈还没有动态</string>
+	<string name="moment_empty_desc">发布第一条动态，AI 好友们会来互动</string>
+	<string name="moment_empty_action">发布动态</string>
+	<string name="moment_new_messages">%1$d 条新消息</string>
+	<string name="moment_delete_title">删除这条动态？</string>
+	<string name="moment_delete_message">动态将从你的朋友圈移除</string>
+	<string name="moment_menu_delete">删除动态</string>
+	<string name="moment_refresh_new">%1$d 条新动态</string>
+	<string name="moment_refresh_none">暂无新动态</string>
+	<string name="moment_refresh_failed">刷新失败，请检查网络后重试</string>
+	<string name="moment_api_missing">未配置 API，自动发布动态已暂停。</string>
+	<string name="moment_detail_title">动态详情</string>
+	<string name="moment_notifications_title">互动通知</string>
+	<!-- W11 R1 🟡-1：动态页顶栏标题（与底栏「动态」Tab 一致·契约 §16）；「圈子」moment_nav_title 降为动态条标题 -->
+	<string name="moment_hub_title">动态</string>
+	<string name="moment_hub_circle_subtitle">看看大家的新动态</string>
+	<string name="moment_hub_empty_preview">还没有动态，快来发第一条吧</string>
+	<string name="moment_hub_diary">日记</string>
+	<string name="moment_hub_diary_desc">记录每一天的故事</string>
+	<!-- diary-1：日记未读角标（评论数）。1:1 iOS 文案 "N new"。 -->
+	<string name="diary_unread_badge">%1$d new</string>
+	<string name="moment_hub_story">故事</string>
+	<string name="moment_hub_story_desc">你的 AI 连载小说</string>
+
+	<!-- 故事 UI（P11 · 11.1h）。状态名/动作为用户可见 UI 文案，1:1 iOS StoryStatusValue.displayName / 各视图字面量。 -->
+	<string name="story_nav_title">故事</string>
+	<string name="story_empty_title">还没有故事</string>
+	<string name="story_empty_subtitle">创建你的第一部吧</string>
+	<string name="story_create_new">创建新故事</string>
+	<string name="story_shelf_subtitle">和你的角色，一章一章写下去</string>
+	<string name="story_new_story_title">开新故事</string>
+	<string name="story_new_story_subtitle">从 12 套模板里挑一个，三步开书</string>
+	<!-- ST7b 模板墙 + 开书 sheet -->
+	<string name="story_wall_subtitle">挑一套喜欢的开始 · 也可以完全自己写</string>
+	<string name="story_wall_diy_title">自己从头写</string>
+	<string name="story_wall_diy_subtitle">题材、文风、世界观全都你说了算</string>
+	<string name="story_sheet_cast_label">谁来主演</string>
+	<string name="story_sheet_add_support">加配角</string>
+	<string name="story_sheet_join_title">我也入场</string>
+	<string name="story_sheet_join_subtitle">以「你」的身份走进故事；关掉则以旁观视角阅读</string>
+	<string name="story_sheet_start">开始连载</string>
+	<string name="story_sheet_tweak">改一改再开 ›</string>
+	<string name="story_sheet_no_chars">还没有角色，开启「我也入场」由你出演</string>
+	<string name="story_sheet_view_second">以「你」的视角</string>
+	<string name="story_sheet_view_first">以「我」的视角</string>
+	<string name="story_sheet_view_third">旁观视角</string>
+	<string name="story_sheet_head_meta">%1$s · %2$s · %3$s</string>
+	<string name="story_archive_header">档案</string>
+	<string name="story_archive_count">已完结 %1$d</string>
+	<string name="story_archive_item">%1$d 话 · %2$s</string>
+	<string name="story_ending_short_open">开放式</string>
+	<string name="story_ending_short_ai">AI 结局</string>
+	<string name="story_ending_short_custom">自定义结局</string>
+	<string name="story_ending_short_natural">全书完</string>
+	<!-- ST8 结局档案 + 分享导出 -->
+	<string name="story_archive_ending_open">✦ 开放式结局</string>
+	<string name="story_archive_ending_ai">✦ AI 结局</string>
+	<string name="story_archive_ending_custom">✦ 自定义结局</string>
+	<string name="story_archive_ending_natural">✦ 全书完</string>
+	<string name="story_archive_footprint">%1$d 话 · %2$d 次选择 · %3$d 天</string>
+	<string name="story_archive_date_md">%1$d 月 %2$d 日</string>
+	<string name="story_archive_dates">始于 %1$s · 完结于 %2$s</string>
+	<string name="story_archive_quote">「%1$s」</string>
+	<string name="story_archive_share">✦ 生成分享长图</string>
+	<string name="story_archive_export_txt">导出全文 · .txt</string>
+	<string name="story_share_footprint">%1$d 话 · %2$d 次选择 · 一段写了 %3$d 天的故事</string>
+	<string name="story_share_signature">AI Pocket Chat · 和 TA 一起写的故事</string>
+	<string name="story_share_failed">分享图生成失败，请重试</string>
+	<string name="story_export_chapter_header">第 %1$d 话 · %2$s</string>
+	<string name="story_export_choice_prefix">▶ 你的选择：%1$s</string>
+	<string name="story_export_saved">已导出全文</string>
+	<string name="story_archive_view_all">全部</string>
+	<string name="story_archive_all_title">结局档案</string>
+	<string name="story_archive_all_count">%1$d 部已完结</string>
+	<string name="story_status_serializing">连载中</string>
+	<string name="story_status_waiting_choice">等待选择</string>
+	<string name="story_status_completed">已完结</string>
+	<string name="story_status_paused">已暂停</string>
+	<string name="story_status_generating">生成中</string>
+	<string name="story_status_failed">生成失败</string>
+	<string name="story_action_delete">删除</string>
+	<string name="story_menu_pause">暂停连载</string>
+	<string name="story_menu_resume">恢复连载</string>
+	<string name="story_menu_settings">查看设定</string>
+	<string name="story_menu_delete">删除故事</string>
+	<string name="story_menu_archive">完结归档</string>
+	<string name="story_archive_confirm_title">放入档案？</string>
+	<string name="story_archive_confirm_msg">《%1$s》将标记为完结，收进书架的档案分组。以后想继续写，在故事设定页点「续写这个故事」即可。</string>
+	<string name="story_archive_confirm_action">放入档案</string>
+	<string name="story_archived_toast">已放入档案</string>
+	<string name="story_missing_toast">这本书已被删除</string>
+	<string name="story_archive_busy_toast">正在生成中，稍后再试</string>
+	<!-- 卷二 终章弧「从容收尾」文案族（图纸 §4.4·样图 story_finale_arc_mockup 四画面） -->
+	<string name="story_finale_planned_toast">收尾计划已定，接下来几章会慢慢收束</string>
+	<string name="story_finale_cancelled_toast">已取消收尾计划</string>
+	<string name="story_finale_pill">准备收尾</string>
+	<string name="story_finale_chip">收尾中 · 本弧第 %1$d/%2$d 章</string>
+	<string name="story_finale_cancel">取消收尾</string>
+	<string name="story_finale_cancel_confirm">取消收尾计划？下一章起回到正常连载。</string>
+	<string name="story_finale_sheet_title">为这个故事收尾</string>
+	<string name="story_finale_option_graceful">从容收尾</string>
+	<string name="story_finale_option_graceful_desc">接下来用 3-5 章慢慢收：伏笔一一回收、感情线落定，最后一章写一个加长的大结局。</string>
+	<string name="story_finale_option_immediate">立即结局</string>
+	<string name="story_finale_option_immediate_desc">下一章直接写结局章（一章收完）。</string>
+	<string name="story_ending_suggest_graceful">从容收尾（再写几章，把伏笔一一收好）</string>
+	<!-- ST11 失败卡结局意图提示行（§4.4）：失败不再清结局意图，告知重试仍写结局 -->
+	<string name="story_retry_ending_hint">上次在写结局章，重试将继续完成结局</string>
+	<!-- ST11 章末推进区（§4.1）：无选项末章也有方向盘 -->
+	<string name="story_continue_header">接下来</string>
+	<string name="story_continue_flow">让故事自然发展</string>
+	<!-- 已存走向态 B（图纸 2026-08-06 §4.6）：走向卡 + 主胶囊三模式文案 -->
+	<string name="story_continue_direction_title">你的走向</string>
+	<string name="story_continue_direction_tag">已保存 · 待生成</string>
+	<string name="story_continue_by_direction">按走向继续写</string>
+	<string name="story_continue_next_chapter">继续写下一章</string>
+	<!-- ST11 建议完结卡（§4.2）：AI 自标结局降级为建议，完结由用户盖章 -->
+	<string name="story_ending_suggest_title">AI 觉得，故事可以在这里画上句号</string>
+	<string name="story_ending_suggest_body">看完这一章，由你决定——就此完结收进档案，或者当它没说，继续写下去。</string>
+	<string name="story_ending_suggest_finish">就此完结</string>
+	<string name="story_ending_suggest_continue">还想继续写</string>
+	<!-- ST11 档案救济（§4.5）：存量已完结书请回在读区 -->
+	<string name="story_archive_continue_writing">继续写这个故事</string>
+	<string name="story_continue_writing_toast">已回到连载，正在写下一章</string>
+	<string name="story_quick_regenerate">重新生成</string>
+	<string name="story_quick_generating">生成中…</string>
+	<string name="story_quick_make_choice">去做选择 · 第%1$d章</string>
+	<string name="story_quick_continue">继续阅读 · 第%1$d章</string>
+	<string name="story_quick_read_latest">阅读最新章节</string>
+	<string name="story_detail_chapter">%1$s · 第%2$d章 · %3$s</string>
+	<string name="story_detail_no_chapter">%1$s · 尚未生成章节</string>
+	<string name="story_detail_planned">%1$s · 计划 %2$d 章</string>
+	<!-- 章节列表（11.1h-3） -->
+	<!-- ST7c 章节列表 = 时间线 -->
+	<string name="story_chapter_nav_title">章节</string>
+	<string name="story_chapter_head_meta">%1$s · 已读 %2$d 话 · %3$d 次选择</string>
+	<string name="story_chapter_ep">第 %1$d 话</string>
+	<string name="story_chapter_new_badge">新</string>
+	<string name="story_chapter_choice_echo">▶ 当时你选了：%1$s</string>
+	<string name="story_empty_chapter_title">还没有章节</string>
+	<string name="story_empty_failed">生成失败，请点击重试。</string>
+	<string name="story_empty_waiting">正在等待第一章生成，或稍后再回来查看。</string>
+	<string name="story_unlocked">已解锁</string>
+	<string name="story_unlock_in">🔒 %1$s后解锁</string>
+	<string name="story_remaining_hm">%1$d小时%2$d分</string>
+	<string name="story_remaining_m">%1$d分</string>
+	<!-- 阅读器 UI（11.1i）：选择分支 / 反悔窗口 / 自由输入 -->
+	<string name="story_choice_header">你的回应</string>
+	<string name="story_choice_prompt_second">你要怎么选择？</string>
+	<string name="story_choice_prompt_first_role">%1$s会怎么做？</string>
+	<string name="story_choice_prompt_first">你会怎么做？</string>
+	<string name="story_choice_prompt_third_role">接下来%1$s会怎么做？</string>
+	<string name="story_choice_prompt_third">故事将如何发展？</string>
+	<string name="story_choice_free_input">自由输入…</string>
+	<string name="story_choice_feedback">已选择：</string>
+	<string name="story_choice_feedback_role">%1$s选择了：</string>
+	<string name="story_choice_pending">已选择：%1$s</string>
+	<string name="story_choice_undo_short">撤销</string>
+	<string name="story_choice_undo_a11y">撤销选择，剩余 %1$d 秒</string>
+	<string name="story_choice_option_a11y">选择：%1$s</string>
+	<string name="story_custom_choice_title">自由输入</string>
+	<string name="story_custom_choice_hint_first_role">描述%1$s接下来的行动或反应。</string>
+	<string name="story_custom_choice_hint_default">你可以输入任何会影响剧情发展的内容。</string>
+	<string name="story_custom_choice_hint_third_role">描述你希望故事如何发展。</string>
+	<string name="story_custom_choice_hint_third">描述你希望接下来发生什么。</string>
+	<string name="story_custom_choice_placeholder">比如：犹豫片刻，鼓起勇气走过去搭话。</string>
+	<string name="story_custom_choice_footer">想到多少写多少，不限字数</string>
+	<string name="story_custom_choice_count">%1$d 字</string>
+	<!-- 阅读器 UI（11.1i）：封面 / 导航 / 菜单 / 生成中 / 锁态 -->
+	<string name="story_reader_start_reading">开始阅读</string>
+	<string name="story_reader_cover_chapter">第 %1$s 章</string>
+	<string name="story_reader_chapter_n">第%1$d章</string>
+	<string name="story_reader_untitled">未命名章节</string>
+	<string name="story_reader_prev">上一章</string>
+	<string name="story_reader_next">下一章</string>
+	<string name="story_reader_continue_arc">开启续篇</string>
+	<string name="story_reader_progress_time">%1$d%% · 还剩 %2$d 分钟</string>
+	<string name="story_reader_progress_pct">%1$d%%</string>
+	<string name="story_reader_menu">故事菜单</string>
+	<string name="story_reader_menu_animations">阅读动画</string>
+	<string name="story_reader_menu_animations_hint">段落浮现 · 动态文字</string>
+	<!-- P1-6 字号分档（安卓超越，iOS 无字号调节） -->
+	<string name="story_reader_menu_font_size">字号</string>
+	<string name="story_reader_font_size_small">小</string>
+	<string name="story_reader_font_size_standard">标准</string>
+	<string name="story_reader_font_size_large">大</string>
+	<string name="story_reader_font_size_xlarge">特大</string>
+	<string name="story_reader_generating">正在创作第%1$d章…</string>
+	<string name="story_reader_go_chat">去聊天，好了通知我</string>
+	<!-- P1-20 a11y（措辞=iOS accessibilityLabel：Helpers.swift:168 / Choices.swift:74+:107） -->
+	<string name="story_reader_go_chat_a11y">去聊天，生成完成后通知我</string>
+	<string name="story_choice_free_input_a11y">输入自定义选择</string>
+	<string name="story_reader_locked_hint">到达解锁时间后即可阅读</string>
+	<!-- 阅读器 UI（11.1i）：alert / dialog -->
+	<string name="story_alert_next_title">要立刻看下一章吗？</string>
+	<string name="story_alert_next_msg">你的选择已经保存——稍后回到章末推进区随时能继续，开着追更也会自动更新。</string>
+	<string name="story_alert_next_later">稍后</string>
+	<string name="story_alert_next_now">立即生成</string>
+	<string name="story_alert_error_title">提示</string>
+	<string name="story_alert_error_retry">重试</string>
+	<string name="story_alert_continue_title">继续推进</string>
+	<string name="story_alert_continue_msg">将为你生成下一章内容，可能需要等待 30-90 秒。</string>
+	<string name="story_alert_continue_pending_msg">当前章节还有未完成的选择，继续推进将跳过该选择。确定要继续吗？</string>
+	<string name="story_alert_continue_confirm">生成下一章</string>
+	<string name="story_ending_picker_title">选择结局类型</string>
+	<string name="story_ending_picker_msg">AI 将为你创作最终章，这个操作不可撤销。</string>
+	<string name="story_ending_open">开放式结局</string>
+	<string name="story_ending_ai">AI 自由发挥</string>
+	<string name="story_ending_custom">我来指定结局</string>
+	<string name="story_ending_custom_title">描述你想要的结局</string>
+	<string name="story_ending_custom_msg">请简要描述你希望的结局方向，AI 会据此创作最终章。</string>
+	<string name="story_ending_custom_hint">比如：希望男女主最终在一起</string>
+	<string name="story_ending_pending_title">当前章有未做的选择</string>
+	<string name="story_ending_pending_msg">最新章节还有未完成的选择。你可以先去做选择，或者跳过直接进入结局。</string>
+	<string name="story_ending_pending_go">带我去做选择</string>
+	<string name="story_ending_pending_skip">跳过选择，直接写结局</string>
+	<string name="story_rewrite_title">重写本章</string>
+	<string name="story_rewrite_msg">重写会覆盖当前章节内容，确定吗？</string>
+	<string name="story_rewrite_direct">直接重写</string>
+	<string name="story_rewrite_with_instruction">补充指令后重写</string>
+	<string name="story_rewrite_instruction_title">补充重写指令</string>
+	<string name="story_rewrite_instruction_msg">描述你希望这次重写有什么不同。</string>
+	<string name="story_rewrite_instruction_hint">比如：写得更紧张一点</string>
+	<string name="story_rewrite_instruction_confirm">确认重写</string>
+	<!-- 「上一版」单槽（C3·图纸三 §4） -->
+	<string name="story_prev_draft_title">上一版</string>
+	<string name="story_prev_draft_sub">重写前保留的版本，可随时换回</string>
+	<string name="story_prev_draft_restore">换回这一版</string>
+	<string name="story_prev_draft_confirm_title">换回上一版？</string>
+	<string name="story_prev_draft_confirm_msg">当前版本会存进同一个槽位，随时可以再换回来。恢复只更换正文与选项，故事记忆仍以最新一次生成为准。</string>
+	<string name="story_prev_draft_confirm_action">换回</string>
+	<string name="story_prev_draft_swapped_toast">已换回，可再次切换</string>
+	<!-- 本章小结可编辑（C4）+ 角色现状只读（D5）·图纸三 §4 画面③ -->
+	<string name="story_reader_menu_summary">本章小结</string>
+	<string name="story_summary_edit_msg">AI 靠它记住本章剧情来写后面的章节；写歪的一章，改这里就能纠偏。</string>
+	<string name="story_summary_edit_hint">用一两句话概括这一章发生了什么</string>
+	<string name="story_reader_menu_states">角色现状</string>
+	<string name="story_states_empty">还没有角色状态记录，生成一章后自动出现</string>
+	<!-- 故事二期卷三 §4.2：本章操作行 + 浮层三动作 -->
+	<string name="story_chapter_actions_desc">本章操作</string>
+	<string name="story_chapter_action_rewrite">这章换一版</string>
+	<string name="story_chapter_action_prev_draft">看上一版</string>
+	<string name="story_chapter_action_summary">编辑本章小结</string>
+	<!-- 故事二期卷三 §4.3：三档快评行 -->
+	<string name="story_rating_ask">这一章怎么样？</string>
+	<string name="story_rating_done">已记下，下一章会参考</string>
+	<string name="story_rating_good">爽</string>
+	<string name="story_rating_ok">还行</string>
+	<string name="story_rating_bad">不行</string>
+	<!-- 故事二期卷三 §4.4：导演台 -->
+	<string name="story_director_title">导演下一章</string>
+	<string name="story_director_sub">走向管写什么，节拍管怎么展开——都可留空</string>
+	<string name="story_director_flow_label">剧情走向（可留空）</string>
+	<string name="story_director_flow_hint">比如：让她主动约你去看那场雨。</string>
+	<string name="story_director_beats_label">本章节拍</string>
+	<string name="story_director_beats_hint">比如：先铺垫两人的试探，重点场景放在后半章，结尾留一个钩子。</string>
+	<string name="story_director_beats_hint2">底稿是 AI 预排的；改过即最高优先。清空保存 = 本章自由发挥。</string>
+	<string name="story_director_restore_ai">恢复 AI 预排</string>
+	<!-- 已存走向态 B（图纸 2026-08-06 §4.6）：导演台编辑模式的撤回钮 + 确认弹窗 + 覆盖提示 -->
+	<string name="story_director_withdraw">撤回走向</string>
+	<string name="story_director_withdraw_title">撤回这条走向？</string>
+	<string name="story_director_withdraw_body">撤回后这条走向不再生效：本章有选项则重新开放选择，否则下一章由 AI 自由发挥。</string>
+	<string name="story_director_withdraw_confirm">撤回</string>
+	<string name="story_director_flow_saved_hint">保存会覆盖已存走向；要取消走向请点「撤回走向」。</string>
+	<!-- 故事二期卷三 §4.5/§4.6：推进区入口改指导演台 + 菜单「书页」首行 -->
+	<string name="story_continue_director_hint">导演下一章</string>
+	<string name="story_reader_menu_book_hub">书页</string>
+	<!-- 故事创建 UI（11.1j） -->
+	<string name="story_create_title">创建故事</string>
+	<string name="story_create_genre_section">快速创建</string>
+	<string name="story_create_select_genre">选择故事类型</string>
+	<string name="story_create_custom">自定义</string>
+	<string name="story_create_custom_genre_hint">自定义类型名（如：修仙、穿越、克苏鲁）</string>
+	<string name="story_create_custom_prompt_section">自定义提示词</string>
+	<string name="story_create_custom_prompt_footer">选择「参考模板」可快速填充现有类型的提示词，在此基础上修改。</string>
+	<string name="story_create_reference_template">参考模板</string>
+	<string name="story_create_reference_none">无</string>
+	<string name="story_create_char_section">选择参演角色</string>
+	<string name="story_create_char_footer">至少选择一个角色、开启「我也参演」，或添加一个故事专属角色。</string>
+	<string name="story_create_no_chars">当前还没有 AI 角色，可以先只让「我」参演，或稍后从联系人中添加角色。</string>
+	<string name="story_create_include_user">我也参演</string>
+	<string name="story_create_user_role_name">用户角色名</string>
+	<string name="story_create_persona_source">人设来源</string>
+	<string name="story_create_persona_profile">使用我的人设</string>
+	<string name="story_create_persona_custom">自定义人设</string>
+	<string name="story_create_persona_empty">你还没有填写个人简介，建议去「我」页面补充，或切换为自定义人设。</string>
+	<string name="story_create_persona_use">将使用「%1$s」的个人简介作为故事中的人设。</string>
+	<string name="story_create_edit_persona">编辑自定义人设</string>
+	<string name="story_create_filled">已填写</string>
+	<string name="story_create_unfilled">未填写</string>
+	<string name="story_create_char_desc_hint">额外人设描述（可选）</string>
+	<string name="story_create_advanced">高级设置</string>
+	<string name="story_create_narrative">叙事人称</string>
+	<string name="story_create_style">文风偏好</string>
+	<string name="story_create_style_overridden_hint">已填写「写作身份」，文风偏好不再发给 AI，笔调完全由你写的身份决定</string>
+	<string name="story_create_chapter_length">章节长度</string>
+	<string name="story_create_chat_influence">聊天影响权重</string>
+	<string name="story_create_start">开始创作</string>
+	<string name="story_create_footer">保存设定后会立刻生成第一章。</string>
+	<string name="story_create_failed">创建失败</string>
+	<string name="story_role_protagonist">主角</string>
+	<string name="story_role_supporting">配角</string>
+	<string name="story_role_antagonist">反派</string>
+	<string name="story_user_role_hint_protagonist">故事围绕你展开，你是核心推动者</string>
+	<string name="story_user_role_hint_antagonist">你是故事中的对立面，制造冲突和张力</string>
+	<string name="story_user_role_hint_supporting">你参与故事但不是核心，辅助推动剧情</string>
+	<string name="story_narrative_first">第一人称（我）</string>
+	<string name="story_narrative_second">第二人称（你）</string>
+	<string name="story_narrative_third">第三人称</string>
+	<string name="story_length_short">短章约500字</string>
+	<string name="story_length_medium">中章约1500字</string>
+	<string name="story_length_long">长章约3000字</string>
+	<string name="story_length_extra_long">超长章约5000字</string>
+	<string name="story_influence_none">无影响</string>
+	<string name="story_influence_light">轻度</string>
+	<string name="story_influence_medium">中度</string>
+	<string name="story_influence_heavy">重度</string>
+	<string name="story_influence_none_detail">完全隔离聊天记录，只按故事设定、前情和故事内选择推进。</string>
+	<string name="story_influence_light_detail">只参考最近聊天话题和语气细节，不改变主线、关键关系和结局。</string>
+	<string name="story_influence_medium_detail">会参考关系状态、长期记忆和近期互动，影响角色态度与部分剧情推进。</string>
+	<string name="story_influence_heavy_detail">会综合关系、情绪、成长和共同记忆，明显影响支线，且可作用到部分关键剧情节点。</string>
+	<string name="story_field_world_title">世界观描述</string>
+	<string name="story_field_world_placeholder">描述故事发生的世界背景、规则体系、地理环境等…</string>
+	<string name="story_field_plot_title">剧情方向</string>
+	<string name="story_field_plot_placeholder">描述你期望的故事发展方向、关键转折、结局走向等…</string>
+	<string name="story_field_genre_tech_title">类型核心技法</string>
+	<string name="story_field_genre_tech_placeholder">写「这类故事该怎么推进」的大段命令都可以。例如：\n【武侠核心技法】\n- 恩怨与门派冲突驱动主线，每章至少推进一条恩怨线\n- 冲突围绕武功高下与江湖规矩，不引入都市元素\n- 新角色登场必须服务主线恩怨</string>
+	<string name="story_field_genre_tech_subtitle">用大白话告诉 AI 这类故事的推进方式与基调。不填也没关系：系统会按类型名自动生成一段基础约束；选择参考模板可自动填充</string>
+	<string name="story_field_writer_title">写作身份（可选）</string>
+	<string name="story_field_writer_placeholder">例如：你是一位修仙小说大师，精通洪荒流、凡人流…</string>
+	<string name="story_field_writer_subtitle">告诉 AI 扮演什么风格的作家，不填则使用「文风偏好」的默认身份</string>
+	<string name="story_field_rules_title">通用写作规则（可选）</string>
+	<string name="story_field_rules_placeholder">写「文字风格、用词规范」类的命令。例如：\n- 语言轻快，多用短句\n- 不要华丽辞藻，对话占比要高\n- 不要出现现代网络用语</string>
+	<string name="story_field_rules_subtitle">文字风格与用词规范写这里，填了会取代默认写作铁律（防 AI 味的禁词底线仍会保留）</string>
+	<string name="story_field_persona_title">自定义人设</string>
+	<string name="story_field_persona_placeholder">描述你在故事中的形象，如外貌、性格、特殊能力等…</string>
+	<string name="story_editor_fill_default">填入默认</string>
+	<string name="story_editor_count_limited">%1$d/%2$d</string>
+	<!-- 故事设定 UI（11.1j） -->
+	<string name="story_settings_save_failed">保存失败</string>
+	<string name="story_settings_field_length">章节长度</string>
+	<string name="story_settings_field_influence">聊天影响</string>
+	<string name="story_settings_mode_chase">追更模式</string>
+	<string name="story_settings_unlock_time">每日解锁时间</string>
+	<!-- 卷三 UI 四件（温度入口 / 节奏偏好 / 上回说到 / 按弧分组）·图纸 §4.5 -->
+	<string name="story_temp_label">创作温度 · 全局</string>
+	<string name="story_temp_thinking_hint">当前故事创作用的是思考模型：温度对它不生效，换普通模型即生效。</string>
+	<!-- 文字忌口（2026-07-30·全局 + 单本书可覆盖）·图纸 §9-C -->
+	<string name="story_banned_row">文字忌口 · 全局</string>
+	<string name="story_create_pacing">节奏偏好（选填）</string>
+	<string name="story_create_pacing_hint">例如：慢热，多写日常；或「快节奏，别拖」</string>
+	<string name="story_recap_title">◑ 上回说到</string>
+	<string name="story_recap_collapse">收起</string>
+	<string name="story_recap_chip">◑ 上回说到 ›</string>
+	<string name="story_arc_section_format">第 %1$d–%2$d 章 · %3$s</string>
+	<string name="story_arc_section_ongoing_format">第 %1$d 章起 · %2$s · 进行中</string>
+	<!-- 进行中弧无主题时的退化文案（图纸 §11 D-4：避免「· 进行中 · 进行中」重复） -->
+	<string name="story_arc_section_ongoing_plain">第 %1$d 章起 · 进行中</string>
+	<string name="story_settings_chase_sub">每天定时解锁新章，像追一部连载</string>
+	<string name="story_settings_world_title">世界观设定参与生成</string>
+	<string name="story_settings_world_sub">把绑定角色世界书里的设定写进每一章</string>
+	<string name="story_settings_reminder">更新提醒</string>
+	<string name="story_settings_reminder_on">仅有新章时</string>
+	<string name="story_settings_summary_empty">暂无摘要，下一章生成后自动填充</string>
+	<string name="story_settings_arc_title">当前剧情弧线</string>
+	<string name="story_settings_arc_empty">暂无弧线信息</string>
+	<string name="story_settings_states_empty">暂无角色状态</string>
+	<string name="story_settings_threads_empty">暂无伏笔</string>
+	<string name="story_settings_bible_empty">暂无记录，章节生成后自动累积</string>
+	<string name="story_settings_roles">参演角色</string>
+	<string name="story_settings_no_roles">暂无角色</string>
+	<string name="story_settings_role_user_suffix"> · 用户角色</string>
+	<string name="story_settings_continue">续写这个故事</string>
+	<string name="story_settings_restart">重新开始新故事</string>
+	<string name="story_settings_resume">恢复连载</string>
+	<string name="story_settings_ops_footer_completed">续写会把状态改回连载中；重开会复制当前设定并创建一部新故事，原故事保留。</string>
+	<string name="story_settings_ops_footer_paused">恢复后会重新参与自动更新。</string>
+	<!-- 故事设定页「创作设定」组（图纸二 D2·2026-08-01 过审） -->
+	<string name="story_settings_genre_row">题材</string>
+	<string name="story_settings_style_row">文风</string>
+	<string name="story_settings_person_row">叙事人称</string>
+	<string name="story_settings_world_row">世界观</string>
+	<string name="story_settings_plot_row">剧情方向</string>
+	<string name="story_settings_genre_sub">常用题材：%1$s；也可以自己写一个</string>
+	<string name="story_settings_genre_placeholder">给这本书写一个题材，比如「都市异能」</string>
+	<string name="story_settings_creative_footer">这些设定喂给 AI 写后面的章节；中途改题材或文风，后续章节的写法会跟着变。下一章生效。</string>
+	<!-- 角色编辑弹层（图纸二 D1·设定页与创建屏共用） -->
+	<string name="story_role_editor_title_new">添加角色</string>
+	<string name="story_role_editor_title_edit">编辑角色</string>
+	<string name="story_role_editor_name">角色名</string>
+	<string name="story_role_editor_name_locked">名字跟着聊天角色本体，在这里改不了</string>
+	<string name="story_role_editor_name_locked_user">这是你在故事里的角色，名字和定位在开书时定下；这里只改人设描述</string>
+	<string name="story_role_editor_type">角色定位</string>
+	<string name="story_role_editor_desc">人设描述</string>
+	<string name="story_role_editor_desc_hint">外貌、口癖、称呼、和主角的关系……写得越具体，TA 越像活人</string>
+	<string name="story_role_editor_remove">从本书移出</string>
+	<string name="story_role_editor_remove_title">从本书移出？</string>
+	<string name="story_role_editor_remove_body">移出后 TA 不再出现在后续章节，已写的章节不受影响。</string>
+	<!-- 参演角色组 / 创建屏专属角色块（图纸二 D1） -->
+	<string name="story_roles_footer">本书专属角色不进聊天列表，也没有声音档案和世界书；TA 的说话风格请写进人设描述。改动下一章生效。</string>
+	<string name="story_roles_add">＋ 添加角色</string>
+	<string name="story_roles_source_chat">聊天角色</string>
+	<string name="story_roles_source_custom">本书专属</string>
+	<string name="story_create_custom_roles_label">故事专属角色</string>
+	<string name="story_create_add_custom_role">＋ 添加故事专属角色</string>
+	<string name="story_create_custom_roles_footer">开书后随时可以在「故事设定 → 参演角色」里继续加。</string>
+	<!-- 生成组格式开关（图纸二 D3） -->
+	<string name="story_toggle_choices">章末给选项</string>
+	<string name="story_toggle_choices_sub">打开后每章结尾给出 2-3 个选项；关闭（默认）时结尾自然收束</string>
+	<!-- 我的模板：存入端（图纸四） -->
+	<string name="story_save_template_row">存为我的模板</string>
+	<string name="story_save_template_msg">存下这本书的整套创作设定（不含角色和书名），开新书一键套用。</string>
+	<string name="story_save_template_limit">最多存 20 个模板，删掉一些再存</string>
+	<string name="story_save_template_name_label">模板名字</string>
+	<string name="story_template_saved_toast">模板已存好</string>
+	<!-- 我的模板：模板墙区与管理（图纸四） -->
+	<string name="story_my_templates_header">我的模板</string>
+	<string name="story_my_template_tagline">我的模板 · 存于 %1$s</string>
+	<string name="story_my_template_role_hint">挑一位主演，其余设定都按这套模板来</string>
+	<string name="story_template_rename">重命名</string>
+	<string name="story_template_delete">删除</string>
+	<string name="story_template_delete_confirm">删除这个模板？已开的书不受影响。</string>
+	<string name="story_template_broken">这个模板已损坏，长按可以删掉它</string>
+	<!-- 书页（故事二期卷二·双 Tab 档案/设定，取代故事设定屏 + 圣经编辑屏）。
+	     注：既有的 story_hub_chapter / story_hub_no_chapter 属圈子枢纽状态卡，与本组无关。 -->
+	<string name="story_hub_title">书页</string>
+	<string name="story_hub_tab_archive">档案</string>
+	<string name="story_hub_tab_settings">设定</string>
+	<string name="story_hub_continue">继续阅读</string>
+	<string name="story_hub_progress_chapter">%1$s · 第 %2$d 章</string>
+	<string name="story_hub_progress_arc">%1$s · 本弧第 %2$d 章</string>
+	<string name="story_hub_notestrip">AI 每章自动续记，你随时可改——你改过之后，AI 在你的版本上继续记。</string>
+	<string name="story_hub_sec_beats">下一章节拍</string>
+	<string name="story_hub_sec_summary_bible">前情摘要 · 故事圣经</string>
+	<string name="story_hub_arc_range">当前弧从第 %1$d 章开始 · 本弧预计 %2$d 章</string>
+	<string name="story_hub_beats_dialog_title">下一章节拍 · AI 预排</string>
+	<!-- 档案卡的维护者标签 -->
+	<string name="story_hub_tag_ai_maintained">AI 维护</string>
+	<string name="story_hub_tag_ai_planned">AI 预排</string>
+	<string name="story_hub_tag_ai_appended">AI 续记</string>
+	<string name="story_hub_tag_compressed">压缩产物</string>
+	<string name="story_hub_tag_user_edited">已由你修改</string>
+	<string name="story_hub_tag_new">NEW</string>
+	<!-- 档案卡空态 -->
+	<string name="story_hub_empty_outline">还没有大纲——写第一章时生成</string>
+	<string name="story_hub_empty_beats">还没有预排</string>
+	<string name="story_hub_empty_intimacy">还没有记录</string>
+	<string name="story_hub_empty_scene_ledger">还没有记录</string>
+	<string name="story_hub_empty_scene_state">当前不在场景中</string>
+	<!-- 弧线大纲导演手记（图纸 2026-08-05·样图 story_outline_loop_mockup 两画面） -->
+	<string name="story_continue_draft_title">下一章打算</string>
+	<string name="story_continue_draft_tag_ai">AI 预排</string>
+	<string name="story_continue_draft_tag_user">你已指定</string>
+	<string name="story_outline_regen_row">按最新剧情重排</string>
+	<string name="story_outline_regen_running">正在重排…</string>
+	<string name="story_outline_regen_title">按最新剧情重排？</string>
+	<string name="story_outline_regen_body">AI 将根据最新剧情重写整份弧线大纲，消耗一次 AI 调用。当前大纲（包括你手改过的内容）会被整体替换。</string>
+	<string name="story_outline_regen_confirm">重排</string>
+	<string name="story_outline_regen_done">大纲已按最新剧情重排</string>
+	<string name="story_outline_regen_failed">重排未完成，请稍后再试</string>
+	<!-- 设定 Tab 行右侧值标（推导单源 = StoryEditableField.valueLabel） -->
+	<string name="story_hub_value_default">出厂默认</string>
+	<string name="story_hub_value_custom">已自定义</string>
+	<string name="story_hub_value_follow">跟随全局</string>
+	<string name="story_hub_value_global_off">全局已关</string>
+	<string name="story_hub_value_off">已关闭</string>
+	<string name="story_hub_value_book_off">本书已关</string>
+	<string name="story_hub_value_unset">未设置</string>
+	<!-- 设定 Tab 分组 -->
+	<string name="story_hub_group_craft">写法</string>
+	<string name="story_hub_group_toggles">生成开关</string>
+	<string name="story_hub_group_serial">连载与管理</string>
+	<string name="story_hub_global_prefs_row">全局写作偏好（温度 · 全局忌口/节拍/画像）→</string>
+	<string name="story_hub_archive_row">归档本书</string>
+	<string name="story_hub_delete_row">删除本书</string>
+	<string name="story_hub_delete_title">删除本书？</string>
+	<string name="story_hub_delete_body">这本书和所有章节将被删除，不可恢复。</string>
+	<!-- 已归档书长按删除的确认弹窗正文（列表面上删除须点名书名，防删错本） -->
+	<string name="story_archived_delete_body">「%1$s」和所有章节将被删除，不可恢复。</string>
+	<!-- 统一编辑页：15 个字段名（行标题与编辑页标题共用一份） -->
+	<string name="story_field_writer_name">写作身份</string>
+	<string name="story_field_genre_tech_name">类型技法</string>
+	<string name="story_field_rules_name">写作规则</string>
+	<string name="story_field_banned_name">文字忌口</string>
+	<string name="story_field_pacing_name">节奏偏好</string>
+	<string name="story_field_beats_name">场面节拍</string>
+	<string name="story_field_taste_name">口味画像</string>
+	<string name="story_field_outline_name">弧线大纲</string>
+	<string name="story_field_intimacy_name">关系史</string>
+	<string name="story_field_scene_ledger_name">场景台账</string>
+	<string name="story_field_scene_state_name">场景状态</string>
+	<string name="story_field_states_name">角色现状</string>
+	<string name="story_field_threads_name">伏笔悬念</string>
+	<string name="story_field_summary_name">前情摘要</string>
+	<string name="story_field_bible_name">故事圣经</string>
+	<!-- 统一编辑页：三态段与页内元件 -->
+	<string name="story_field_editor_sub_book">本书</string>
+	<string name="story_field_mode_follow">跟随全局</string>
+	<string name="story_field_mode_custom">本书自定义</string>
+	<string name="story_field_mode_off">本书关闭</string>
+	<string name="story_field_inherit_label">当前生效（全局 / 出厂默认）</string>
+	<string name="story_field_off_hint">已关闭——本书不注入这一段</string>
+	<string name="story_field_restore_default">恢复默认</string>
+	<string name="story_field_restore_title">恢复为出厂默认？</string>
+	<string name="story_field_restore_body">当前内容将被替换。</string>
+	<string name="story_field_discard_title">放弃修改？</string>
+	<string name="story_field_discard_yes">放弃</string>
+	<string name="story_field_discard_no">继续编辑</string>
+	<string name="story_field_archive_note">AI 续记 · 你改后以你的版本为准</string>
+	<string name="story_field_chips_hint">点预设填入，可继续修改</string>
+	<string name="story_field_preset_direct">明快直给</string>
+	<string name="story_field_preset_literary">文艺含蓄</string>
+	<string name="story_field_preset_mixed">张弛有度</string>
+	<!-- 生成开关新增一行（场景状态快照·卷一第十字段） -->
+	<string name="story_toggle_snapshot">场景状态快照</string>
+	<string name="story_toggle_snapshot_sub">每章末记下人物位置与衣着，下一章接得上</string>
+	<!-- 角色弹层「私下反差」栏（提案 §5.1/§6.3·mockup 屏 5） -->
+	<string name="story_role_persona_label">私下反差</string>
+	<string name="story_role_persona_placeholder">例如：人前清冷疏离说一不二，私下只对他黏人爱撒娇……</string>
+	<string name="story_role_persona_hint">写TA在私下场合与公开人设的反差。多位主要角色各写各的——生成端有「彼此必须不同」硬指令。</string>
+	<string name="story_role_persona_draft">✦ AI 起草</string>
+	<string name="story_role_persona_drafting">起草中…</string>
+	<string name="story_role_persona_failed">起草失败，稍后再试</string>
+	<!-- 故事二期卷四：App 设置「故事」组 + 全局创作子屏 + 创建流 chips（图纸 §4.5） -->
+	<string name="settings_group_story">故事</string>
+	<string name="story_global_settings_title">故事创作</string>
+	<string name="story_global_settings_subtitle">温度 · 全局忌口/节拍/画像</string>
+	<string name="story_global_beats_title">全局场面节拍</string>
+	<string name="story_global_taste_title">全局口味画像</string>
+	<string name="story_global_row_banned">全局文字忌口</string>
+	<string name="story_global_value_set">已设置</string>
+	<string name="story_global_value_unset">未设置</string>
+	<string name="story_create_preset_hint">点预设填入，可继续修改</string>
+	<string name="story_global_settings_footer">这里改的是所有书共用的偏好；想让某本书不一样，去那本书的「书页 · 设定」里单独覆盖。</string>
+	<string name="moment_hub_pet">宠物</string>
+	<string name="moment_hub_pet_desc">一起养一只宠物吧</string>
+	<!-- 圈子枢纽实时状态卡（Fable5 重设计·去 genre 故事副标题 + 宠物状态文案·契约 §2/§3） -->
+	<string name="story_hub_chapter">第%1$d章 · %2$s</string>
+	<string name="story_hub_no_chapter">尚未生成章节</string>
+	<string name="pet_hub_sick">生病了</string>
+	<string name="pet_hub_runaway">离家出走了</string>
+	<string name="pet_hub_hungry">有点饿了</string>
+	<string name="pet_hub_sad">闷闷不乐</string>
+	<string name="pet_hub_happy">心情很好</string>
+	<!-- 朋友圈 UI（7.2.7）：发布页 -->
+	<string name="moment_compose_title">新动态</string>
+	<string name="moment_compose_hint">分享点什么…</string>
+	<string name="moment_compose_publish">发布</string>
+	<string name="moment_compose_add_image">添加图片</string>
+	<string name="moment_compose_remove_image">移除图片</string>
+	<string name="moment_compose_discard_title">放弃这条动态？</string>
+	<string name="moment_compose_discard_confirm">放弃</string>
+	<string name="moment_compose_discard_keep">继续编辑</string>
+	<!-- 朋友圈 UI（7.2.8）：详情 + 评论 -->
+	<string name="moment_detail_comments_count">评论 (%1$d)</string>
+	<string name="moment_detail_comment_hint">写评论…</string>
+	<string name="moment_detail_reply_hint">回复…</string>
+	<string name="moment_detail_replying_to">回复 @%1$s</string>
+	<string name="moment_detail_send">发送</string>
+	<string name="moment_detail_deleted">该动态已被删除</string>
+	<string name="moment_comment_reply">回复</string>
+	<string name="moment_comment_delete">删除评论</string>
+	<string name="moment_comment_delete_title">删除这条评论？</string>
+	<string name="moment_comment_delete_message">此操作无法撤销</string>
+	<!-- 朋友圈 UI（7.2.8）：互动通知列表（标题 4 类与系统通知共用） -->
+	<string name="moment_notif_list_title">消息</string>
+	<string name="moment_notif_mark_all_read">全部已读</string>
+	<string name="moment_notif_mark_read">已读</string>
+	<string name="moment_notif_empty_title">没有新消息</string>
+	<string name="moment_notif_empty_desc">当好友与你互动时，会在这里提醒你</string>
+	<string name="moment_notif_title_comment">%1$s 评论了你的动态</string>
+	<string name="moment_notif_title_reply">%1$s 回复了你的评论</string>
+	<string name="moment_notif_title_like">%1$s 赞了你的动态</string>
+	<string name="moment_notif_title_colike">%1$s 也赞了这条动态</string>
+	<!-- 朋友圈 UI（7.2.8）：设置页 -->
+	<string name="moment_settings_title">朋友圈设置</string>
+	<string name="moment_settings_freq_header">AI 互动频率</string>
+	<string name="moment_settings_freq_footer">调整 AI 角色在朋友圈的活跃程度。内容会基于其性格与和你的聊天记忆生成。</string>
+	<string name="moment_settings_behavior_header">互动行为</string>
+	<string name="moment_settings_auto_post">每日自动发帖</string>
+	<string name="moment_settings_auto_comment">自动评论</string>
+	<string name="moment_settings_comment_delay">评论延迟</string>
+	<string name="moment_settings_auto_like">自动点赞</string>
+	<string name="moment_settings_new_post_notif">新动态通知</string>
+	<string name="moment_settings_new_post_notif_desc">好友在后台发新动态时通知你（每位好友每天最多一条，多人合并）</string>
+	<string name="moment_settings_off">关</string>
+	<string name="moment_settings_posts_unit">%1$d 条/角色</string>
+	<string name="moment_settings_comments_unit">上限 %1$d</string>
+	<string name="moment_settings_delay_unit">%1$d 分钟</string>
+	<string name="moment_settings_entry_subtitle">调整 AI 发帖、评论、点赞频率</string>
+	<!-- 朋友圈 UI（7.2.8）：角色 / 用户动态页 -->
+	<string name="moment_author_posts_count">%1$d 条动态</string>
+	<string name="moment_author_empty_title">还没有动态</string>
+	<string name="moment_character_empty_desc">TA 还没有发布过动态</string>
+	<string name="moment_user_empty_desc">你还没有发布过动态</string>
+	<string name="moment_user_moments_title">我的动态</string>
+	<string name="moment_user_moments_subtitle">查看我发过的朋友圈</string>
+
+	<!-- S3b 结构化工具调用双轨 -->
+	<string name="tool_call_fallback_notice">已切换到工具调用兼容模式</string>
+	<string name="tool_call_follow_up_failed">抱歉，刚才网络有点问题，我还没弄好，稍后再试一下哈～</string>
+	<!-- 10.2d 见面摘要重试链：多次失败后规则兜底（前台触发才弹，1:1 iOS .offlineMeetingSummaryFallback） -->
+	<string name="offline_meeting_summary_fallback_notice">摘要多次失败已简化,可在角色档案「见面回忆」手动重试</string>
+
+	<!-- P10.1c 逐条消息 TTS -->
+	<string name="tts_failed">语音合成失败，已转为文字</string>
+	<string name="tts_preview_sample">你好，很高兴认识你。我是你的 AI 伴侣，期待和你聊天。</string>
+	<string name="tts_preview_select_voice">请先选择音色</string>
+
+	<!-- P10.1c MiniMax 语气标签前门教学（buildMiniMaxVoiceTagsHint）。取 iOS Localizable.xcstrings zh-Hans；
+	     iOS 未翻译的两条规则 + 正/反例（rule_start / rule_doubt / good/bad_example）回落英文 key=忠实。 -->
+	<string name="pb_voice_tags_header">[语音表达标签]</string>
+	<string name="pb_voice_tags_intro">本次回复将由 MiniMax speech-2.8 HD 合成语音,如果你用内联标签标注,服务端可以渲染情感语气音。</string>
+	<string name="pb_voice_tags_usage">在情绪合适时,你可以在中文或英文回复里自然地加入这些英文标签。不要强行使用 —— 每条短回复最多只用 0 到 2 个,放在真人会自然笑、叹气、呼吸的位置。</string>
+	<string name="pb_voice_tags_vocal_label">支持的语气标签(请节制使用):</string>
+	<string name="pb_voice_tags_pause_label">支持的暂停标签 —— 在指定秒数(0.01 到 99.99)内插入静音:</string>
+	<string name="pb_voice_tags_rules_label">重要规则:</string>
+	<string name="pb_voice_tags_rule_tokens">- 只能使用上面列出的精确英文 token,其他 token 不会生效。</string>
+	<string name="pb_voice_tags_rule_chinese">- 不要把中文词放在括号里 —— 那会被当作字面文本,不是语气音。</string>
+	<string name="pb_voice_tags_rule_start">- Never start a reply with a tag. Tags belong inside natural speech.</string>
+	<string name="pb_voice_tags_rule_doubt">- If in doubt, skip the tags. Over-using them sounds robotic.</string>
+	<string name="pb_voice_tags_good_example">Good example: “哈哈,真的吗 (laughs) 我都没想到会这样&lt;#0.3#&gt;不过你开心就好”</string>
+	<string name="pb_voice_tags_bad_example">Bad example: “(laughs)(sighs)(breath) 你好啊” — too many tags at the start, robotic.</string>
+
+	<!-- 11.4a 外观设置（深浅模式 + Material You 动态取色） -->
+	<string name="appearance_title">外观</string>
+	<string name="appearance_entry_subtitle">主题配色、深浅模式、动态取色</string>
+	<string name="appearance_palette_section">主题配色</string>
+	<string name="appearance_palette_clay">暖陶</string>
+	<string name="appearance_palette_qinghua">青花</string>
+	<string name="appearance_mode_section">深浅模式</string>
+	<string name="appearance_mode_system">跟随系统</string>
+	<string name="appearance_mode_light">浅色</string>
+	<string name="appearance_mode_dark">深色</string>
+	<string name="appearance_dynamic_color_title">动态取色</string>
+	<string name="appearance_dynamic_color_subtitle">跟随系统壁纸自动生成主题配色（Android 12 及以上）</string>
+	<string name="appearance_bottom_nav_section">底部导航栏</string>
+	<string name="appearance_bottom_nav_opacity_title">栏背景不透明度</string>
+	<string name="appearance_bottom_nav_opacity_desc">数值越低，悬浮底栏越透，越能隐隐看到背后的内容；100% 为实色。</string>
+
+	<!-- 11.4b 首启欢迎引导（1:1 iOS OnboardingView 信息架构，M3 渲染） -->
+	<string name="onboarding_welcome_subtitle">你的 AI 虚拟伴侣</string>
+	<string name="onboarding_welcome_description">会成长、有记忆、能进化的 AI 伙伴</string>
+	<string name="onboarding_experience_title">沉浸式体验</string>
+	<string name="onboarding_experience_subtitle">聊天、通话、互动，像真正的社交 App 一样</string>
+	<string name="onboarding_feature_multi_character_title">多角色世界</string>
+	<string name="onboarding_feature_multi_character_detail">创建独特的角色，每个角色都有自己的性格和记忆</string>
+	<string name="onboarding_feature_chat_title">自然聊天</string>
+	<string name="onboarding_feature_chat_detail">逐条消息的自然对话，带输入状态提示</string>
+	<string name="onboarding_feature_voice_title">实时语音通话</string>
+	<string name="onboarding_feature_voice_detail">解放双手随时打断，像真实通话一样自然</string>
+	<string name="onboarding_growth_title">会成长的角色</string>
+	<string name="onboarding_growth_subtitle">不是冰冷的聊天机器人，而是每次对话都在变化的伙伴</string>
+	<string name="onboarding_growth_personality_title">性格会演化</string>
+	<string name="onboarding_growth_personality_detail">8 个性格维度随互动缓慢变化，越聊越真实</string>
+	<string name="onboarding_growth_relationship_title">关系会深入</string>
+	<string name="onboarding_growth_relationship_detail">信任、亲近、默契随每次互动自然加深</string>
+	<string name="onboarding_growth_memory_title">长期记忆</string>
+	<string name="onboarding_growth_memory_detail">记住共同经历、专属梗和你的偏好</string>
+	<string name="onboarding_growth_social_title">朋友圈 &amp; 日记</string>
+	<string name="onboarding_growth_social_detail">角色会发动态、评论互动，像真正的朋友一样</string>
+	<string name="onboarding_start_title">准备好了吗</string>
+	<string name="onboarding_start_subtitle">三步开启你的第一次对话</string>
+	<string name="onboarding_step_1">前往「我」→「API 配置」设置你的 AI 服务商</string>
+	<string name="onboarding_step_2">创建你的第一个角色，赋予独特的性格</string>
+	<string name="onboarding_step_3">开始聊天，你们的故事从这里开始</string>
+	<string name="onboarding_start_button">开始体验</string>
+	<string name="onboarding_disclaimer">AI 回复由您配置的第三方服务生成（与开发者无关），内容可能并不完全准确</string>
+	<string name="onboarding_reliability_title">让 TA 准时找到你</string>
+	<string name="onboarding_reliability_subtitle">国产手机默认为省电杀后台，可能让提醒和主动消息来迟甚至不来。设置一次即可。</string>
+	<string name="onboarding_reliability_later">稍后再说</string>
+	<string name="onboarding_reliability_footnote">每台手机只需设置一次，之后可随时在「我 → 后台运行保障」中调整</string>
+
+	<!-- 11.3 桌面小组件（宠物状态，1:1 iOS PetWidget moodText 六态） -->
+	<!-- P1-34 宠物成就解锁 toast（安卓超越：iOS 成就解锁零反馈）+ 进化金币 toast 收编进资源（原 VM 硬编码）。
+	     ⚠️ 一律不带 🏆——渲染处 PetDetailScreen 已硬编码前缀，带了双奖杯。 -->
+	<string name="pet_achievement_unlock_single">解锁成就：%1$s</string>
+	<string name="pet_achievement_unlock_multi">解锁 %1$d 项成就</string>
+	<string name="pet_evolution_milestone_toast">成长里程碑 +%1$d 金币</string>
+	<string name="pet_widget_name">宠物状态</string>
+	<string name="pet_widget_description">查看宠物的心情和状态</string>
+	<string name="pet_widget_no_pet">还没有宠物</string>
+	<string name="pet_widget_mood_walking">正在散步 🐾</string>
+	<string name="pet_widget_mood_hungry">…一直在等你 😿</string>
+	<string name="pet_widget_mood_dirty">需要洗澡 🫧</string>
+	<string name="pet_widget_mood_happy">开心地玩耍 😻</string>
+	<string name="pet_widget_mood_sad">有点不开心 😿</string>
+	<string name="pet_widget_mood_calm">安安静静的 🐱</string>
+	<string name="pet_widget_walking_now">散步中</string>
+
+	<!-- 13.9a 桌面小组件（角色「此刻」状态，安卓超越 iOS；状态串现算复用聊天列表日程状态） -->
+	<string name="character_status_widget_name">角色此刻</string>
+	<string name="character_status_widget_description">看 TA 此刻在做什么</string>
+	<string name="character_status_widget_no_chat">还没有聊天\n去认识一个 TA 吧</string>
+	<string name="character_status_widget_idle">想我了就来聊聊 💬</string>
+
+	<!-- 13.9b 桌面小组件（最新动态/朋友圈，安卓超越 iOS——iOS 无朋友圈小组件） -->
+	<string name="moment_widget_name">最新动态</string>
+	<string name="moment_widget_description">看 TA 最新发的朋友圈</string>
+	<string name="moment_widget_empty">还没有新动态</string>
+	<string name="moment_widget_image_only">分享了图片</string>
+	<string name="moment_widget_unknown_author">好友</string>
+
+	<!-- 12.1a 记忆设置（短期/长期/结构化 对齐 iOS MemoryAndModelSettingsView + 向量阈值安卓特有） -->
+	<!-- settings-slider-infobutton：滑块 ⓘ 说明弹窗通用文案 -->
+	<string name="settings_info_dialog_title">说明</string>
+	<string name="settings_info_dialog_ok">好的</string>
+	<!-- settings-slider-manualinput：点数值手动输入（可超过滑杆上限，对齐 iOS） -->
+	<string name="settings_manual_input_title">手动输入</string>
+	<string name="settings_manual_input_message">输入%1$s的数值（可超过滑杆上限）</string>
+	<string name="mem_settings_title">记忆</string>
+	<string name="mem_settings_entry_subtitle">保留量 / 检索阈值 / 记忆提示词</string>
+	<string name="mem_unit_rounds">轮</string>
+	<string name="mem_unit_chars">字</string>
+	<string name="mem_value_off">关</string>
+	<string name="mem_section_short_title">短期记忆</string>
+	<string name="mem_short_rounds">对话轮数</string>
+	<string name="mem_section_short_footer">每次发消息时 AI 能直接看到的最近对话。设为 20 表示 AI 完整记住最近 20 个来回。</string>
+	<string name="mem_section_long_title">长期记忆</string>
+	<string name="mem_long_trigger">触发下限</string>
+	<string name="mem_long_max">摘要字数上限</string>
+	<string name="mem_progressive_title">智能渐进压缩</string>
+	<string name="mem_progressive_subtitle">开启后，记忆接近字数上限时，AI 会逐步精简、合并较早的经历，尽量留住你们相处的点滴，而不是整段删除；关闭则只要求 AI 把记忆控制在设定字数内，由它自行取舍。</string>
+	<string name="mem_progressive_disabled_hint">你自定义了提取提示词，压缩方式改由你的模板决定，此开关暂不适用；恢复默认提示词后即可正常使用。</string>
+	<string name="mem_section_long_footer">超出短期记忆窗口的旧对话会被自动总结成长期记忆（两者不重叠）。触发下限 = 窗口外积累多少轮未总结才开始自动摘要，设 0 关闭。</string>
+	<!-- settings-slider-infobutton：触发阈值 ⓘ 说明（zh，逐字对齐 iOS Localizable.xcstrings 的 zh-Hans 源串） -->
+	<string name="mem_long_trigger_info">触发阈值决定何时自动生成长期记忆。\n\n举个例子：假设短期记忆设为 20 轮，触发阈值设为 5 轮。\n\n当你和角色聊了 25 轮时，最近的 20 轮是短期记忆（AI 能直接看到完整对话），而最早的 5 轮刚好滑出短期窗口，此时系统会自动将这 5 轮总结为长期记忆。\n\n在总结完成之前，AI 的记忆窗口会自动扩大来覆盖这些对话，确保不会遗漏任何内容。\n\n设为 0 表示关闭自动总结。</string>
+	<!-- settings-slider-infobutton：见面记忆上限 ⓘ 说明（iOS 该串漏译显英文=i18n bug；按铁律#1 为国行用户写忠实中文） -->
+	<string name="mem_meeting_info">见面记忆的最大字数。见面记忆与聊天记忆分开存储，各有独立预算、互不挤占。\n\n这是一个软上限：当用量达到 80% 时，系统会自动把最早的兜底摘要压缩成一行（保留日期、地点、活动，舍弃更细的内容），让提示词不会无限膨胀，同时保留整体历史。\n\n按使用频率推荐：\n• 偶尔见面（每月 1–2 次）：800 字足够\n• 经常见面（每周）：1200 字（默认）\n• 频繁见面（每天）：2000–3000 字\n\n如果你和该角色见面很频繁、想保留更多生动的过往细节，可调高上限。</string>
+	<string name="mem_section_structured_title">结构化记忆</string>
+	<string name="mem_structured_trigger">触发下限</string>
+	<string name="mem_section_structured_footer">把对话提炼成「10 个要点」式的结构化档案。触发下限 = 积累多少轮触发一次提炼，设 0 关闭。</string>
+	<string name="mem_section_vector_title">向量记忆检索</string>
+	<string name="mem_vector_threshold">相似度门槛</string>
+	<string name="mem_section_vector_footer">按语义从久远对话里召回相关旧记忆的相似度门槛，越高越严格（只召回高度相关的）。设 0 关闭向量检索。推荐 65%。</string>
+
+	<!-- 12.1b 系统功能开关（子系统总开关，对齐 iOS SettingsView 通用/成长 区） -->
+	<string name="sys_settings_title">功能开关</string>
+	<string name="sys_settings_entry_subtitle">成长/日程/宠物/货币 等子系统开关</string>
+	<string name="sys_section_growth">角色与成长</string>
+	<string name="sys_section_systems">系统功能</string>
+	<string name="sys_growth_title">角色成长</string>
+	<string name="sys_growth_subtitle">性格、关系、兴趣随聊天自然变化</string>
+	<string name="sys_relationship_title">自动关系进化</string>
+	<string name="sys_relationship_subtitle">基于成长分析自动判断关系是否变化</string>
+	<string name="sys_schedule_title">日程轨迹</string>
+	<string name="sys_schedule_subtitle">角色有每日日程（忙碌/睡眠时段会影响回复）</string>
+	<string name="sys_cross_character_title">角色之间互相来往</string>
+	<string name="sys_cross_character_subtitle">角色的日程里会出现和别的角色一起活动，并发到朋友圈</string>
+	<string name="cross_level_occasional">偶尔</string>
+	<string name="cross_level_often">经常</string>
+	<string name="cross_level_frequent">频繁</string>
+	<string name="sys_pet_title">宠物系统</string>
+	<string name="sys_pet_subtitle">陪养宠物（喂食/散步/成长）</string>
+	<string name="sys_currency_title">货币系统</string>
+	<string name="sys_currency_subtitle">零花钱、工资、红包、礼物经济</string>
+	<string name="sys_proactive_gift_title">角色主动送礼</string>
+	<string name="sys_proactive_gift_subtitle">角色会用零花钱主动给你买礼物</string>
+
+	<!-- 成长设置 (P12.1d，对齐 iOS GrowthRelationshipSettingsView 分析设置/记忆与兴趣段) -->
+	<string name="growth_settings_title">成长与关系</string>
+	<string name="growth_settings_entry_subtitle">分析频率 / 记忆 / 兴趣</string>
+	<string name="growth_section_analysis_title">分析设置</string>
+	<string name="growth_section_analysis_footer">轮次越小变化越及时，但会消耗更多 API 额度</string>
+	<string name="growth_analysis_interval">性格分析频率</string>
+	<string name="growth_section_memory_title">记忆与兴趣</string>
+	<string name="growth_mood_history_max">情绪记录数量</string>
+	<string name="growth_log_max">成长记录数量</string>
+	<string name="growth_interest_cooldown">兴趣遗忘周期</string>
+	<string name="growth_unit_entries">条</string>
+	<string name="growth_unit_days">天</string>
+	<string name="growth_disabled_hint">开启「角色成长」后可调整成长分析参数（在「系统功能」里开启）。</string>
+
+	<!-- 关于 (P12.1c，对齐 iOS SettingsView 关于段 + 本项目 sideload 实情) -->
+	<string name="about_title">关于</string>
+	<string name="about_entry_subtitle">版本信息 · 用户协议</string>
+	<string name="about_section_info">应用信息</string>
+	<string name="about_version">版本</string>
+	<string name="about_agreement">用户协议</string>
+	<string name="about_disclaimer">AI 回复由第三方服务生成，内容仅供参考，不代表本应用立场。</string>
+	<string name="about_section_ack">致谢</string>
+	<string name="about_ack_body">本应用为面向自己使用的安卓复刻。端上中文向量记忆基于 ONNX Runtime 与 bge-small-zh 模型，离线语音识别基于 sherpa-onnx；界面使用 Jetpack Compose 与 Material 3 构建。感谢这些开源项目。</string>
+
+	<!-- 14.1 角色资料页 -->
+	<string name="profile_edit_character">编辑角色</string>
+	<string name="profile_age_years">%1$d岁</string>
+	<string name="profile_stat_days">相识</string>
+	<string name="profile_stat_messages">消息</string>
+	<string name="profile_stat_memories">记忆</string>
+	<string name="profile_stat_meetings">见面</string>
+	<string name="profile_stat_streak">连续</string>
+	<!-- 14.2 日程 UI -->
+	<string name="schedule_card_title">今日行程</string>
+	<string name="schedule_card_view_full_day">查看全天行程</string>
+	<string name="schedule_card_loading">日程正在整理中</string>
+	<string name="schedule_card_failed">日程生成失败</string>
+	<string name="schedule_card_retry">重试</string>
+	<string name="schedule_full_day_title">%1$s的一天</string>
+	<string name="schedule_full_day_empty_no_schedule">这一天没有日程记录</string>
+	<string name="schedule_full_day_empty_not_started">日程还未开始</string>
+	<string name="schedule_day_today">今天</string>
+	<string name="schedule_day_yesterday">昨天</string>
+	<string name="schedule_day_tomorrow">明天</string>
+	<string name="schedule_day_header_format">%1$s（%2$s）</string>
+	<string name="schedule_prev_day">前一天</string>
+	<string name="schedule_next_day">后一天</string>
+	<string name="schedule_pick_date">选择日期</string>
+	<string name="schedule_weather_loading">天气获取中</string>
+	<!-- P1-18 日程时间线行 a11y（iOS 零语义 a11y=纯超越）：时态 + 互动标 + 心情标签（自由生成域三级兜底） -->
+	<string name="a11y_schedule_state_ongoing">进行中</string>
+	<string name="a11y_schedule_state_ended">已结束</string>
+	<string name="a11y_schedule_state_upcoming">未开始</string>
+	<string name="a11y_schedule_interaction">和你的互动</string>
+	<string name="a11y_schedule_open_conversation">查看当时的聊天</string>
+	<string name="a11y_mood_happy">开心</string>
+	<string name="a11y_mood_excited">兴奋</string>
+	<string name="a11y_mood_angry">生气</string>
+	<string name="a11y_mood_sad">难过</string>
+	<string name="a11y_mood_shocked">惊讶</string>
+	<string name="a11y_mood_shy">害羞</string>
+	<string name="a11y_mood_love">爱意</string>
+	<string name="a11y_mood_thinking">沉思</string>
+	<string name="a11y_mood_scared">害怕</string>
+	<string name="a11y_mood_playful">俏皮</string>
+	<string name="a11y_mood_sigh">无奈</string>
+	<string name="a11y_mood_sleepy">困倦</string>
+	<string name="a11y_mood_relaxed">惬意</string>
+	<string name="a11y_mood_calm">平静</string>
+	<string name="a11y_mood_energetic">干劲十足</string>
+	<string name="a11y_mood_expectant">期待</string>
+	<string name="a11y_mood_unwell">不舒服</string>
+	<!-- 14.3a 回复规则 -->
+	<string name="reply_rule_title">回复规则</string>
+	<string name="reply_rule_entry_subtitle">发送等待 / 回复条数 / 语音轮次 / 创造力</string>
+	<string name="reply_rule_section_creativity">回复创造力</string>
+	<string name="reply_rule_creativity_thinking_hint">当前聊天模型为思考模型，创造力对其不生效。</string>
+	<string name="reply_rule_section_segments">回复条数</string>
+	<string name="reply_rule_section_voice">语音条回复规则</string>
+	<string name="reply_rule_current_range">当前范围</string>
+	<string name="reply_rule_min_segments">最少条数</string>
+	<string name="reply_rule_max_segments">最多条数</string>
+	<string name="reply_rule_segments_value">%1$d 条</string>
+	<string name="reply_rule_segments_range">%1$d-%2$d 条</string>
+	<string name="reply_rule_min_rounds">最少轮数</string>
+	<string name="reply_rule_max_rounds">最多轮数</string>
+	<string name="reply_rule_rounds_value">%1$d 轮</string>
+	<string name="reply_rule_rounds_range">%1$d-%2$d 轮</string>
+	<string name="reply_rule_segments_footer">角色每次回复会自动拆分为多条消息，条数在此范围内随机。文字较短时可能少于最少条数。</string>
+	<string name="reply_rule_voice_footer">角色每次回复会在此范围内随机选择轮数，以语音条形式发送。</string>
+	<string name="reply_rule_decrease">减少</string>
+	<string name="reply_rule_increase">增加</string>
+	<!-- C2 输入排契约 §3.2-11：合并等待窗（连发合并）·说明文案沿 iOS DebounceSettingsView -->
+	<string name="chat_send_wait_section_title">消息发送等待时间</string>
+	<string name="chat_send_wait_label">等待时间</string>
+	<string name="chat_send_wait_value_seconds">%1$.1f 秒</string>
+	<string name="chat_send_wait_footer">发送消息后等待的时间，等待期间如果你继续发消息，会合并后一起发给角色。时间越短响应越快，但连续发送多条时可能会分开回复。系统会根据你的使用习惯自动调整这个值。</string>
+	<!-- 14.3c 内容过滤 -->
+	<string name="content_filter_title">内容过滤</string>
+	<string name="content_filter_entry_subtitle">过滤 AI 回复中的动作 / 思考标签 / 格式符号等</string>
+	<!-- 记忆提示词自定义（14.5b·1:1 iOS MemoryPromptSettingsView）。宏 token 为字面量保持中文，文案才本地化。 -->
+	<string name="mem_prompts_extraction_title">记忆提取提示词</string>
+	<string name="mem_prompts_extraction_desc">AI 从聊天记录中提取记忆时使用的指令。修改后下次触发记忆总结时生效。</string>
+	<string name="mem_prompts_extraction_macros">支持的宏：{{聊天记录}}、{{已有记忆}}、{{当前时间}}、{{最大字数}}、{{当前字数}}、{{压缩策略}}、{{char}}、{{user}}</string>
+	<string name="mem_prompts_injection_title">记忆注入提示词</string>
+	<string name="mem_prompts_injection_desc">把已有记忆塞进聊天提示词时的包装文字。修改后立即对新的聊天消息生效。</string>
+	<string name="mem_prompts_injection_macros">支持的宏：{{记忆内容}}、{{char}}、{{user}}</string>
+	<string name="mem_prompts_reset_default">恢复默认</string>
+	<string name="mem_prompts_macros_title">宏说明</string>
+	<string name="mem_prompts_macro_chatlog">自动替换为格式化后的对话内容</string>
+	<string name="mem_prompts_macro_existing">自动替换为现有的记忆摘要</string>
+	<string name="mem_prompts_macro_now">自动替换为当前时间</string>
+	<string name="mem_prompts_macro_maxchars">自动替换为记忆最大字数设置</string>
+	<string name="mem_prompts_macro_curchars">自动替换为当前已有记忆的字数</string>
+	<string name="mem_prompts_macro_compress">自动替换为根据记忆占用比例生成的压缩建议</string>
+	<string name="mem_prompts_macro_content">自动替换为角色的记忆摘要（注入用）</string>
+	<string name="mem_prompts_macro_char">自动替换为角色名</string>
+	<string name="mem_prompts_macro_user">自动替换为你的昵称</string>
+	<!-- 我的钱包屏（14.6a·1:1 iOS WalletView） -->
+	<string name="wallet_title">我的钱包</string>
+	<string name="wallet_entry_subtitle">金币余额、收支账本</string>
+	<string name="wallet_gift_shop">礼物店</string>
+	<string name="wallet_my_coins">我的金币</string>
+	<string name="wallet_coins_unit">金币</string>
+	<string name="wallet_month_income">本月收入</string>
+	<string name="wallet_month_expense">本月支出</string>
+	<string name="wallet_ledger">账本</string>
+	<string name="wallet_ledger_count">%1$d 笔</string>
+	<string name="wallet_filter_all">全部</string>
+	<string name="wallet_filter_earn">收入</string>
+	<string name="wallet_filter_spend">支出</string>
+	<string name="wallet_ledger_empty">账本空空的</string>
+	<string name="wallet_ledger_empty_filtered">暂无%1$s记录</string>
+	<string name="wallet_ledger_empty_hint">散步拾金或里程碑奖励后会出现</string>
+	<!-- 角色月薪编辑 sheet（14.6b·1:1 iOS CharacterWalletEditSheet·💰涉钱写） -->
+	<string name="wallet_edit_title">编辑钱包</string>
+	<string name="wallet_edit_salary">月薪</string>
+	<string name="wallet_edit_salary_footer">范围 0 - 50000。填 0 代表无收入（如乞丐、流浪汉等设定），系统会尊重这个设定。</string>
+	<string name="wallet_edit_payday">发薪日</string>
+	<string name="wallet_edit_payday_value">每月 %1$d 号</string>
+	<string name="wallet_edit_payday_footer">限制在 1-28 号，避开 29/30/31 防止月末边界问题。</string>
+	<string name="wallet_edit_warning_title">手动设置月薪</string>
+	<string name="wallet_edit_warning_message">月薪由 AI 根据角色设定推断，配合「比例式肉痛反馈」才精准。手动修改会让这种反馈失真——这不是劝你不改，而是让你知道自己在干预。</string>
+	<string name="wallet_edit_warning_continue">继续</string>
+	<!-- 兑换码（14.6c·1:1 iOS RedeemCodeSheet·💰涉钱写） -->
+	<string name="redeem_entry_title">输入兑换码</string>
+	<string name="redeem_entry_subtitle">有兑换码？输入后到账金币</string>
+	<string name="redeem_title">输入兑换码</string>
+	<string name="redeem_header">输入你收到的兑换码</string>
+	<string name="redeem_format">格式：AIC-XXXXX-XXXXX-XXXXX</string>
+	<string name="redeem_action">兑换</string>
+	<string name="redeem_done">已兑换</string>
+	<string name="redeem_redeeming">兑换中…</string>
+	<string name="redeem_success">已到账 %1$d 金币 ✨</string>
+	<string name="redeem_balance">当前余额 %1$d 金币</string>
+	<string name="redeem_err_format">格式不对，请检查是否漏字或错字</string>
+	<string name="redeem_err_invalid">无效的兑换码</string>
+	<string name="redeem_err_expired">这张兑换码已经过期</string>
+	<string name="redeem_err_used">这张兑换码已经用过了</string>
+	<string name="content_filter_section_presets">预设过滤规则</string>
+	<string name="content_filter_presets_footer">开启后会自动过滤 AI 回复中匹配的内容。</string>
+	<string name="content_filter_section_custom">自定义正则规则</string>
+	<string name="content_filter_custom_footer">使用正则表达式匹配并过滤或替换 AI 回复中的内容。</string>
+	<string name="content_filter_add_custom">添加自定义规则</string>
+	<string name="content_filter_empty_presets">还没有预设规则</string>
+	<string name="content_filter_empty_custom">还没有自定义规则</string>
+	<string name="content_filter_empty_hint">新增规则后会显示在这里。</string>
+	<string name="content_filter_unnamed_rule">未命名规则</string>
+	<string name="content_filter_custom_subtitle_replace">%1$s -&gt; %2$s</string>
+	<string name="content_filter_edit_rule">编辑规则</string>
+	<string name="content_filter_delete_rule">删除规则</string>
+	<!-- 规则编辑 -->
+	<string name="content_filter_add_title">添加规则</string>
+	<string name="content_filter_edit_title">编辑规则</string>
+	<string name="content_filter_section_basic">基本信息</string>
+	<string name="content_filter_field_name">规则名称</string>
+	<string name="content_filter_field_pattern">正则表达式</string>
+	<string name="content_filter_invalid_pattern">正则表达式格式无效</string>
+	<string name="content_filter_section_mode">过滤方式</string>
+	<string name="content_filter_mode_label">过滤模式</string>
+	<string name="content_filter_mode_remove">删除</string>
+	<string name="content_filter_mode_replace">替换</string>
+	<string name="content_filter_field_replacement">替换为</string>
+	<string name="content_filter_mode_remove_footer">匹配的内容将被直接删除。</string>
+	<string name="content_filter_mode_replace_footer">匹配的内容将被替换为指定文字。</string>
+	<string name="content_filter_section_test">测试</string>
+	<string name="content_filter_test_input_label">输入测试文字：</string>
+	<string name="content_filter_test_run">测试过滤效果</string>
+	<string name="content_filter_test_result_label">过滤结果：</string>
+	<string name="content_filter_test_fully_filtered">（内容已被完全过滤）</string>
+	<string name="content_filter_test_invalid">正则表达式无效</string>
+	<string name="content_filter_action_cancel">取消</string>
+	<string name="content_filter_action_save">保存</string>
+	<!-- 14.3b 创造力（温度）——2026-07-11 搬家至回复规则页（FABLE5_CHAT_CREATIVITY_RELOCATION_PROPOSAL） -->
+	<string name="model_temperature_label">创造力</string>
+	<string name="model_temperature_footer">创造力（温度）：值越低回复越稳定一致，值越高越多样、越有想象力。只影响聊天与语音通话；默认 1.0（跟随模型厂商推荐）。</string>
+	<!-- 14.1b 亲友账卡 -->
+	<string name="profile_account_title">%1$s 眼里的你</string>
+	<string name="profile_account_gifts_subtitle">%1$s 收到的礼物</string>
+	<string name="profile_account_gift_count">%1$s 一共收到 %2$d 件礼物</string>
+	<string name="profile_gift_handmade_badge">手作</string>
+	<string name="profile_gift_handmade_default">一份手作礼物</string>
+	<string name="profile_gift_default">一份礼物</string>
+	<!-- 14.1b 角色钱包卡 -->
+	<string name="profile_wallet_title">%1$s 的钱包</string>
+	<string name="profile_wallet_balance">余额</string>
+	<string name="profile_wallet_coins">金币</string>
+	<string name="profile_wallet_salary">月薪</string>
+	<string name="profile_wallet_payday">发薪日</string>
+	<string name="profile_wallet_payday_value">每月 %1$d 号</string>
+	<string name="profile_wallet_new_badge">新变动</string>
+	<string name="profile_wallet_salary_unset">—</string>
+	<string name="profile_wallet_recent">最近动态</string>
+	<string name="profile_wallet_month">本月</string>
+	<string name="profile_wallet_month_income">收入 +%1$d</string>
+	<string name="profile_wallet_month_expense">支出 -%1$d</string>
+	<!-- 14.1b 见面回忆卡 -->
+	<string name="profile_meeting_title">见面回忆</string>
+	<string name="profile_meeting_all">全部</string>
+	<string name="profile_meeting_all_count">全部 %1$d 次</string>
+	<string name="meeting_sky_seq">第 %1$d 场</string>
+	<string name="profile_meeting_empty_1">还没有一起出去过…</string>
+	<string name="profile_meeting_empty_2">在聊天中等待 ta 的邀约吧</string>
+	<!-- 14.1c 共同记忆卡 -->
+	<string name="profile_memory_title">共同记忆</string>
+	<string name="profile_memory_empty">还没有共同记忆，多聊聊就会有了</string>
+	<string name="profile_memory_raw_title">记忆原文</string>
+	<string name="profile_memory_view_all">查看全部（%1$d 条）</string>
+	<!-- 资料页三 Tab（图纸 2026-07-15-资料页三Tab重构 §4.1） -->
+	<string name="profile_tab_now">近况</string>
+	<string name="profile_tab_story">经历</string>
+	<string name="profile_tab_about">资料</string>
+	<!-- 记忆原文就地展开（V-1） -->
+	<string name="profile_memory_expand">展开全部</string>
+	<string name="profile_memory_collapse">收起</string>
+	<!-- 记忆护栏第二层（MG-U2·契约 FABLE5_MEMORY_GUARD_UI_PROPOSAL §4/§5·文案锁定=mockup v1.1） -->
+	<string name="profile_memory_guard_title">记忆整理遇到了点困难</string>
+	<string name="profile_memory_guard_body">最近的对话暂时没能并进长期记忆。原文都完好保存着，系统正在自动重试；也可以点右侧立刻试一次，或到 设置 → 记忆 调大字数上限。</string>
+	<string name="profile_memory_guard_action">立即整理</string>
+	<string name="profile_memory_guard_busy_title">正在整理…</string>
+	<string name="profile_memory_guard_busy_body">正在重新整理记忆，通常几十秒内完成，可以先离开这个页面。</string>
+	<string name="profile_memory_guard_busy_action">整理中</string>
+	<string name="profile_memory_guard_toast_success">已并入长期记忆</string>
+	<string name="profile_memory_guard_toast_fail">还是没成功——试试到「设置 → 记忆」把字数上限调大一些，或换个更强的模型</string>
+	<string name="profile_memory_longterm_header">长期事实</string>
+	<string name="profile_memory_recent_header">近期经历</string>
+	<string name="profile_memory_first_meet">初次相识</string>
+	<string name="profile_memory_busiest">聊天最多的一天</string>
+	<string name="profile_memory_busiest_value">%1$s · %2$d 条</string>
+	<string name="profile_memory_night">最晚夜聊</string>
+	<string name="profile_memory_night_value">凌晨 %1$d:%2$02d</string>
+	<string name="profile_memory_longest_conv">最长一次对话</string>
+	<string name="profile_memory_longest_conv_value">连续 %1$d 条</string>
+	<string name="profile_memory_streak">连续聊天纪录</string>
+	<string name="profile_memory_streak_value">连续 %1$d 天</string>
+	<string name="profile_memory_nickname_from">TA对你的称呼</string>
+	<string name="profile_memory_nickname_to">你对TA的称呼</string>
+	<string name="profile_memory_inside_joke">内部梗</string>
+	<string name="profile_memory_deepest">最深刻的聊天</string>
+	<string name="profile_memory_impression">TA眼中的你</string>
+	<string name="profile_memory_shared_likes">共同喜欢的</string>
+	<string name="profile_memory_learned">TA学会的口头禅</string>
+	<string name="profile_memory_promise">最重要的约定</string>
+	<string name="profile_memory_conflict">第一次闹矛盾</string>
+	<string name="profile_memory_comfort">TA的安慰方式</string>
+	<!-- 14.1c 关系历程卡 -->
+	<string name="profile_relationship_title">关系历程</string>
+	<string name="profile_relationship_empty_1">暂无关系记录</string>
+	<string name="profile_relationship_empty_2">在编辑页设定你与角色的关系</string>
+	<!-- 14.1d 兴趣热度 / 成长日志 / 角色信息 -->
+	<string name="profile_interest_title">兴趣热度</string>
+	<string name="profile_interest_empty_1">暂无兴趣数据</string>
+	<string name="profile_interest_empty_2">在编辑页填写兴趣爱好，或聊天后自动发现</string>
+	<string name="profile_growthlog_title">成长日志</string>
+	<string name="profile_growthlog_empty_1">暂无成长记录</string>
+	<string name="profile_growthlog_empty_2">开始聊天后会自动记录成长轨迹</string>
+	<string name="profile_growthlog_view_all">查看全部（%1$d 条）</string>
+	<string name="profile_charinfo_title">角色信息</string>
+	<string name="profile_charinfo_appearance">外貌</string>
+	<string name="profile_charinfo_backstory">背景故事</string>
+	<string name="profile_charinfo_speaking">说话风格</string>
+	<string name="profile_charinfo_catchphrase">口头禅</string>
+	<string name="profile_charinfo_interests">兴趣爱好</string>
+	<string name="profile_charinfo_examples">说话示例</string>
+	<string name="a11y_charinfo_expand">展开角色信息</string>
+	<string name="a11y_charinfo_collapse">收起角色信息</string>
+	<!-- 14.1d 双雷达卡 -->
+	<string name="profile_personality_title">性格光谱</string>
+	<string name="profile_personality_empty">尚未设定性格维度</string>
+	<string name="profile_rel_radar_title">关系质感</string>
+	<string name="profile_rel_radar_empty">尚未设定关系维度</string>
+	<string name="profile_radar_goto_settings">前往设置</string>
+	<!-- 14.1e 编辑页：成长维度滑块 -->
+	<string name="char_section_personality">性格光谱</string>
+	<string name="char_footer_personality_spectrum">设定角色的性格倾向，0-100 之间滑动。不设置则默认为中间值 50。随着聊天进行，这些维度会发生微妙的变化。</string>
+	<string name="char_section_relationship">关系质感</string>
+	<string name="char_footer_relationship">设定角色与你的初始关系状态。新角色建议从较低值开始，让关系随聊天自然发展。</string>
+	<string-array name="char_personality_hints">
+		<item>低=内向安静，高=外向活跃</item>
+		<item>低=冷静理性，高=情感丰富</item>
+		<item>低=保守谨慎，高=冒险大胆</item>
+		<item>低=冷淡疏远，高=温暖关怀</item>
+		<item>低=严肃正经，高=风趣幽默</item>
+		<item>低=依赖他人，高=独立自主</item>
+		<item>低=安于现状，高=探索求知</item>
+		<item>低=含蓄委婉，高=坦率直接</item>
+	</string-array>
+	<string-array name="char_relationship_hints">
+		<item>对彼此的了解程度</item>
+		<item>相互信任的深度</item>
+		<item>情感上的亲密程度</item>
+		<item>沟通默契和理解力</item>
+		<item>相互尊重的程度</item>
+		<item>相处的愉悦程度</item>
+		<item>关系中的紧张和冲突</item>
+		<item>情感依赖和牵挂</item>
+	</string-array>
+	<!-- 14.1e-2 关系定义 + 线下主题色 -->
+	<string name="char_section_relationship_def">关系</string>
+	<string name="char_hint_relationship">输入你和角色的关系</string>
+	<string name="char_footer_relationship_create">关系一旦设定将作为永久记录保存。随着聊天推进，关系可能自然变化，所有变化历史将被完整记录且不可删除。如需清除所有记录，只能通过删除该角色实现。请认真填写。</string>
+	<string name="char_footer_relationship_edit">修改关系将新增一条记录，原有记录不会被删除。</string>
+	<string name="char_section_offline_theme">线下主题色</string>
+	<string name="char_footer_offline_theme">线下见面页的背景与卡片着色，不设置则用默认。</string>
+	<string name="char_theme_default">默认</string>
+	<string name="char_theme_swatch_desc">主题色 %1$d</string>
+	<string-array name="char_relationship_quick_tags">
+		<item>朋友</item>
+		<item>恋人</item>
+		<item>家人</item>
+		<item>同事</item>
+		<item>陌生人</item>
+	</string-array>
+
+	<!-- 无障碍（P15·P0-10）：通用开关行 TalkBack 开/关态朗读 -->
+	<string name="a11y_switch_on">已开启</string>
+	<string name="a11y_switch_off">已关闭</string>
+	<!-- 单选态语义（Role.RadioButton 的 stateDescription·故事二期卷三 §4.3 快评胶囊首用） -->
+	<string name="a11y_selected">已选中</string>
+	<string name="a11y_not_selected">未选中</string>
+
+	<!-- 无障碍（P15·P0-9）：contentDescription 抽资源（per-app 语言切换后 TalkBack 随切；专用 a11y 标签避免误用业务串） -->
+	<string name="a11y_already_enabled">已启用</string>
+	<string name="a11y_cancel_quote">取消引用</string>
+	<string name="a11y_send">发送</string>
+	<!-- P1-1 气泡合并朗读句（=iOS MessageBubbleView accessibilityDescription；iOS role 用字面「角色」，安卓用角色名） -->
+	<string name="a11y_role_you">你</string>
+	<string name="a11y_bubble_said">%1$s在%2$s说：%3$s</string>
+	<!-- 兴趣热度 / 关系历程无障碍（P1-22·iOS 零 a11y=安卓超越） -->
+	<string name="a11y_interest_heat">%1$s %2$d%%</string>
+	<string name="a11y_milestone_source_ai">AI 自动</string>
+	<string name="a11y_milestone_source_user">用户操作</string>
+	<string name="a11y_bubble_voice">%1$s在%2$s发送了语音消息：%3$s</string>
+	<!-- P1-35/36 联系人行合并语义（兜底句=iOS ContactListView 同款字面） -->
+	<string name="a11y_contact_fallback_pending">有见面摘要待重新生成</string>
+	<string name="a11y_contact_open_profile">查看资料</string>
+	<string name="a11y_contact_open_chat">聊天</string>
+	<string name="a11y_send_voice_message">发送语音消息</string>
+	<string name="a11y_scroll_to_bottom">滚动到底部</string>
+	<string name="a11y_message_menu">消息菜单</string>
+	<string name="a11y_ai_typing">%1$s正在输入</string>
+	<string name="a11y_ai_replied">%1$s说：%2$s</string>
+	<string name="a11y_open_panel">打开功能面板</string>
+	<string name="a11y_close_panel">关闭功能面板</string>
+	<string name="a11y_typing_indicator">正在输入</string>
+	<string name="a11y_voice_pause">暂停</string>
+	<string name="a11y_voice_play">播放语音</string>
+	<string name="a11y_stop_playback">停止播放</string>
+	<string name="a11y_hold_to_record">按住录音，松开结束</string>
+	<string name="a11y_message_read">已读</string>
+	<string name="a11y_message_delivered">已送达</string>
+	<string name="a11y_remove_image">移除图片</string>
+	<string name="a11y_gift_selected">已选</string>
+	<string name="a11y_add_sticker_pack">添加表情包</string>
+	<string name="a11y_diy_attached_image">DIY 附带图片</string>
+	<string name="a11y_rename">改名</string>
+	<string name="a11y_pet_walking">散步中</string>
+	<string name="a11y_open_red_packet">拆开红包</string>
+	<!-- P1-19 备份导入预览（「处理方式」=iOS Picker label，CharacterBackupImportPreviewView.swift:115） -->
+	<string name="a11y_backup_strategy_state">处理方式：%1$s</string>
+	<!-- 世界书 WB7 管理界面（UI 名「设定集」·契约 FABLE5_WORLDBOOK_PROPOSAL.md §12） -->
+	<string name="wb_hub_title">设定集</string>
+	<string name="wb_hub_subtitle">给角色配一套世界观设定</string>
+	<string name="wb_shelf_title">设定集</string>
+	<string name="wb_cd_trigger_settings">触发设置</string>
+	<string name="wb_import">导入</string>
+	<string name="wb_import_subtitle">支持酒馆世界书</string>
+	<string name="wb_create">新建</string>
+	<string name="wb_create_subtitle">从零开始写</string>
+	<string name="wb_my_books">我的设定集</string>
+	<string name="wb_templates_section">从模板开始</string>
+	<string name="wb_template_copy">复制</string>
+	<string name="wb_template_meta">%1$d 条设定 · 复制后随便改</string>
+	<string name="wb_empty_title">还没有设定集</string>
+	<string name="wb_empty_subtitle">导入一本现成的，或从零开始写一本</string>
+	<string name="wb_book_meta">%1$d 条设定 · %2$d 个角色在用</string>
+	<string name="wb_book_meta_unbound">%1$d 条设定</string>
+	<string name="wb_book_meta_global">%1$d 条设定 · 对所有角色生效</string>
+	<string name="wb_badge_global">全局</string>
+	<string name="wb_menu_export">导出为 JSON</string>
+	<string name="wb_menu_set_global">设为对所有角色生效</string>
+	<string name="wb_menu_unset_global">取消对所有角色生效</string>
+	<string name="wb_menu_edit_meta">编辑名字与简介</string>
+	<string name="wb_delete_confirm_title">删除这本设定集？</string>
+	<string name="wb_delete_confirm_body">「%1$s」和里面的 %2$d 条设定会一起删除，不可恢复。</string>
+	<string name="wb_create_dialog_title">新建设定集</string>
+	<string name="wb_edit_meta_dialog_title">名字与简介</string>
+	<string name="wb_name_label">名字</string>
+	<string name="wb_name_placeholder">如：修仙世界·青云录</string>
+	<string name="wb_desc_label">简介（可选·给你自己看）</string>
+	<string name="wb_desc_placeholder">一句话说说这是个什么样的世界</string>
+	<string name="wb_import_success_title">已导入「%1$s」</string>
+	<string name="wb_import_success_meta">%1$d 条设定 · 识别为%2$s</string>
+	<string name="wb_format_standalone">酒馆世界书格式</string>
+	<string name="wb_format_character_card">角色卡内嵌世界书</string>
+	<string name="wb_format_character_book">内嵌世界书（character_book）格式</string>
+	<string name="wb_import_skipped">有 %1$d 条格式不对，已跳过</string>
+	<string name="wb_import_view">去看看</string>
+	<string name="wb_import_done">完成</string>
+	<string name="wb_import_error_title">没能读懂这个文件</string>
+	<string name="wb_import_error_read">文件读不出来——请确认它还在，再选一次试试。</string>
+	<string name="wb_import_error_supported">目前支持：酒馆独立世界书 JSON、角色卡 JSON（内嵌世界书）。</string>
+	<string name="wb_got_it">知道了</string>
+	<string name="wb_export_success">已导出</string>
+	<string name="wb_export_failed">导出没成功，请换个位置再试。</string>
+	<string name="wb_detail_meta">%1$d 条设定 · 约 %2$s 字</string>
+	<string name="wb_enable_book">启用这本书</string>
+	<string name="wb_global_switch">对所有角色生效</string>
+	<string name="wb_global_switch_sub">开启后不用逐个角色绑定</string>
+	<string name="wb_bound_row">%1$d 个角色在用</string>
+	<string name="wb_search_entries">搜条目或关键词</string>
+	<string name="wb_entry_badge_constant">常驻</string>
+	<string name="wb_entry_badge_keyword">关键词</string>
+	<string name="wb_entry_badge_vector">语义</string>
+	<string name="wb_entry_untitled">未命名条目</string>
+	<string name="wb_detail_no_entries">这本书还没有条目</string>
+	<string name="wb_cd_more_actions">更多操作</string>
+	<!-- 世界书 WB7b 条目编辑器 + 写作向导 -->
+	<string name="wb_entry_new_title">新条目</string>
+	<string name="wb_entry_edit_title">编辑条目</string>
+	<string name="wb_entry_title_label">标题（只给你自己看）</string>
+	<string name="wb_entry_title_placeholder">如：青云门</string>
+	<string name="wb_trigger_mode">触发方式</string>
+	<string name="wb_mode_keyword">关键词</string>
+	<string name="wb_mode_constant">常驻</string>
+	<string name="wb_mode_vector">语义</string>
+	<string name="wb_mode_keyword_hint">聊天里提到关键词时，这条设定才登场</string>
+	<string name="wb_mode_constant_hint">不用关键词，每次聊天都带上（核心规则用它）</string>
+	<string name="wb_mode_vector_hint">聊到相近的意思就登场，不用一字不差</string>
+	<string name="wb_keywords_label">触发关键词</string>
+	<string name="wb_keywords_input_placeholder">输一个按回车，逗号可分多个</string>
+	<string name="wb_keywords_hint">提到任何一个都算；也支持 /正则/ 写法</string>
+	<string name="wb_cd_remove_keyword">删除关键词 %1$s</string>
+	<string name="wb_secondary_keywords_label">次要条件关键词</string>
+	<string name="wb_content_label">设定内容（会给 AI 看）</string>
+	<string name="wb_content_macro_hint">可用 {{user}} 代表你、{{char}} 代表角色</string>
+	<string name="wb_char_count">%1$d 字</string>
+	<string name="wb_entry_enabled">启用</string>
+	<string name="wb_advanced">高级设置</string>
+	<string name="wb_group_matching">进阶匹配</string>
+	<string name="wb_group_matching_sub">次要条件 · 大小写 · 整词 · 回看范围</string>
+	<string name="wb_group_insertion">插入方式</string>
+	<string name="wb_group_insertion_sub">插入位置 · 排序权重</string>
+	<string name="wb_group_timing">概率与时效</string>
+	<string name="wb_group_timing_sub">触发概率 · 保持 / 冷却 / 解锁</string>
+	<string name="wb_group_recursion">联动与分组</string>
+	<string name="wb_group_recursion_sub">设定互相触发 · 互斥分组</string>
+	<string name="wb_group_misc">其他</string>
+	<string name="wb_group_misc_sub">无视篇幅上限</string>
+	<string name="wb_logic_label">匹配逻辑</string>
+	<string name="wb_logic_and_any">还需提到任一次要词</string>
+	<string name="wb_logic_and_all">还需提到全部次要词</string>
+	<string name="wb_logic_not_any">不能提到任何次要词</string>
+	<string name="wb_logic_not_all">不能同时提到全部次要词</string>
+	<string name="wb_case_label">区分大小写</string>
+	<string name="wb_whole_label">整词匹配</string>
+	<string name="wb_whole_warning">中文关键词请保持关闭，否则永远匹配不上</string>
+	<string name="wb_follow_global">跟随全局</string>
+	<string name="wb_on">开启</string>
+	<string name="wb_off">关闭</string>
+	<string name="wb_scan_depth_label">本条回看范围</string>
+	<string name="wb_scan_depth_custom">自定义</string>
+	<string name="wb_recent_n_messages">最近 %1$d 条</string>
+	<string name="wb_position_label">插入位置</string>
+	<string name="wb_pos_before">角色设定之前（默认）</string>
+	<string name="wb_pos_after">角色设定之后</string>
+	<string name="wb_pos_end">靠近对话末尾</string>
+	<string name="wb_pos_at_depth">插进对话第 N 条</string>
+	<string name="wb_pos_outlet">不注入（Outlet·暂不支持）</string>
+	<string name="wb_depth_label">插入深度（倒数第 N 条）</string>
+	<string name="wb_role_label">以谁的口吻</string>
+	<string name="wb_role_system">系统</string>
+	<string name="wb_role_user">我</string>
+	<string name="wb_role_assistant">角色</string>
+	<string name="wb_order_label">排序权重</string>
+	<string name="wb_order_hint">越大越靠后、越受重视；篇幅不够时优先保留大的</string>
+	<string name="wb_probability_label">触发概率</string>
+	<string name="wb_sticky_label">触发后保持</string>
+	<string name="wb_cooldown_label">触发后冷却</string>
+	<string name="wb_delay_label">聊满才解锁</string>
+	<string name="wb_n_messages">%1$d 条</string>
+	<string name="wb_off_zero">关</string>
+	<string name="wb_exclude_recursion">不被其他设定联动</string>
+	<string name="wb_prevent_recursion">不去联动其他设定</string>
+	<string name="wb_delay_recursion_label">仅联动时激活</string>
+	<string name="wb_delay_recursion_value">第 %1$d 层</string>
+	<string name="wb_group_name_label">互斥分组（同组每轮只出一条）</string>
+	<string name="wb_group_name_placeholder">如：天气</string>
+	<string name="wb_group_weight_label">抽签权重</string>
+	<string name="wb_group_override">组内优先胜出</string>
+	<string name="wb_group_scoring">按命中数评分</string>
+	<string name="wb_ignore_budget">无视篇幅上限</string>
+	<string name="wb_ignore_budget_sub">篇幅不够也强行保留这条</string>
+	<string name="wb_discard_title">放弃修改？</string>
+	<string name="wb_discard_body">这次的改动还没保存。</string>
+	<string name="wb_discard_confirm">放弃</string>
+	<string name="wb_delete_entry">删除条目</string>
+	<string name="wb_delete_entry_title">删除这条设定？</string>
+	<string name="wb_delete_entry_body">「%1$s」会被删除，不可恢复。</string>
+	<string name="wb_add_entry">添加条目</string>
+	<string name="wb_guide_title">写作向导</string>
+	<string name="wb_guide_intro">一套完整的世界观通常包括这些，点一个开始写：</string>
+	<string name="wb_guide_more">继续补全世界观</string>
+	<string name="wb_guide_basis">世界基调</string>
+	<string name="wb_guide_place">地点</string>
+	<string name="wb_guide_faction">势力与组织</string>
+	<string name="wb_guide_person">重要人物</string>
+	<string name="wb_guide_rules">规则与禁忌</string>
+	<string name="wb_guide_item">物品道具</string>
+	<string name="wb_guide_basis_title_ph">如：世界基调</string>
+	<string name="wb_guide_place_title_ph">如：青云山</string>
+	<string name="wb_guide_faction_title_ph">如：青云门</string>
+	<string name="wb_guide_person_title_ph">如：苏清璃</string>
+	<string name="wb_guide_rules_title_ph">如：修士三戒</string>
+	<string name="wb_guide_item_title_ph">如：青云令</string>
+	<string name="wb_guide_basis_ph">这个世界最底层的设定：时代、氛围、力量体系。写 3–5 句，比如：这是灵气复苏三百年后的修真世界，宗门林立，凡人与修士共存……（这条会常驻，每次聊天都带上）</string>
+	<string name="wb_guide_place_ph">写一个地方：它长什么样、谁在这里、有什么传闻。比如：青云山，东域第一仙山，山门前有三千级白玉阶……关键词填地名和别称。</string>
+	<string name="wb_guide_faction_ph">写一个组织：宗旨、地位、和角色的关系。比如：青云门是东域第一大派，门规森严，与魔渊势不两立……关键词填组织名。</string>
+	<string name="wb_guide_person_ph">写一个人物：身份、性格、和角色的关系。比如：苏清璃，青云门掌门，看似冷淡实则护短……关键词填人名和称呼。</string>
+	<string name="wb_guide_rules_ph">这个世界的硬规矩和禁忌：什么能做、什么万万不能。比如：修士不得对凡人出手，违者废去修为……关键词填规矩相关的词。</string>
+	<string name="wb_guide_item_ph">写一件重要物品：来历、作用、在谁手里。比如：青云令，掌门信物，持令者可调动全门弟子……关键词填物品名。</string>
+	<string name="wb_cd_add_keyword">添加关键词</string>
+	<!-- 世界书 WB7c 角色绑定 + 触发设置 -->
+	<string name="wb_binding_section">世界观</string>
+	<string name="wb_binding_footer">聊天提到相关内容时，设定会自动登场。</string>
+	<string name="wb_binding_none">未设定 · 点一下选一本世界观</string>
+	<string name="wb_binding_multi">%1$s 等 %2$d 本</string>
+	<string name="wb_binding_sheet_title">选一本世界观</string>
+	<string name="wb_binding_not_use">不使用</string>
+	<string name="wb_binding_stack">叠加多本（进阶）</string>
+	<string name="wb_binding_stack_sub">给这个角色同时用几本设定集</string>
+	<string name="wb_binding_global_note">%1$s 已对所有角色生效，无需选择。</string>
+	<string name="wb_binding_manage">管理设定集</string>
+	<!-- 世界系统 W13 编辑页「世界」段（图纸 §4.1/§4.2·zh 逐字锁死） -->
+	<string name="char_world_section">世界</string>
+	<string name="char_world_join_title">加入世界</string>
+	<string name="char_world_join_sub_off">TA 会住进云野镇，有自己的生活</string>
+	<string name="char_world_join_sub_on">TA 已经是镇上的一员了</string>
+	<string name="char_world_join_sub_wb">TA 挂着世界书，二选一</string>
+	<string name="char_world_join_sub_native">土生土长的原住民，生来就在世界里</string>
+	<string name="char_world_foot_off">加入后 TA 会出现在世界地图上、认识别的角色、有自己的日程和故事。与「世界书」二选一。</string>
+	<string name="char_world_foot_on">关掉即离开世界：会成为一件世界事件，TA 和大家的关系会休眠，重新加入时恢复。</string>
+	<string name="char_world_foot_wb">想让 TA 进世界？世界书与世界二选一——或者新建一个角色，重新选一次。</string>
+	<string name="char_world_foot_native">原住民角色一直住在世界里，不能离开，也不能挂世界书。</string>
+	<string name="char_world_foot_create">保存后 TA 就会住进云野镇。与「世界书」二选一。</string>
+	<string name="char_world_addr_title">住在哪儿</string>
+	<string name="char_world_addr_same_city">和你同城</string>
+	<string name="char_world_addr_remote">异地</string>
+	<string name="char_world_addr_native">原住民</string>
+	<string name="char_world_leave_title">让 TA 离开世界？</string>
+	<string name="char_world_leave_body">离开会成为一件世界事件，镇上的朋友会记得 TA。TA 和大家的关系会安静休眠——将来重新加入时原样恢复。</string>
+	<string name="char_world_leave_confirm">让 TA 离开</string>
+	<string name="char_world_leave_cancel">再想想</string>
+	<string name="char_world_city_sheet_title">TA 住在哪儿</string>
+	<string name="char_world_city_sheet_sub">默认和你同城。搬去别的城市也可以——搬家是件大事，会成为一件世界事件。</string>
+	<string name="char_world_city_tag_home">和你同城 · 默认</string>
+	<string name="char_world_city_current">当前</string>
+	<string name="char_world_move_title">搬去%1$s？</string>
+	<string name="char_world_move_body">TA 会离开%1$s、在%2$s安顿下来。之后见 TA 得跑一趟远门——异地也随时能在聊天页说话。</string>
+	<string name="char_world_move_confirm">搬</string>
+	<string name="char_world_move_cancel">算了</string>
+	<string name="wb_binding_world_locked">已加入世界 · 与世界书二选一</string>
+	<string name="wb_binding_native_locked">原住民角色 · 不可绑定</string>
+	<!-- 世界系统 W13 设置（图纸 §4.3/§4.4·zh 逐字锁死） -->
+	<string name="settings_group_world">世界</string>
+	<string name="world_settings_title">世界设置</string>
+	<string name="world_vividness_section">鲜活度</string>
+	<string name="world_vividness_lite_name">省</string>
+	<string name="world_vividness_std_name">标准</string>
+	<string name="world_vividness_rich_name">豪华</string>
+	<string name="world_vividness_recommended">推荐</string>
+	<string name="world_vividness_lite_desc">零 AI 花费。世界照常运转，文字用内置模板。</string>
+	<string name="world_vividness_std_desc">回来时的小报、镇上的悄悄话、初访城市的风物志，由 AI 点亮（每日限量）。</string>
+	<string name="world_vividness_rich_desc">更频繁、更长的 AI 润色。花费更多。</string>
+	<string name="world_vividness_foot">断网或额度用完时自动退回模板，世界永不停摆。</string>
+	<string name="world_notification_section">世界通知</string>
+	<string name="world_notification_silent_name">静默</string>
+	<string name="world_notification_gentle_name">克制</string>
+	<string name="world_notification_all_name">全部</string>
+	<string name="world_notification_default_tag">默认</string>
+	<string name="world_notification_silent_desc">世界的事不推通知，回来看小报。</string>
+	<string name="world_notification_gentle_desc">只推「TA 到达你的城」。</string>
+	<string name="world_notification_all_desc">加推「你到达目的地」。</string>
+	<string name="world_notification_foot">每天最多两条，多的合并成一条摘要。</string>
+	<string name="world_tz_section">我的时区</string>
+	<string name="world_tz_row_title">时区</string>
+	<string name="world_tz_row_sub">世界的日出日落、TA 们的作息都按这个来</string>
+	<string name="world_tz_follow_device">跟随设备</string>
+	<string name="world_tz_sheet_title">我的时区</string>
+	<string name="world_tz_sheet_sub">固定后不跟设备漂——出差旅行时世界不会跟着乱跳。</string>
+	<string name="world_tz_city_beijing">北京</string>
+	<string name="world_tz_city_tokyo">东京</string>
+	<string name="world_tz_city_singapore">新加坡</string>
+	<string name="world_tz_city_sydney">悉尼</string>
+	<string name="world_tz_city_london">伦敦</string>
+	<string name="world_tz_city_paris">巴黎</string>
+	<string name="world_tz_city_newyork">纽约</string>
+	<string name="world_tz_city_la">洛杉矶</string>
+	<string name="world_pairs_section">角色之间</string>
+	<string name="world_pairs_rel_title">角色之间互相产生关系</string>
+	<string name="world_pairs_rel_sub">镇上的人会自然认识、来往、闹别扭又和好</string>
+	<string name="world_pairs_rom_title">允许角色之间恋爱</string>
+	<string name="world_pairs_rom_sub">默认关。打开后，处得够近的两个人可能走到一起</string>
+	<string name="world_pairs_foot">角色之间的恋爱只发生在他们彼此之间，你和 TA 的关系不受影响。</string>
+	<!-- 世界系统 W13 首启轻三步（图纸 §4.5·zh 逐字锁死） -->
+	<string name="world_ob1_title">欢迎来到这颗星球</string>
+	<string name="world_ob1_sub">它已经为你转了很久</string>
+	<string name="world_ob1_head">先对个表</string>
+	<string name="world_ob1_body">世界和你同步呼吸——TA 们的作息、日出日落，都按你的时间来。以后在设置里也能改。</string>
+	<string name="world_ob1_field">GMT%1$s %2$s · 来自设备</string>
+	<string name="world_ob1_change">改一下</string>
+	<string name="world_ob1_go">就这个</string>
+	<string name="world_ob2_title">这里是云野镇</string>
+	<string name="world_ob2_sub">你的家乡</string>
+	<string name="world_ob2_head">河边有灯，晚风很软</string>
+	<string name="world_ob2_body">镇上住着一些有意思的人——他们还不认识你。你在意的人也可以搬来住：在角色编辑页打开「加入世界」。</string>
+	<string name="world_ob2_go">去看看</string>
+	<string name="world_ob3_title">镇上第一位邻居</string>
+	<string name="world_ob3_sub">就在附近</string>
+	<string name="world_ob3_head">去打个招呼</string>
+	<string name="world_ob3_body">镇上有几位邻居还蒙着面纱。走近一位，坐下说两句——聊得来，以后就是朋友了。</string>
+	<string name="world_ob3_go">开始逛逛</string>
+	<string name="world_ob_skip">稍后再说</string>
+	<string name="world_ob_hint_planet">点亮金色标记，回云野镇看看</string>
+	<string name="world_ob_hint_continent">顺着光找到云野镇，走进小镇</string>
+	<string name="world_ob_hint_town">点一位邻居的卡片，坐下说两句</string>
+	<!-- 世界系统 W13 聊天状态行胶囊（图纸 §4.6·zh 逐字锁死） -->
+	<string name="world_chat_pill_at_place">在%1$s</string>
+	<string name="world_chat_pill_at_home">在家</string>
+	<string name="world_chat_pill_sleeping">睡着了</string>
+	<string name="world_chat_pill_in_town">在%1$s街上</string>
+	<string name="world_chat_pill_traveling">在去%1$s的路上</string>
+	<string name="world_chat_pill_a11y">TA 在世界的位置，点击去看看</string>
+	<string name="wb_book_disabled">已停用</string>
+	<string name="wb_settings_title">触发设置</string>
+	<string name="wb_scan_range">回看范围</string>
+	<string name="wb_scan_range_sub">在最近几条聊天里找关键词</string>
+	<string name="wb_budget">篇幅上限</string>
+	<string name="wb_budget_sub">触发的设定最多占多少字，超了按排序权重取舍</string>
+	<string name="wb_linkage">设定联动</string>
+	<string name="wb_linkage_sub">让设定互相触发，世界像洋葱一样展开</string>
+	<string name="wb_linkage_depth">最多联动层数</string>
+	<string name="wb_unlimited">不限</string>
+	<string name="wb_layers_value">%1$d 层</string>
+	<string name="wb_insertion_pref">插入偏好</string>
+	<string name="wb_strategy_char_first">角色的书优先</string>
+	<string name="wb_strategy_global_first">全局书优先</string>
+	<string name="wb_strategy_evenly">混合排序</string>
+	<string name="wb_adv_matching_section">高级匹配</string>
+	<string name="wb_semantic_row">语义触发灵敏度</string>
+	<string name="wb_semantic_sub">跟随「记忆检索灵敏度」，点击去调整</string>
+	<string name="wb_characters_sheet_title">哪些角色用这本书</string>
+	<string name="wb_bound_row_empty">还没有角色在用 · 点一下选择</string>
+	<!-- 世界二期战役 B·用户自建居民（图纸 §4.4·文案逐字 §4.1/§4.3） -->
+	<string name="world_resident_section">居民</string>
+	<string name="world_resident_entry_title">让一位新居民搬来</string>
+	<string name="world_resident_entry_sub">已有 %1$d/%2$d 位 · 住进世界任何一座城</string>
+	<string name="world_resident_foot">TA 们不在联系人里。去世界里偶遇、慢慢结识，愿意了才会来到你身边。</string>
+	<string name="world_resident_sheet_title">让一位新居民搬来</string>
+	<string name="world_resident_sheet_sub">TA 会住进这个世界，慢慢地，也许会走进你的生活</string>
+	<string name="world_resident_avatar_hint">先给 TA 一张脸（可选，稍后也能改）</string>
+	<string name="world_resident_name_label">名字</string>
+	<string name="world_resident_name_ph">给 TA 起个名字</string>
+	<string name="world_resident_name_error">给 TA 起个名字吧</string>
+	<string name="world_resident_gender_label">性别</string>
+	<string name="world_resident_gender_male">男</string>
+	<string name="world_resident_gender_female">女</string>
+	<string name="world_resident_gender_custom">自定义…</string>
+	<string name="world_resident_age_label">年龄</string>
+	<string name="world_resident_occupation_label">职业（自由填 · 灰字为建议）</string>
+	<string name="world_resident_occupation_ph">旧书店店主 / 木匠 / 游吟诗人…</string>
+	<string name="world_resident_brief_label">TA 是个什么样的人</string>
+	<string name="world_resident_brief_ph">安静，记性好得吓人，说话慢半拍但句句在点上…</string>
+	<string name="world_resident_traits_label">性格底色（预设任选 + 自己写 · 1–3 个）</string>
+	<string name="world_resident_traits_max">最多选 3 个</string>
+	<string name="world_resident_trait_custom">＋ 自定义</string>
+	<string name="world_resident_city_label">住在哪座城</string>
+	<string name="world_resident_city_sheet_title">TA 住在哪座城</string>
+	<string name="world_resident_city_sheet_sub">十个大区、六十多座城，都能安家</string>
+	<string name="world_resident_more_label">更多设定</string>
+	<string name="world_resident_relation_label">和现有居民的关系（可选）</string>
+	<string name="world_resident_relation_ph">比如：是老板娘的表妹（可不填）</string>
+	<string name="world_resident_bias_label">眼缘倾向</string>
+	<string name="world_resident_bias_balanced">随缘就好</string>
+	<string name="world_resident_bias_narrative">爱听故事</string>
+	<string name="world_resident_bias_gift">吃软不吃硬</string>
+	<string name="world_resident_lore_label">自由补充设定（可选 · 想写什么写什么，TA 会照着活）</string>
+	<string name="world_resident_lore_ph">她有一只不让人碰的旧怀表，来历只肯说一半…</string>
+	<string name="world_resident_cta">搬来世界</string>
+	<string name="world_resident_cta_busy">搬来中…</string>
+	<string name="world_resident_cta_hint">TA 不会出现在联系人里——先去世界里遇见 TA 吧</string>
+	<string name="world_resident_cap_hint">世界里已经住下 50 位你造的居民啦——送走一位，再迎新人</string>
+	<string name="world_resident_created_toast">%1$s 搬来了这个世界</string>
+	<string name="world_resident_dismiss_action">送 TA 离开</string>
+	<string name="world_resident_dismiss_title">送 %1$s 离开？</string>
+	<string name="world_resident_dismiss_body">TA 会离开这个世界，攒下的缘分也会散去。这一步没法撤销。</string>
+	<string name="world_resident_dismiss_confirm">送 TA 离开</string>
+	<string name="world_resident_dismiss_cancel">再想想</string>
+	<string name="world_resident_dismissed_toast">%1$s 离开了</string>
+
+	<!-- 我们的约定（记忆改造三期·FABLE5_PROMISES_UI_PROPOSAL） -->
+	<string name="promise_title">我们的约定</string>
+	<string name="promise_card_open_count">%1$d 条进行中</string>
+	<string name="promise_card_empty_open">暂无进行中的约定</string>
+	<string name="promise_card_view_all">查看全部 %1$d 条 ›</string>
+	<string name="promise_section_open">进行中 · %1$d</string>
+	<string name="promise_section_resolved">已了结</string>
+	<string name="promise_hint_open">进行中的约定，TA 都记着。</string>
+	<string name="promise_hint_resolved">了结后的 7 天内，TA 也知道这件事有了结果。</string>
+	<string name="promise_status_open">进行中</string>
+	<string name="promise_status_fulfilled">已兑现</string>
+	<string name="promise_status_cancelled">已取消</string>
+	<string name="promise_status_fulfilled_dated">已兑现 · %1$s</string>
+	<string name="promise_status_cancelled_dated">已取消 · %1$s</string>
+	<string name="promise_source_chat">聊天中定下</string>
+	<string name="promise_source_meeting">见面时定下</string>
+	<string name="promise_source_chat_short">聊天中</string>
+	<string name="promise_source_meeting_short">见面时</string>
+	<string name="promise_due_upcoming">约在%1$s</string>
+	<string name="promise_due_overdue">原定%1$s · 已过</string>
+	<string name="promise_detail_made_label">定下</string>
+	<string name="promise_detail_due_label">约在</string>
+	<string name="promise_detail_due_was_label">原定</string>
+	<string name="promise_detail_resolved_label">了结</string>
+	<string name="promise_due_days_left">还有 %1$d 天</string>
+	<string name="promise_due_today">就是今天</string>
+	<string name="promise_due_days_over">已过 %1$d 天</string>
+	<string name="promise_due_passed">已过</string>
+	<string name="promise_detail_evidence_label">对账时依据这句话判定：</string>
+	<string name="promise_detail_manual">你手动标记的</string>
+	<string name="promise_action_fulfill">标记为已兑现</string>
+	<string name="promise_action_cancel">标记为已取消</string>
+	<string name="promise_sheet_note">一般不用手动操作——你们聊到这件事的结果时，TA 会自己记账。这里是兜底。</string>
+	<string name="promise_confirm_fulfill_title">标记为已兑现？</string>
+	<string name="promise_confirm_cancel_title">标记为已取消？</string>
+	<string name="promise_confirm_body_fulfill">「%1$s」将记为已兑现。TA 之后一周会知道这件事有了结果。此操作无法撤销。</string>
+	<string name="promise_confirm_body_cancel">「%1$s」将记为已取消。TA 之后一周会知道这件事有了结果。此操作无法撤销。</string>
+	<string name="promise_confirm_go">确认标记</string>
+	<string name="promise_empty_title">还没有正式定下的约定</string>
+	<string name="promise_empty_sub">聊天或见面时说定的事，会自动记在这里</string>
+	<string name="promise_date_pattern_md">M月d日</string>
+	<string name="promise_date_pattern_ymd">yyyy年M月d日</string>
+
+	<!-- 记忆星空（图纸 2026-07-16-记忆星空·§4.7/§4.8/§4.9/§4.10·文案锁定于图纸 §9） -->
+	<string name="starfield_title">记忆星空</string>
+	<string name="starfield_count">%d 颗</string>
+	<string name="starfield_date_pattern_md">M月d日</string>
+	<string name="starfield_legend_meeting">见过的面</string>
+	<string name="starfield_legend_promise">兑现的约定</string>
+	<string name="starfield_legend_milestone">里程碑</string>
+	<string name="starfield_footer">%1$d 颗星 · 始于 %2$s</string>
+	<string name="starfield_footer_empty">第一颗星 · 还未点亮</string>
+	<string name="starfield_hint">拖动漫游 · 双指缩放 · 点一颗星重温</string>
+	<string name="starfield_empty">这里会随着你们的故事，一颗一颗亮起来。</string>
+	<string name="starfield_meeting_untitled">一次见面</string>
+	<string name="starfield_legacy_date">更早</string>
+	<!-- 入口卡（§3.4 锁定文案） -->
+	<string name="starfield_entry_sub">%1$d 颗星 · %2$d 段星座</string>
+	<string name="starfield_entry_sub_nova">%1$d 颗星 · %2$d 段星座 · 有一颗新星</string>
+	<string name="starfield_entry_sub_empty">第一颗星，等你们的故事</string>
+	<!-- sheet（§4.8） -->
+	<string name="starfield_link_meeting">打开这段回忆 ›</string>
+	<string name="starfield_link_promise">去约定账本看看 ›</string>
+	<string name="starfield_meta_promise">%s兑现</string>
+	<string name="starfield_meta_initiator_user">你约的</string>
+	<string name="starfield_meta_initiator_character">TA 约的</string>
+	<!-- 时段词（§4.8 锁定映射·UI 自映射，与 prompt 侧 scheduleTimeOfDayLabel 零耦合） -->
+	<string name="starfield_tod_early">清晨</string>
+	<string name="starfield_tod_morning">上午</string>
+	<string name="starfield_tod_noon">中午</string>
+	<string name="starfield_tod_afternoon">下午</string>
+	<string name="starfield_tod_evening">晚上</string>
+	<string name="starfield_tod_late">深夜</string>
+	<!-- 心情词（§4.8 锁定映射·与天色卡词汇一致） -->
+	<string name="starfield_mood_warm">温暖</string>
+	<string name="starfield_mood_sweet">甜蜜</string>
+	<string name="starfield_mood_melancholic">微涩</string>
+	<string name="starfield_mood_awkward">微妙</string>
+	<string name="starfield_mood_neutral">平淡</string>
+	<!-- a11y（§4.10） -->
+	<string name="starfield_a11y_canvas">记忆星空，%d 颗星，双指缩放浏览</string>
+	<string name="starfield_a11y_star">%1$s的%2$s·%3$s</string>
+	<string name="starfield_a11y_nova_prefix">新的·</string>
+	<string name="starfield_a11y_type_meeting">见面</string>
+	<string name="starfield_a11y_type_promise">兑现的约定</string>
+	<string name="starfield_a11y_type_milestone">里程碑</string>
+
+	<!-- 性能采集（性能专项卷 0·图纸 2026-07-30 §4.3 逐字锁定） -->
+	<string name="perf_title">性能采集</string>
+	<string name="perf_section_capture">采集</string>
+	<string name="perf_switch_title">开启性能采集</string>
+	<string name="perf_switch_footer">打开后 App 会在后台记录耗时、掉帧、发热等数字。默认关闭，不影响日常使用。</string>
+	<string name="perf_section_checklist">待采清单</string>
+	<string name="perf_checklist_footer">采完这几项，导出的报告才完整。</string>
+	<string name="perf_check_cold_start">冷启动</string>
+	<string name="perf_check_foreground">回到前台</string>
+	<string name="perf_check_slider">拖过设置滑条</string>
+	<string name="perf_check_world">世界星球屏停留</string>
+	<string name="perf_check_call">语音通话</string>
+	<string name="perf_check_backup">备份体检</string>
+	<string name="perf_section_samples">已采样本</string>
+	<string name="perf_usage">占用空间</string>
+	<string name="perf_action_export">导出性能报告</string>
+	<string name="perf_action_backup_probe">备份体检（只读）</string>
+	<string name="perf_action_fake_backup">生成体检用假备份</string>
+	<string name="perf_action_clear">清空采集数据</string>
+	<string name="perf_clear_confirm_title">清空采集数据？</string>
+	<string name="perf_clear_confirm_body">已采集的性能数字会全部删除，不可恢复。</string>
+	<string name="perf_privacy_footnote">只记录数字：耗时、条数、掉帧、温度、文件大小。绝不记录聊天内容、日记正文、API 密钥。全部保存在本机，只有你点「导出」时才离开设备。</string>
+	<string name="perf_export_empty">还没有采集到数据，先打开开关用一段时间。</string>
+	<string name="perf_export_failed">导出失败</string>
+	<string name="perf_probe_running">正在体检…</string>
+	<string name="perf_probe_done">体检完成，已记入采集数据</string>
+	<string name="perf_fake_backup_done">假备份已生成</string>
+	<string name="perf_fake_backup_failed">生成失败（可能磁盘空间不足）</string>
+</resources>

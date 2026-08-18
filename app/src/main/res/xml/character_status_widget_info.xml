@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 角色「此刻」状态桌面小组件元数据（13.9a · C1，安卓超越 iOS）。最小 2x2，可横向缩放到中号。
+     周期刷新交给状态变化时的 updateAll + WidgetRefreshWorker 30 分定期（国产 ROM 周期广播不可靠，故 updatePeriodMillis=0）。 -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="110dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="110dp"
+    android:minResizeHeight="110dp"
+    android:targetCellWidth="2"
+    android:targetCellHeight="2"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:description="@string/character_status_widget_description"
+    android:previewImage="@drawable/widget_preview_character_status"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:updatePeriodMillis="0" />

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- P1-28 主题图标 monochrome 层（API 33+）：彩色图标的霓虹「侧脸轮廓 + 声波折线」简化单色线稿。
+     adaptive foreground 是无 alpha 位图、无路径可抄 → 手绘新作。与 adaptive 同 108 坐标系，
+     线稿落中心 66dp 安全圆内（≈21..87）；系统只取 alpha 按 Material You 着色，故纯白描边即可。
+     协同：Android 13+ 开「主题图标」时系统 splash 图标同享此层。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 侧脸轮廓：头顶弧 → 额头 → 鼻 → 唇 → 下巴 → 颌线收尾 -->
+    <path
+        android:pathData="M64,24 C53,24 47,31 45.5,39 C44.5,45 42,49 41,52.5 C40.5,54.5 43.5,55 44,56.5 C42.5,58.5 42.5,60 44,61 C42.5,62.5 42.5,64.5 44.5,65.5 C43.5,67.5 45,69.5 48,70 C52,70.5 55.5,72 57,75"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- 底部声波折线 -->
+    <path
+        android:pathData="M30,76 L37,76 C39,76 39,70 41.5,70 C44,70 44,82 47,82 C50,82 50,66 53.5,66 C57,66 57,80 60,80 C62.5,80 62.5,74 65,74 L73,74"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4.5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>
