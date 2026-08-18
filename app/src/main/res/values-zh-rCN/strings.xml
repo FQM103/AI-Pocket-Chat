@@ -226,7 +226,7 @@
     <string name="agreement_subtitle">使用本应用前，请仔细阅读以下协议</string>
 
     <string name="agreement_section_1_title">服务性质</string>
-    <string name="agreement_section_1_body">AI Pocket Chat 是一款 AI 虚拟陪伴聊天应用，本质是一款客户端工具。所有角色均由人工智能驱动，不是真人。AI 生成的回复基于语言模型算法，可能包含不准确、不完整或不恰当的内容。\n\n重要说明：本应用本身不生成 AI 内容。所有 AI 回复均由您自行选择并配置的第三方 AI 服务商（如 OpenAI、Anthropic、DeepSeek、Google Gemini 等）的大语言模型生成。开发者不是生成式 AI 服务提供者，不参与第三方模型的训练、运行、内容审核或任何形式的内容生产。\n\n开发者仅将本应用安装包上传至代码托管平台供您自愿下载安装，此举不构成任何形式的「发布」或「运营」，亦非经应用商店分发；本应用以「现状」提供，开发者不对其可用性、持续性作任何承诺。</string>
+    <string name="agreement_section_1_body">AI Pocket Chat 是一款 AI 虚拟陪伴聊天应用，本质是一款客户端工具。所有角色均由人工智能驱动，不是真人。AI 生成的回复基于语言模型算法，可能包含不准确、不完整或不恰当的内容。\n\n重要说明：本应用本身不生成 AI 内容。所有 AI 回复均由您自行选择并配置的第三方 AI 服务商（如 OpenAI、Anthropic、DeepSeek、Google Gemini 等）的大语言模型生成。开发者不是生成式 AI 服务提供者，不参与第三方模型的训练、运行、内容审核或任何形式的内容生产。\n\n本应用以「现状」提供，开发者不对其可用性、持续性作任何承诺。</string>
 
     <string name="agreement_section_2_title">年龄要求</string>
     <string name="agreement_section_2_body">您必须年满 18 周岁才能使用本应用。未成年人禁止使用本应用。如未成年人通过监护人设备访问本应用，监护人应负责监督设备使用并对相关后果承担全部责任。</string>

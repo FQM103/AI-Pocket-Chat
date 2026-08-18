@@ -6,6 +6,8 @@
 
 ## 中文
 
+> **本仓库为个人学习与技术分享项目：只分享源代码，不提供任何在线服务，也不提供成品应用下载。**
+
 **AI Pocket Chat** 是一个完全在本地运行的原生安卓 AI 虚拟陪伴应用（Kotlin / Jetpack Compose）。AI 角色有自己的日程、情绪、记忆，会随相处慢慢成长；除了聊天，还有互动故事、朋友圈、日记、宠物、礼物、红包、语音通话、虚拟货币和一个可漫游的小世界。
 
 ### 特点
@@ -49,13 +51,18 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"  
 | [silero-vad](https://github.com/snakers4/silero-vad) | 语音活动检测 | MIT |
 | [霞鹜文楷 Lite](https://github.com/lxgw/LxgwWenKai-Lite) | 楷体界面字体 | SIL OFL 1.1 |
 
-### 声明
+### 项目性质与免责声明
 
-这是一个个人项目，按「原样」提供，不附带任何保证。应用内 AI 生成的内容由你自行接入的模型服务产生，请遵守你所在地区的法律法规与所用模型服务的使用条款。
+- **纯学习分享**：这是一个个人编程学习项目的源代码存档，公开仅为技术学习、研究与交流。
+- **不提供任何服务**：开发者不运营任何在线服务——没有服务器、没有账号体系、没有任何形式的内容生成或互动服务。本仓库的全部内容自始至终只是一份源代码。
+- **不内置、不对接任何在线 AI 服务**：代码中不包含任何模型服务、任何服务密钥；代码本身不产生任何对话内容。
+- **不分发成品**：本仓库不提供可安装的应用程序（无 APK 下载），亦无任何更新、维护或可用性承诺；代码按 GPL-3.0 许可**原样**提供，不附带任何明示或默示的担保。
 
 ---
 
 ## English
+
+> **This repository is a personal learning & tech-sharing project: it shares source code only — no online service is provided, and no ready-to-install app is distributed.**
 
 **AI Pocket Chat** is a fully local, native Android AI companion app (Kotlin / Jetpack Compose). AI characters have their own daily schedules, moods, and memories, and grow as you spend time with them. Beyond chat, there are interactive stories, a social feed, diaries, pets, gifts, red packets, voice calls, an in-app currency, and a small explorable world.
 
@@ -100,6 +107,9 @@ Licensed under **GNU GPL-3.0** (see [LICENSE](LICENSE)): you are free to use, mo
 | [silero-vad](https://github.com/snakers4/silero-vad) | Voice activity detection | MIT |
 | [LXGW WenKai Lite](https://github.com/lxgw/LxgwWenKai-Lite) | Kai-style UI font | SIL OFL 1.1 |
 
-### Disclaimer
+### Project nature & disclaimer
 
-This is a personal project provided “as is”, without warranty of any kind. AI-generated content in the app comes from the model service you connect; please comply with the laws of your region and the terms of the model service you use.
+- **Learning & sharing only**: this is the source-code archive of a personal programming-learning project, published solely for study, research, and technical exchange.
+- **No service provided**: the developer operates no online service of any kind — no server, no accounts, no content-generation or interactive service. This repository is, and has always been, nothing more than source code.
+- **No built-in or connected AI service**: the code ships with no model service and no service keys; the code itself produces no conversational content.
+- **No distributable app**: no installable application (no APK) is provided here, and there is no commitment to updates, maintenance, or availability; the code is provided "as is" under GPL-3.0, without warranty of any kind, express or implied.
