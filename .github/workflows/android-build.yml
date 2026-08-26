@@ -25,13 +25,13 @@ jobs:
 
     - name: Build with Gradle
       run: |
-        export GRADLE_OPTS="-Xmx2048m -XX:MaxMetaspaceSize=512m"
-        ./gradlew build --no-daemon
-  
+        export JAVA_OPTS="-Xmx4096m -XX:MaxMetaspaceSize=1024m"
+        export GRADLE_OPTS="-Xmx4096m -XX:MaxMetaspaceSize=1024m"
+        export ORG_GRADLE_PROJECT_org.gradle.jvmargs="-Xmx4096m -XX:MaxMetaspaceSize=1024m"
+        ./gradlew assembleDebug --no-daemon --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: apk
         path: app/build/outputs/apk/
-        
