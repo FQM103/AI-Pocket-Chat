@@ -253,16 +253,19 @@ class VoiceCallTurnService @Inject constructor(
         val turnStart = System.currentTimeMillis()
         var usage: UsageDto? = null
         try {
-            // C3 通话响应预算：20s 内连一个流事件（含 reasoning）都没有 → FirstStreamEventTimeout →
+            // C3 通话响应预算：20s 无任何 SSE 行（keep-alive 注释行也算活性）才判死 → FirstStreamEventTimeout →
             // 下面的错误路径记日志、controller 走失败兜底——不再陪全局 60s readTimeout 干等。
             VoiceCallTurnBudget.collectWithFirstEventBudget(
-                flow = llmClient.streamChat(
-                    messages = messages,
-                    config = config,
-                    temperature = settings.sanitizedLlmTemperature,
-                    onUsage = { usage = it },
-                ),
                 budgetMs = VoiceCallTurnBudget.FIRST_EVENT_BUDGET_MS,
+                streamFactory = { onLiveness ->
+                    llmClient.streamChat(
+                        messages = messages,
+                        config = config,
+                        temperature = settings.sanitizedLlmTemperature,
+                        onUsage = { usage = it },
+                        onSseLine = onLiveness,
+                    )
+                },
             ) { token ->
                 if (token is StreamToken.Content) {
                     full.append(token.text)

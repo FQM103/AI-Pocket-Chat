@@ -54,6 +54,10 @@ class LlmClient(
         onUsage: ((UsageDto) -> Unit)? = null,
         /** 末帧 finish_reason 回调（卷一 V8·可选尾参默认 null 零波及）："length"/"max_tokens" = 输出撞上限被掐断。每个非空值都会回调，调用方保留最后一个。 */
         onFinishReason: ((String?) -> Unit)? = null,
+        /** SSE 活性回调（通话看门狗喂狗·可选尾参默认 null 零波及）：每读到一行原始 SSE
+         *  （数据行、`:` 开头的 keep-alive 注释行、空分隔行）回调一次；IO 线程调用，
+         *  实现须线程安全、不得阻塞、不得抛异常。 */
+        onSseLine: (() -> Unit)? = null,
     ): Flow<StreamToken> = flow {
         val bodyJson = buildRequestJson(messages, config, stream = true, temperature, maxTokens, responseFormat, tools)
         val client = baseClient.newBuilder()
@@ -90,6 +94,7 @@ class LlmClient(
                     while (true) {
                         coroutineContext.ensureActive()
                         val line = source.readUtf8Line() ?: break
+                        onSseLine?.invoke()
                         when (val result = parseSseLine(line)) {
                             SseResult.Skip -> Unit
                             SseResult.Done -> break
