@@ -24,7 +24,10 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: |
+        export GRADLE_OPTS="-Xmx2048m -XX:MaxMetaspaceSize=512m"
+        ./gradlew build --no-daemon
+  
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
